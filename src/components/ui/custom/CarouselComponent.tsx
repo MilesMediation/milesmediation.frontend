@@ -1,0 +1,34 @@
+import * as React from "react"
+
+import { Card, CardContent } from "@/components/ui/card"
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel"
+
+export function CarouselComponent() {
+    return (
+        <Carousel className="w-full">
+            <CarouselContent>
+                {Array.from({ length: 5 }).map((_, index) => (
+                    <CarouselItem key={index}  className="sm:basis-1 lg:basis-7xl">
+                        <div className="p-1">
+                            <Card className={'py-0'}>
+                                <CardContent className="flex h-[600px] rounded-xl overflow-hidden items-center justify-center p-0">
+                                    {/*<span className="text-4xl font-semibold">{index + 1}</span>*/}
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img src={'/heroBanner.png'} alt="" className={'w-full h-full object-cover'} />
+                                </CardContent>
+                            </Card>
+                        </div>
+                    </CarouselItem>
+                ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+        </Carousel>
+    )
+}
