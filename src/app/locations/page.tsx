@@ -88,7 +88,7 @@ export default function Page() {
                 <FeaturedCardsSection cityName={'Tennessee'} offices={testDataOffice2}/>
                 <FeaturedCardsSection cityName={'Alabama'} offices={testDataOffice2}/>
                 <div>
-                    <RelatedArticles />
+                    <RelatedArticles cardSize={'sm'} />
                 </div>
                 <div>
                     <CallToAction />

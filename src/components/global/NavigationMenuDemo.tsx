@@ -14,7 +14,7 @@ import {
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
-const components: { title: string; href: string; description?: string }[] = [
+/*const components: { title: string; href: string; description?: string }[] = [
     {
         title: "Neutrals",
         href: "/neutrals",
@@ -25,7 +25,7 @@ const components: { title: string; href: string; description?: string }[] = [
         title: "Arbitration",
         href: "/neutrals",
     },
-]
+]*/
 
 export function NavigationMenuDemo() {
     return (
@@ -55,88 +55,67 @@ export function NavigationMenuDemo() {
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
+
+
+                {/*<NavigationMenuItem>
                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                         <Link href="/locations">Locations</Link>
                     </NavigationMenuLink>
-                </NavigationMenuItem>
+                </NavigationMenuItem>*/}
+
+
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Example</NavigationMenuTrigger>
+                    <NavigationMenuTrigger>Locations</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                             <li className="row-span-3">
                                 <NavigationMenuLink asChild>
                                     <Link
                                         className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
-                                        href="/"
+                                        href="/locations"
                                     >
                                         <div className="mt-4 mb-2 text-lg font-medium">
-                                            shadcn/ui
+                                            Locations
                                         </div>
                                         <p className="text-muted-foreground text-sm leading-tight">
-                                            Beautifully designed components built with Tailwind CSS.
+                                            N/A
                                         </p>
                                     </Link>
                                 </NavigationMenuLink>
                             </li>
-                            <ListItem href="/docs" title="Introduction">
-                                Re-usable components built using Radix UI and Tailwind CSS.
+                            <ListItem href="/locations" title="Locations">
+                                Locations landing page
                             </ListItem>
-                            <ListItem href="/docs/installation" title="Installation">
-                                How to install dependencies and structure your app.
+                            <ListItem href="/locations/offices" title="Offices">
+                                List of Offices page
                             </ListItem>
-                            <ListItem href="/docs/primitives/typography" title="Typography">
-                                Styles for headings, paragraphs, lists...etc
+                            <ListItem href="/locations/offices/office-detail" title="Installation">
+                                Detail page of an office
                             </ListItem>
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>List</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid w-[300px] gap-4">
-                            <li>
-                                <NavigationMenuLink asChild>
-                                    <Link href="#">
-                                        <div className="font-medium">Components</div>
-                                        <div className="text-muted-foreground">
-                                            Browse all components in the library.
-                                        </div>
-                                    </Link>
-                                </NavigationMenuLink>
-                                <NavigationMenuLink asChild>
-                                    <Link href="#">
-                                        <div className="font-medium">Documentation</div>
-                                        <div className="text-muted-foreground">
-                                            Learn how to use the library.
-                                        </div>
-                                    </Link>
-                                </NavigationMenuLink>
-                                <NavigationMenuLink asChild>
-                                    <Link href="#">
-                                        <div className="font-medium">Blog</div>
-                                        <div className="text-muted-foreground">
-                                            Read our latest blog posts.
-                                        </div>
-                                    </Link>
-                                </NavigationMenuLink>
-                            </li>
-                        </ul>
-                    </NavigationMenuContent>
+                    <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                        <Link href="/practice-area">Practice Areas</Link>
+                    </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
+                    <NavigationMenuTrigger>WIP Blogs</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[200px] gap-4">
                             <li>
                                 <NavigationMenuLink asChild>
-                                    <Link href="#">Components</Link>
+                                    <Link href="/blog">Blog</Link>
                                 </NavigationMenuLink>
                                 <NavigationMenuLink asChild>
-                                    <Link href="#">Documentation</Link>
+                                    <Link href="/blog/articles">Articles</Link>
                                 </NavigationMenuLink>
                                 <NavigationMenuLink asChild>
-                                    <Link href="#">Blocks</Link>
+                                    <Link href="/blog/events">Events</Link>
+                                </NavigationMenuLink>
+                                <NavigationMenuLink asChild>
+                                    <Link href="/blog/articles/article-detail">Article detail</Link>
                                 </NavigationMenuLink>
                             </li>
                         </ul>

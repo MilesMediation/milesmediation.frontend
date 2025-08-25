@@ -44,6 +44,7 @@ export default function CardComponent({ image='/cardImgSample1.png', name, url, 
         <div onClick={onClick} className={`${cardContainer} `}>
 
             {size !== 'sm' && (
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
                     src={image}
                     alt={name}

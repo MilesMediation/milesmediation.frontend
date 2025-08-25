@@ -9,12 +9,13 @@ interface relatedArticleTypes {
     bgMode?: 'dark' | 'light';
     customTitle?: string;
     cardSize: 'sm' | 'md' | 'lg' | 'xl';
+    className?: string;
 }
 
 
 
 export default function RelatedArticles(
-    {amount=3, customTitle='RELATED ARTICLES', bgMode='light', cardSize='lg'}: relatedArticleTypes) {
+    {amount=3, customTitle='RELATED ARTICLES', bgMode='light', cardSize='lg', className=''}: relatedArticleTypes) {
 
     const [relatedArticlesData, setRelatedArticlesData] = useState<relatedArticleTypes>({
         cardSize: 'lg',
@@ -42,7 +43,7 @@ export default function RelatedArticles(
     return(
         <>
 
-            <section className={`${backgrounColorCustom} `}>
+            <section className={`${backgrounColorCustom} ${className} `}>
                 <div className={'container mx-auto py-40'}>
                     <h2 className={'text-center uppercase font-bold'}>
                         {customTitle}

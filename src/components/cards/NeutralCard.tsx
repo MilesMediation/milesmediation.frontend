@@ -1,21 +1,23 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 
 interface NeutralProps {
     image: string
     name: string
     url: string
+    buttonLabel?: string
+    subTitle?: string
     onClick?: () => void
 }
 
-export default function NeutralCard({ image, name, url, onClick }: NeutralProps) {
+export default function NeutralCard({ image, name, url, onClick, subTitle, buttonLabel='' }: NeutralProps) {
     return (
         <div
             onClick={onClick}
-            className={`cursor-pointer relative transition-all duration-500 rounded-sm overflow-hidden shadow-lg 'w-[370px] h-[440px] opacity-100'}`}
+            className={`cursor-pointer relative transition-all duration-500 rounded-sm overflow-hidden hover:shadow-xl 'w-[370px] h-[440px] opacity-100'}`}
         >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
                 src={image}
                 alt={name}
@@ -24,8 +26,15 @@ export default function NeutralCard({ image, name, url, onClick }: NeutralProps)
 
             <div className="absolute bg-black/50   bottom-0 left-0 p-5 w-full z-10 text-white">
                 <h4 className="text-xl font-title uppercase leading-none mb-1">{name}</h4>
+                {subTitle && (
+                    <>
+                        <p className={'text-sm'}>
+                            {subTitle}
+                        </p>
+                    </>
+                )}
                 <Link href={url} className="text-sm underline font-body text-teal-100">
-                    View calendar & rates &gt;
+                    {buttonLabel !== '' ? buttonLabel : 'View calendar & rates'} &gt;
                 </Link>
             </div>
 

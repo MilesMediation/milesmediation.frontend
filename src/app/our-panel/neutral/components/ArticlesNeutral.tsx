@@ -1,6 +1,13 @@
+import Link from "next/link";
 
 
-export default function ArticlesNeutral(){
+interface ArticlesNeutralType {
+    title: string,
+    date: string,
+    urlTarget: string,
+}
+
+export default function ArticlesNeutral({title='Default tile', date='01/01/2025', urlTarget='https://www.google.com/'}: ArticlesNeutralType) {
 
 
     return(
@@ -9,12 +16,15 @@ export default function ArticlesNeutral(){
 
                 <div>
                     <p className={'text-sm uppercase'}>
-                        Mon, Apr 7th, 2025
+                        {date}
                     </p>
                 </div>
-                <h3 className={'text-large font-medium'} style={{fontSize: '28px'}}>
-                    Ensuring Efficiency and Economy: An Arbitrator’s Primary Obligation
-                </h3>
+                <Link href={urlTarget}>
+
+                    <h3 className={'text-large font-medium'} style={{fontSize: '28px'}}>
+                        {title}
+                    </h3>
+                </Link>
             </div>
         </>
     )

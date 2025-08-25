@@ -6,7 +6,7 @@ export default function RatesSectionNeutral() {
             <div className="my-20">
                 <div className={'text-center'}>
 
-                    <h2>Rates & Fees</h2>
+                    <h2 className={'h2-title-section mb-5'}>Rates & Fees</h2>
                     <p>Conferences, documents review, order/award drafting, and any additional consultation that a party
                         to
                         the arbitration rquest or deemed necessary by the arbitrator will be biled at the </p>
@@ -47,8 +47,8 @@ export default function RatesSectionNeutral() {
                     </div>
                     <div>
                         <div
-                            className="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
-                            <table className="w-full text-left table-auto min-w-max">
+                            className="relative flex flex-col w-full h-full overflow-hidden text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
+                            <table className="w-full text-left table-auto min-w-max ">
                                 <thead>
                                 <tr>
                                     <th colSpan={2} className="p-4 border-b border-blue-gray-100 bg-blue-gray-50 tabkle">

@@ -55,6 +55,7 @@ export function FeaturedSection({ imgBg = '', mode = 'light', bgColor, alignImg=
 
                     {/* Right Grid */}
                     <div className={`order-${alignImg == 'left' ? '1' : '2'} `}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                             src="/demo/locations/locationSampleImg.png"
                             alt="Location Site"

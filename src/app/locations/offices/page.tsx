@@ -1,6 +1,5 @@
 import MainNavigation from "@/components/global/MainNavigation";
 import PageHeader from "@/components/global/PageHeader";
-import {FeaturedSection} from "@/components/sections/FeaturedSection";
 import {FeaturedCardsSection} from "@/components/sections/FeaturedCardsSection";
 import RelatedArticles from "@/components/sections/RelatedArticles";
 import CallToAction from "@/components/global/CallToAction";
@@ -44,7 +43,7 @@ export default function Page() {
                 <FeaturedCardsSection cityName={'Georgia'} offices={testDataOffice}/>
  n
                 <div>
-                    <RelatedArticles />
+                    <RelatedArticles  cardSize={'sm'}/>
                 </div>
                 <div>
                     <CallToAction />

@@ -9,18 +9,23 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 
-export function CarouselComponent() {
+export function CarouselComponent({gallery}) {
+
+    console.log('Gallery check', gallery)
+
+    if (!gallery) return null
+
     return (
         <Carousel className="w-full">
-            <CarouselContent>
-                {Array.from({ length: 5 }).map((_, index) => (
+            <CarouselContent >
+                {gallery.map((item, index) => (
                     <CarouselItem key={index}  className="sm:basis-1 lg:basis-7xl">
                         <div className="p-1">
                             <Card className={'py-0'}>
                                 <CardContent className="flex h-[600px] rounded-xl overflow-hidden items-center justify-center p-0">
                                     {/*<span className="text-4xl font-semibold">{index + 1}</span>*/}
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img src={'/heroBanner.png'} alt="" className={'w-full h-full object-cover'} />
+                                    <img src={`http://localhost:1337${item.url}`} alt="" className={'w-full h-full object-cover'} />
                                 </CardContent>
                             </Card>
                         </div>

@@ -1,5 +1,3 @@
-
-
 interface CallToActionProps {
     backgroundImage?: string
     title?: string
@@ -12,14 +10,13 @@ export default function PageHeader({
                                        backgroundImage = "/cardImgSample1.png",
                                        title = 'Our Panel',
                                        description,
-                                   }: CallToActionProps){
+                                   }: CallToActionProps) {
 
 
-
-    return(
+    return (
         <>
             <section
-                className="w-full py-[100px] h-[440px] flex flex-col justify-end items-start  px-4 bg-cover bg-center
+                className="w-full h-[75vh] py-10 flex flex-col justify-end items-start bg-cover bg-center
                 relative mb-0"
                 style={{backgroundImage: `url(${backgroundImage})`}}
             >

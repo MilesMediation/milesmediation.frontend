@@ -31,7 +31,7 @@ export default function CallToAction({
                 <div className="relative z-10 mx-auto text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8">
                     <div>
                         <h2 className="font-title text-3xl md:text-4xl text-white uppercase mb-4">{title}</h2>
-                        <p className="font-body text-white text-base md:text-lg max-w-xl">{description}</p>
+                        <p className="font-body font-light text-white text-base md:text-lg max-w-xl">{description}</p>
                     </div>
 
                     <Link

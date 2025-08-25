@@ -47,6 +47,7 @@ export default function MainNavigation() {
             <div className="w-full bg-white text-[#19233C] shadow-sm">
                 <div className="mx-auto max-w-[1680px] px-[6rem] py-1 flex justify-between items-center h-20">
                     <Link href="/">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src="/logo-miles.png" alt="Miles Mediation Logo" className="h-12" />
                     </Link>
 

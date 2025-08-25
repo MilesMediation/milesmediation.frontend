@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8427eb36-94ee-4f77-807f-310ad8883e9b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/demo/aboutUsSample.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/demo/buildings_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/about-us/our-team/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/about-us/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/blog/articles/article-detail/components/authorComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/blog/articles/article-detail/components/blogHeader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/blog/articles/article-detail/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/blog/articles/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/blog/events/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/practice-area/details/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/practice-area/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/cards/PracticeAreaCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/cards/SimpleCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/flowbite/CardComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/custom/DrawerCalendar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/apiClients.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/globalConstants.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/milesmediation-new.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/milesmediation-new.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/locations/offices/office-detail/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/locations/offices/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/locations/offices/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/locations/offices/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/locations/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/locations/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/our-panel/neutral/components/ArticlesNeutral.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/neutral/components/ArticlesNeutral.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/our-panel/neutral/components/CalendarNeutral.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/neutral/components/CalendarNeutral.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/our-panel/neutral/components/RatesSectionNeutral.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/neutral/components/RatesSectionNeutral.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/our-panel/neutral/components/ScheduleDateNeutral.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/neutral/components/ScheduleDateNeutral.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/our-panel/neutral/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/neutral/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/our-panel/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cards/CardComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/CardComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cards/NeutralCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/NeutralCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cards/OfficeCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/OfficeCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/global/CallToAction.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/global/CallToAction.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/global/MainNavigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/global/MainNavigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/global/NavigationMenuDemo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/global/NavigationMenuDemo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/global/PageHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/global/PageHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sections/FeaturedSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/FeaturedSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sections/GallerySection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/GallerySection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sections/NeutralSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/NeutralSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sections/RelatedArticles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/RelatedArticles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/custom/CarouselComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/custom/CarouselComponent.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2zEkIlwNC0f3P2CGN4bpMGW80Ac" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "js.debugger.nextJs.config.created.client": "true",
+    "js.debugger.nextJs.config.created.server": "true",
+    "last_opened_file_path": "D:/Proyects/milesmediation-new",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.completion",
+    "ts.external.directory.path": "D:\\Proyects\\milesmediation-new\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Proyects\milesmediation-new\src\app\our-panel\neutral\[slug]" />
+      <recent name="D:\Proyects\milesmediation-new\public\demo" />
+      <recent name="D:\Proyects\milesmediation-new\src\app" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Next.js: server-side">
+    <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="Next.js: server-side" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8427eb36-94ee-4f77-807f-310ad8883e9b" name="Changes" comment="" />
+      <created>1751303543339</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1751303543339</updated>
+      <workItem from="1751303545083" duration="7966000" />
+      <workItem from="1751313789362" duration="3958000" />
+      <workItem from="1751320170341" duration="1394000" />
+      <workItem from="1751321594786" duration="162000" />
+      <workItem from="1751378763385" duration="4923000" />
+      <workItem from="1751384507683" duration="6373000" />
+      <workItem from="1751425643163" duration="121000" />
+      <workItem from="1751470014485" duration="7409000" />
+      <workItem from="1751492260631" duration="14000" />
+      <workItem from="1751556745282" duration="2812000" />
+      <workItem from="1751651764070" duration="618000" />
+      <workItem from="1751663822013" duration="594000" />
+      <workItem from="1751924027051" duration="15421000" />
+      <workItem from="1752069385433" duration="6589000" />
+      <workItem from="1752179012400" duration="5390000" />
+      <workItem from="1752422593528" duration="15544000" />
+      <workItem from="1752605882649" duration="1797000" />
+      <workItem from="1752856754658" duration="1518000" />
+      <workItem from="1753119096003" duration="2225000" />
+      <workItem from="1753714830335" duration="10212000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/our-panel/neutral/components/ScheduleDateNeutral.tsx</url>
+          <line>17</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

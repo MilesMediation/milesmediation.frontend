@@ -86,6 +86,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --main-color-100: var(--color-dark-green);
 }
 
 body {
@@ -106,9 +108,7 @@ h3{
   font-size: 40px;
 }
 
-h4{
-  font-size: 28px;
-}
+
 
 .font-title{
   font-family: var(--font-roboto-slab), serif;
@@ -171,4 +171,148 @@ h4{
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+.h2-title-section {
+  @apply font-bold text-4xl uppercase;
+}
+
+/* Custom Slick Carousel Styles */
+.slick-slide {
+  transition: all 0.5s ease;
+  padding: 0 8px;
+}
+
+/* Create centered appearance without centerMode */
+.slick-slide:nth-child(2) {
+  transform: scale(1.05);
+  z-index: 10;
+  opacity: 1 !important;
+}
+
+.slick-slide:not(:nth-child(2)) {
+  opacity: 0.6;
+  transform: scale(0.95);
+}
+
+.slick-track {
+  display: flex !important;
+  align-items: center;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.slick-slide > div {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.slick-list {
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+/* Ensure proper spacing and alignment */
+.slick-slider {
+  margin: 0 auto;
+}
+
+/* Additional centering fixes */
+.slick-slider .slick-list {
+  margin: 0 auto;
+}
+
+.slick-slider .slick-track {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Office carousel specific styles */
+.office-carousel .slick-list {
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+.office-carousel .slick-track {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex !important;
+  align-items: center;
+}
+
+.office-carousel .slick-slide {
+  display: flex !important;
+  justify-content: center;
+}
+
+.office-carousel .slick-slide > div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Different border colors for each card in masonry gallery */
+.masonry-gallery .flex.flex-col:nth-child(1) .AnimatedImageCard {
+    border-color: #3b82f6 !important; /* Blue */
+}
+
+.masonry-gallery .flex.flex-col:nth-child(2) .AnimatedImageCard {
+    border-color: #10b981 !important; /* Green */
+}
+
+.masonry-gallery .flex.flex-col:nth-child(3) .AnimatedImageCard {
+    border-color: #f59e0b !important; /* Amber */
+}
+
+.masonry-gallery .flex.flex-col:nth-child(4) .AnimatedImageCard {
+    border-color: #ef4444 !important; /* Red */
+}
+
+.masonry-gallery .flex.flex-col:nth-child(5) .AnimatedImageCard {
+    border-color: #8b5cf6 !important; /* Purple */
+}
+
+/* Alternative approach: Target each column directly */
+.masonry-gallery .flex.flex-col:nth-child(1) > div {
+    border-color: #3b82f6 !important; /* Blue */
+}
+
+.masonry-gallery .flex.flex-col:nth-child(2) > div {
+    border-color: #10b981 !important; /* Green */
+}
+
+.masonry-gallery .flex.flex-col:nth-child(3) > div {
+    border-color: #f59e0b !important; /* Amber */
+}
+
+.masonry-gallery .flex.flex-col:nth-child(4) > div {
+    border-color: #ef4444 !important; /* Red */
+}
+
+.masonry-gallery .flex.flex-col:nth-child(5) > div {
+    border-color: #8b5cf6 !important; /* Purple */
+}
+
+/* Hide default Slick arrows */
+.slick-prev,
+.slick-next {
+  display: none !important;
+}
+
+/* Custom focus styles for accessibility */
+.slick-slide:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+.slick-slide * {
+  transition: all 0.3s ease;
+}
+
+/* Ensure proper spacing between slides */
+.slick-slide + .slick-slide {
+  margin-left: 16px;
 }

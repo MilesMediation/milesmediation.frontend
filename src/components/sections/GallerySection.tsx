@@ -1,7 +1,11 @@
 import {CarouselComponent} from "@/components/ui/custom/CarouselComponent";
 
+interface galleryType{
+    images: Array;
+    description: string;
+}
 
-export default function GallerySection() {
+export default function GallerySection({description, images}: galleryType) {
 
     return(
         <>
@@ -9,14 +13,13 @@ export default function GallerySection() {
                 <div className={'mb-10'}>
                     <h2 className={'font-bold font-title main-text-color uppercase mb-5'}>Gallery</h2>
                     <p className={'font-body'}>
-                        Miles’ neutrals are experienced mediators and arbitrators with expertise in their fields. They are
-                        experts in dispute resolution who are helping to shape the future of the ADR field with thought
-                        leadership that includes articles, speaking engagements, and CLE classes and training. Learn more
-                        about their background and experience here.
+                        {description &&(
+                            description
+                        )}
                     </p>
                 </div>
                 <div>
-                    <CarouselComponent />
+                    <CarouselComponent  gallery={images}/>
                 </div>
             </div>
         </>

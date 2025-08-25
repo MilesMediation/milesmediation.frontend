@@ -1,45 +1,78 @@
 'use client'
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 import OfficeCard from '@/components/cards/OfficeCard'
 
 const offices = [
+    { name: 'Chicago', image: '/offices/atlanta.png', url: '/offices/chicago' },
     { name: 'Atlanta', image: '/offices/atlanta.png', url: '/offices/atlanta' },
     { name: 'Boston', image: '/offices/atlanta.png', url: '/offices/boston' },
     { name: 'Birmingham', image: '/offices/atlanta.png', url: '/offices/birmingham' },
-    { name: 'Chicago', image: '/offices/atlanta.png', url: '/offices/chicago' },
+    { name: 'New York', image: '/offices/atlanta.png', url: '/offices/new-york' },
+    { name: 'Los Angeles', image: '/offices/atlanta.png', url: '/offices/los-angeles' },
 ]
 
 export default function OfficesSection() {
-    const [index, setIndex] = useState(0)
+    const sliderRef = useRef<Slider>(null)
 
     const prev = () => {
-        setIndex((prev) => (prev - 1 + offices.length) % offices.length)
+        sliderRef.current?.slickPrev()
     }
 
     const next = () => {
-        setIndex((prev) => (prev + 1) % offices.length)
+        sliderRef.current?.slickNext()
     }
 
-    const handleCardClick = (clickedIdx: number) => {
-        setIndex(clickedIdx)
+    // Keyboard navigation
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === 'ArrowLeft') {
+            e.preventDefault()
+            prev()
+        } else if (e.key === 'ArrowRight') {
+            e.preventDefault()
+            next()
+        }
     }
 
-    // Calculate visible items
-    const getVisible = () => {
-        const total = offices.length
-        return [
-            offices[(index + 0) % total],
-            offices[(index + 1) % total],
-            offices[(index + 2) % total],
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 600,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        centerMode: false,
+        focusOnSelect: false,
+        cssEase: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+        autoplay: false,
+        pauseOnHover: true,
+        swipeToSlide: true,
+        touchThreshold: 10,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
         ]
     }
 
-    const visible = getVisible()
-
     return (
-        <section className="w-full bg-[var(--Dark-Green_1,#003135)] mb-0 text-white px-4 md:px-12 py-[100px] flex flex-col md:flex-row gap-8 items-start overflow-hidden">
+        <section 
+            id="officesSection" 
+            className="w-full bg-[var(--Dark-Green_1,#003135)] mb-0 text-white px-4 md:px-12 py-[100px] flex flex-col md:flex-row gap-8 items-start overflow-hidden"
+            onKeyDown={handleKeyDown}
+            tabIndex={0}
+        >
             {/* Left Info Panel */}
             <div className="w-full md:w-1/4 space-y-6 z-10">
                 <h2 className="font-title text-[32px] md:text-[40px] uppercase">Our Offices</h2>
@@ -49,43 +82,39 @@ export default function OfficesSection() {
                 <div className="flex gap-4">
                     <button
                         onClick={prev}
-                        className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center text-lg"
+                        onKeyDown={(e) => e.key === 'Enter' && prev()}
+                        className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center text-lg hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#003135]"
+                        aria-label="Previous office"
                     >
                         ←
                     </button>
                     <button
                         onClick={next}
-                        className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center text-lg"
+                        onKeyDown={(e) => e.key === 'Enter' && next()}
+                        className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center text-lg hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#003135]"
+                        aria-label="Next office"
                     >
                         →
                     </button>
                 </div>
-                <button className="mt-8 bg-white text-black rounded-md px-6 py-3 font-medium">
+                <button className="mt-8 bg-white text-black rounded-md px-6 py-3 font-medium hover:bg-gray-100 transition-colors">
                     See all
                 </button>
             </div>
 
             {/* Right Carousel */}
             <div className="w-full md:w-3/4 overflow-hidden">
-                <div className="flex gap-6 transition-transform duration-700 ease-out">
-                    {visible.map((office, i) => {
-                        const actualIndex = (index + i) % offices.length
-                        return (
-                            <motion.div
-                                key={office.name}
-                                initial={{ opacity: 0, scale: 0.95, x: 50 }}
-                                animate={{ opacity: 1, scale: 1, x: 0 }}
-                                exit={{ opacity: 0, scale: 0.95, x: -50 }}
-                                transition={{ duration: 0.6, ease: 'easeInOut' }}
-                            >
+                <div className="px-4">
+                    <Slider ref={sliderRef} {...settings} className="office-carousel">
+                        {offices.map((office) => (
+                            <div key={office.name} className="px-3">
                                 <OfficeCard
                                     {...office}
-                                    focused={i === 0}
-                                    onClick={() => handleCardClick(actualIndex)}
+                                    onClick={() => {}}
                                 />
-                            </motion.div>
-                        )
-                    })}
+                            </div>
+                        ))}
+                    </Slider>
                 </div>
             </div>
         </section>
