@@ -52,7 +52,6 @@ export default function Page() {
 
                         <div className={'pt-10'}>
                             <NeutralSection
-                                amount={8}
                                 title={'Our Neutrals for this practices area'}
                                 description={'Is active across the entire value chain of life sciences investments,\n' +
                                     '                            from seed to later-stage, with a focus on healthcare and sustainability'}

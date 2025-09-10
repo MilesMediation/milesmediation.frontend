@@ -55,9 +55,7 @@ export function DrawerCalendar({ events }: { events: { title: string, start: str
                             events={events}
                             eventContent={(arg) => {
                                 const title = arg.event.title.toLowerCase();
-                                const isBooked = title.includes("booked");
-                                const isHoliday = title.includes("holiday");
-                                
+
                                 return (
                                     <div
                                         className={`px-1 py-0.5 font-semibold rounded w-full text-sm ${ 
@@ -83,4 +81,3 @@ export function DrawerCalendar({ events }: { events: { title: string, start: str
         </Drawer>
     )
 }
-

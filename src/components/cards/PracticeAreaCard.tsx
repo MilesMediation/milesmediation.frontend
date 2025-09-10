@@ -4,14 +4,12 @@ import Link from "next/link";
 /**
  * */
 interface PracticeAreaCardProps {
-    
     title: string;
-    description?: string;
     bgImage?: string;
     slug?: string;
 }
 
-export default function PracticeAreaCard({ title, description,bgImage,slug }: PracticeAreaCardProps) {
+export default function PracticeAreaCard({ title, bgImage, slug }: PracticeAreaCardProps) {
 
     console.log('bgImage check', bgImage)
     return(

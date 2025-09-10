@@ -135,12 +135,7 @@ export default function MansonryGalleryDemo() {
                 {/* Gallery Display */}
                 <div className="bg-white rounded-lg border border-gray-200 p-6">
                     <h3 className="text-lg font-semibold text-gray-800 mb-4">Gallery Preview:</h3>
-                    <MansonryGallery 
-                        customContainerClassName={currentClasses.container}
-                        customColumnClassName={currentClasses.column}
-                        customCardClassName={currentClasses.card}
-                        customImageClassName={currentClasses.image}
-                    />
+                    <MansonryGallery />
                 </div>
 
                 {/* Code Example */}

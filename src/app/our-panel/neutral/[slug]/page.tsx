@@ -10,8 +10,8 @@ import RatesSectionNeutral from "@/app/our-panel/neutral/components/RatesSection
 import AccordionItem from "@/components/ui/AccordionItems";
 import { useParams } from 'next/navigation';
 
-// Updated imports for Azure API
-import {AZURE_API_URL, AUTH_TOKEN, URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
+// Updated imports for Azure API (AUTH_TOKEN commented out as not currently used)
+import {URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
 import useSWR from "swr";
 import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 
@@ -33,14 +33,14 @@ import {ReactNode} from "react";
 const strapiFetcher = (url: string | URL | Request) =>
     fetch(url).then((r) => r.json())
 
-// Fetcher for Azure API with authentication
-const azureFetcher = (url: string | URL | Request) =>
-    fetch(url, {
-        headers: {
-            'Authorization': `Bearer ${AUTH_TOKEN}`,
-            'Content-Type': 'application/json',
-        },
-    }).then((r) => r.json())
+// Fetcher for Azure API with authentication (commented out as not currently used)
+// const azureFetcher = (url: string | URL | Request) =>
+//     fetch(url, {
+//         headers: {
+//             'Authorization': `Bearer ${AUTH_TOKEN}`,
+//             'Content-Type': 'application/json',
+//         },
+//     }).then((r) => r.json())
 
 type ListBlockProps = {
     children: ReactNode;
@@ -49,6 +49,10 @@ type ListBlockProps = {
 
 type ListItemBlockProps = {
     children: ReactNode;
+};
+
+type PracticeArea = {
+    Name: string;
 };
 
 const customBlockRenderers = {
@@ -80,11 +84,11 @@ export default function Page() {
     );
 
     // Second: Load calendar data from Azure (only after Strapi data is loaded)
-    const AZURE_FETCH_URL = `${AZURE_API_URL}/neutrals/list?neutral_id=${slug}`;
-    const { data: azureData, error: azureError, isLoading: azureLoading } = useSWR(
-        strapiData ? AZURE_FETCH_URL : null, // Only fetch Azure data if Strapi data is available
-        azureFetcher
-    );
+    // const AZURE_FETCH_URL = `${AZURE_API_URL}/neutrals/list?neutral_id=${slug}`;
+    // const { data: azureData, error: azureError, isLoading: azureLoading } = useSWR(
+    //     strapiData ? AZURE_FETCH_URL : null, // Only fetch Azure data if Strapi data is available
+    //     azureFetcher
+    // );
 
     // Show loading state while Strapi data is loading
     if (strapiLoading) {
@@ -206,7 +210,7 @@ export default function Page() {
                             <div className={'mt-10'}>
                                 <h3 className={'text-2xl font-bold'}>Practice Areas</h3>
                                 <ul className={'list-inside list-disc'}>
-                                    {dataNeutral.practice_area.map((area: any, index: number) => (
+                                    {dataNeutral.practice_area.map((area: PracticeArea, index: number) => (
                                         <li key={index}>{area.Name}</li>
                                     ))}
                                 </ul>
@@ -289,7 +293,6 @@ export default function Page() {
 
 
                         {/* Avatar section */}
-                        {console.log('dataNeutral', avatarUrl)}
                         <div className="col-span-2">
                             <div className="sticky top-30">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -305,7 +308,7 @@ export default function Page() {
                     </div>
 
                     {/** Section to book a neutral*/}
-                    {azureLoading && (
+                    {/* {azureLoading && (
                         <div className="text-center py-8">
                             <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-[var(--color-dark-green)] mx-auto"></div>
                             <p className="mt-4 text-gray-600">Loading calendar availability...</p>
@@ -315,7 +318,7 @@ export default function Page() {
                         <div className="text-center py-8">
                             <p className="text-red-600">Unable to load calendar data. Please try again later.</p>
                         </div>
-                    )}
+                    )} */}
                     <CalendarNeutral
                         caseManager={dataNeutral.case_manager || undefined}
                         neutral_id={dataNeutral.neutral_id || dataNeutral.id || slug}

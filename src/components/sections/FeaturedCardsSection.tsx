@@ -8,17 +8,23 @@ interface officesData{
     image: string;
 }
 interface featuredData {
-    cityName?: string
+    title?: string
     offices?: officesData[]
+    seeMoreURL?: string
 }
 
-export function FeaturedCardsSection({ offices, cityName = 'Default title' }: featuredData) {
+export function FeaturedCardsSection({ offices, seeMoreURL='', title = 'Default title' }: featuredData) {
     return (
         <div className="container mx-auto py-10">
             {/* Title Section */}
             <div className="flex flex-wrap justify-between items-center">
-                <h3 className={'font-bold'}>{cityName}</h3>
-                <ButtonMiles variant="contained">See all</ButtonMiles>
+                <h3 className={'text-5xl main-text-color font-bold'}>{title}</h3>
+                {seeMoreURL &&(
+                    <>
+                        <ButtonMiles variant="contained">See all</ButtonMiles>
+                    </>
+                )}
+
             </div>
 
             {/* Cards section */}

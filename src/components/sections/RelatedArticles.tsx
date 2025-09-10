@@ -21,10 +21,11 @@ export default function RelatedArticles(
         cardSize: 'lg',
     })
 
-    const testData : {name:string; url: string; size: 'sm'| 'md' | 'lg'}= {
+    const testData : {name:string; url: string; size: 'sm'| 'md' | 'lg', image: string} = {
         name: 'The Current State of Non-Competes: How the Recent FTC Rule Affects Missouri Employment Attorneys',
         url: '/',
-        size:'lg'
+        size:'lg',
+        image: ''
     }
 
     const backgrounColorCustom = classNames({
@@ -45,7 +46,7 @@ export default function RelatedArticles(
 
             <section className={`${backgrounColorCustom} ${className} `}>
                 <div className={'container mx-auto py-40'}>
-                    <h2 className={'text-center uppercase font-bold'}>
+                    <h2 className={'text-5xl main-text-color uppercase font-bold'}>
                         {customTitle}
                     </h2>
                     {(amount == 3 || amount == 2) &&(
@@ -59,27 +60,33 @@ export default function RelatedArticles(
                     </div>
                     )}
 
-                    {amount == 5 &&(
-                        <>
-                            <div className={'mt-10 flex flex-row flex-wrap'}>
-                                {Array.from({ length: 2 }).map((_, index) => (
-                                    <div key={index} className={`w-1/2 p-4`}>
-                                        <CardComponent   name={testData.name} url={testData.url} size={testData.size} />
-                                    </div>
+{amount == 5 && (
+  <>
+    <div className="mt-10 grid grid-cols-2 gap-4">
+      {Array.from({ length: 2 }).map((_, index) => (
+        <div key={index} className="w-1.2">
+          <CardComponent
+            name={testData.name}
+            url={testData.url}
+            size={testData.size}
+          />
+        </div>
+      ))}
+    </div>
 
-                                ))}
-                            </div>
-                            <div className={'mt-10 flex flex-row flex-wrap'}>
-                                {Array.from({ length: 3 }).map((_, index) => (
-                                    <div key={index} className={`w-1/3 p-4`}>
-                                        <CardComponent   name={testData.name} url={testData.url} size={testData.size} />
-                                    </div>
-
-                                ))}
-                            </div>
-                        </>
-
-                    )}
+    <div className="mt-4 grid grid-cols-3 gap-4">
+      {Array.from({ length: 3 }).map((_, index) => (
+        <div key={index} className="">
+          <CardComponent
+            name={testData.name}
+            url={testData.url}
+            size={testData.size}
+          />
+        </div>
+      ))}
+    </div>
+  </>
+)}
                 </div>
             </section>
 

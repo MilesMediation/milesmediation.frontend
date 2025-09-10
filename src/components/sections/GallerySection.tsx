@@ -1,7 +1,7 @@
 import {CarouselComponent} from "@/components/ui/custom/CarouselComponent";
 
 interface galleryType{
-    images: Array;
+    images: Array<{url: string}>;
     description: string;
 }
 

@@ -182,9 +182,9 @@ export default function NeutralListPage() {
         <div className="bg-white text-gray-800">
             <MainNavigation />
             
-            <PageHeader 
+            <PageHeader
                 title="Our Neutrals"
-                subtitle="Experienced mediators and arbitrators with expertise in their fields"
+                description="Experienced mediators and arbitrators with expertise in their fields"
                 backgroundImage="/heroBanner.png"
             />
 
@@ -336,16 +336,13 @@ export default function NeutralListPage() {
                     {paginatedNeutrals.length > 0 ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
                             {paginatedNeutrals.map((neutral) => (
-                                <NeutralCard
-                                    key={neutral.neutral_id}
-                                    name={neutral.neutral_name}
-                                    image={neutral.info?.profile || DEFAULT_NEUTRAL_IMAGE}
-                                    url={`/our-panel/neutral/${neutral.neutral_id}`}
-                                    practiceAreas={neutral.info?.practice_areas || []}
-                                    locations={neutral.info?.locations || []}
-                                    isElite={neutral.info?.is_elite || false}
-                                    isArbitrator={neutral.info?.is_arbitrator || false}
-                                />
+                                    <NeutralCard
+                                        key={neutral.neutral_id}
+                                        name={neutral.neutral_name}
+                                        image={neutral.info?.profile || DEFAULT_NEUTRAL_IMAGE}
+                                        url={`/our-panel/neutral/${neutral.neutral_id}`}
+                                        buttonLabel="View profile"
+                                    />
                             ))}
                         </div>
                     ) : (

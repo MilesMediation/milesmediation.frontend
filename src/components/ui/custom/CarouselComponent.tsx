@@ -9,7 +9,11 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 
-export function CarouselComponent({gallery}) {
+interface GalleryItem {
+    url: string;
+}
+
+export function CarouselComponent({gallery}: {gallery: GalleryItem[]}) {
 
     console.log('Gallery check', gallery)
 

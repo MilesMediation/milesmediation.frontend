@@ -33,9 +33,9 @@ const videos = [
 export default function OurVideos() {
     return (
         <section className="w-full px-4 py-[100px] mb-0">
-            <div className="max-w-7xl mx-auto">
+            <div className="container mx-auto">
                 {/* Title */}
-                <h2 className="font-title text-[32px] md:text-[40px] text-center text-[var(--Dark-Green_1,#003135)] mb-12 uppercase">
+                <h2 className="font-title text-5xl  text-center text-[var(--Dark-Green_1,#003135)] mb-12 uppercase">
                     Our Videos
                 </h2>
 

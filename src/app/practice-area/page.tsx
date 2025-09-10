@@ -65,10 +65,9 @@ export default function Page() {
                         {dataPage.map((item:{Name:string, description:string, slug:string,featuredImage:{url:string}}, index:number) => {
                             return (
                                 <div key={index}>
-                                    <PracticeAreaCard 
-                                        key={index} 
-                                        title={item.Name} 
-                                        description={item.description}
+                                    <PracticeAreaCard
+                                        key={index}
+                                        title={item.Name}
                                         slug={item.slug}
                                         bgImage={item.featuredImage ? URL_BACKOFFICE_DOMAIN + item.featuredImage.url :''}
                                      />

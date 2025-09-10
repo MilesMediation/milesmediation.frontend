@@ -40,7 +40,7 @@ export default function Page() {
                 />
 
 
-                <FeaturedCardsSection cityName={'Georgia'} offices={testDataOffice}/>
+                <FeaturedCardsSection title={'Georgia'} offices={testDataOffice}/>
  n
                 <div>
                     <RelatedArticles  cardSize={'sm'}/>

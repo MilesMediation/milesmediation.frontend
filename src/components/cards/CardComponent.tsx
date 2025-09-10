@@ -3,18 +3,20 @@
 import Link from 'next/link'
 import classNames from "classnames";
 import {useEffect} from "react";
+import {URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
 
 interface OfficeCardProps {
     image?: string
     name: string
     url: string
     onClick?: () => void
-    size: 'sm' | 'md' | 'lg' | 'xl'
+    size: 'xs'|'sm' | 'md' | 'lg' | 'xl'
 }
 
-export default function CardComponent({ image='/cardImgSample1.png', name, url, onClick, size='md' }: OfficeCardProps) {
+export default function CardComponent({ image, name, url, onClick, size='md' }: OfficeCardProps) {
 
     const cardSize = {
+        xs: 'h-[200px]',
         sm: 'h-[250px]',
         md: 'h-[350px]',
         lg: 'h-[550px]',
@@ -43,18 +45,16 @@ export default function CardComponent({ image='/cardImgSample1.png', name, url, 
     return (
         <div onClick={onClick} className={`${cardContainer} `}>
 
-            {size !== 'sm' && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                    src={image}
-                    alt={name}
-                    className="object-cover rounded-sm h-full w-full"
-                />
-            )}
+            <img
+                src={image ? URL_BACKOFFICE_DOMAIN + image : '/cardImgSample1.png'}
+                alt={name}
+                title={image}
+                className="object-cover rounded-sm h-full w-full"
+            />
 
 
-            <div className={`absolute  left-4 z-10 ${size !== 'sm'?'text-white bottom-4' : 'bottom-10'}`}>
-                <h4 className="text-3xl font-title uppercase leading-none mb-1">{name}</h4>
+            <div className={`absolute  left-4 z-10 ${size !== 'xs'? 'text-white bottom-4' : 'bottom-10'}`}>
+                <h4 className="text-2xl font-title uppercase leading-none mb-1" title={size}>{name}</h4>
                 <Link href={url} className="text-sm underline font-body">
                     See more &gt;
                 </Link>

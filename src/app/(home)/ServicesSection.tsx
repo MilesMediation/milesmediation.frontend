@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Image from 'next/image'
 
 const tabs = [
     {
@@ -29,8 +28,8 @@ export default function ServicesSection() {
     const [activeTab, setActiveTab] = useState(0)
 
     return (
-        <section className="w-full px-4 md:px-12 py-16 md:py-[100px]">
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+        <section className="w-full px-4 mb-0 md:px-12 py-16 md:py-[100px] xl:h-[950px]">
+            <div className="w-full mx-auto flex flex-col md:flex-row gap-12 items-center container">
                 {/* Text Column */}
                 <div className="w-full md:w-1/2">
                     <h2 className="font-title text-[32px] md:text-[40px] text-[var(--Dark-Green_1,#003135)] mb-6 uppercase">
@@ -45,8 +44,8 @@ export default function ServicesSection() {
                                 onClick={() => setActiveTab(index)}
                                 className={`transition-all duration-200 border-b-2 ${
                                     activeTab === index
-                                        ? 'text-[var(--Dark-Green_1,#003135)] font-semibold border-[var(--color-secondary-green,#0FA4AF)]'
-                                        : 'text-gray-700 border-transparent hover:text-[var(--Dark-Green_1,#003135)]'
+                                        ? "text-[var(--Dark-Green_1,#003135)] font-semibold border-[var(--color-secondary-green,#0FA4AF)]"
+                                        : "text-gray-700 border-transparent hover:text-[var(--Dark-Green_1,#003135)]"
                                 }`}
                             >
                                 {tab.label}
@@ -61,27 +60,25 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Image Column */}
-                <div className="w-full md:w-1/2">
+                <div className="w-full md:w-1/2 border-blue-400">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={tabs[activeTab].image}
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -40 }}
-                            transition={{ duration: 0.6, ease: 'easeOut' }}
-                            className="rounded-xl overflow-hidden"
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                            className=""
                         >
-                            <Image
+                            <img
                                 src={tabs[activeTab].image}
                                 alt={tabs[activeTab].label}
-                                width={700}
-                                height={500}
-                                className="w-full h-auto object-cover"
+                                className="w-full rounded-xl object-fill h-[650px]"
                             />
                         </motion.div>
                     </AnimatePresence>
                 </div>
             </div>
         </section>
-    )
+    );
 }

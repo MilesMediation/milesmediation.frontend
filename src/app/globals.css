@@ -95,19 +95,9 @@ body {
 
 }
 
-h1{
+h1,h2,h3{
   font-family: var(--font-roboto-slab), serif;
 }
-h2{
-  font-family: var(--font-roboto-slab), serif;
-  font-size: 48px;
-}
-
-h3{
-  font-family: var(--font-roboto-slab), serif;
-  font-size: 40px;
-}
-
 
 
 .font-title{
@@ -315,4 +305,15 @@ h3{
 /* Ensure proper spacing between slides */
 .slick-slide + .slick-slide {
   margin-left: 16px;
+}
+
+.bigTextStep{
+  font-size: 400px;
+  line-height: 360px;
+  font-weight: bold;
+}
+
+
+.main-bg-color{
+    background: var(--color-dark-green);
 }

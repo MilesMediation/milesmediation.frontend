@@ -3,7 +3,6 @@ import NeutralCard from "@/components/cards/NeutralCard";
 interface sectionProps{
     title?: string;
     description?: string;
-    amount?: number;
     neutrals?:Array<{
         slug: string;
         avatar: {
@@ -19,7 +18,7 @@ const descExample = 'Miles’ neutrals are experienced mediators and arbitrators
     '                        leadership that includes articles, speaking engagements, and CLE classes and training. Learn more\n' +
     '                        about their background and experience here.'
 
-export default function NeutralSection({title='Neutrals', amount, description = descExample,neutrals}:sectionProps) {
+export default function NeutralSection({title='Neutrals', description = descExample,neutrals}:sectionProps) {
 
     if(!neutrals) return null
 

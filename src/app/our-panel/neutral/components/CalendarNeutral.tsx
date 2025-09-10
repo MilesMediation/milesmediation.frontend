@@ -4,7 +4,7 @@ import ScheduleDateNeutral from "@/app/our-panel/neutral/components/ScheduleDate
 import ButtonMiles from "@/components/ui/custom/ButtonMiles";
 import {DrawerCalendar} from "@/components/ui/custom/DrawerCalendar";
 // Updated imports for Azure API
-import { AZURE_API_URL, AUTH_TOKEN, URL_DASHBOARD } from "@/lib/globalConstants";
+import { AUTH_TOKEN, URL_DASHBOARD } from "@/lib/globalConstants";
 // Legacy Strapi imports (commented for future reference)
 // import { URL_BACKOFFICE_DOMAIN, URL_DASHBOARD } from "@/lib/globalConstants";
 import useSWR from "swr";
@@ -31,9 +31,9 @@ const fetcherWithToken = async (url: string) => {
 
   if (!res.ok) {
     const error = new Error("An error occurred while fetching the data.");
-    // @ts-ignore
+    // @ts-expect-error: error.info is a custom property for error handling
     error.info = await res.json();
-    // @ts-ignore
+    // @ts-expect-error: error.status is a custom property for error handling
     error.status = res.status;
     throw error;
   }
@@ -47,7 +47,7 @@ export default function CalendarNeutral({caseManager,neutral_id}: calendarType){
 
 
     // Get the data from the Dashboard API
-    const FETCH_URL = `${URL_DASHBOARD}/rest/neutrals/calendar/${neutral_id}`;
+    // const FETCH_URL = `${URL_DASHBOARD}/rest/neutrals/calendar/${neutral_id}`;
 
     // console.log("FETCH_URL CHECK",FETCH_URL)
 
@@ -77,7 +77,7 @@ export default function CalendarNeutral({caseManager,neutral_id}: calendarType){
                         <div>
 
                             <h3 className={'font-bold main-text-color'}>Schedule now</h3>
-                            <p>Sarah B. "Sally" Akins was the 60th president of the State Bar of Georgia from June, 2022-2023. </p>
+                            <p>Sarah B. &ldquo;Sally&rdquo; Akins was the 60th president of the State Bar of Georgia from June, 2022-2023. </p>
                         </div>
                         {caseManager &&(
                             <>

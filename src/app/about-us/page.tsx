@@ -2,8 +2,9 @@ import MainNavigation from "@/components/global/MainNavigation";
 import PageHeader from "@/components/global/PageHeader";
 import CallToAction from "@/components/global/CallToAction";
 import Footer from "@/components/global/Footer";
-import ButtonMiles from "@/components/ui/custom/ButtonMiles";
 import SimpleCard from "@/components/cards/SimpleCard";
+import {Button} from "@/components/ui/button";
+import Link from "next/link";
 
 
 export default function Page() {
@@ -46,9 +47,11 @@ export default function Page() {
                                 <img src={'demo/aboutUsSample.png'} alt={'Meet the team - Miles Mediation'}/>
                             </div>
                             <div className={'text-center mt-10'}>
-                                <ButtonMiles>
-                                    Meet the team
-                                </ButtonMiles>
+                                <Link href={'/about-us/our-team'} >
+                                    <Button className={'hover:cursor-pointer'}>
+                                        Meet the team
+                                    </Button>
+                                </Link>
                             </div>
 
 

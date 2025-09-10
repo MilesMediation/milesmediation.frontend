@@ -15,7 +15,7 @@ export default function NeutralCard({ image, name, url, onClick, subTitle, butto
     return (
         <div
             onClick={onClick}
-            className={`cursor-pointer relative transition-all duration-500 rounded-sm overflow-hidden hover:shadow-xl 'w-[370px] h-[440px] opacity-100'}`}
+            className={`cursor-pointer relative transition-all duration-500 rounded-sm inline-block overflow-hidden hover:shadow-xl 'w-[370px] h-[440px] opacity-100'}`}
         >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

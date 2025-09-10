@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react"
 
 import {
     NavigationMenu,
@@ -31,12 +30,15 @@ export function NavigationMenuDemo() {
     return (
         <NavigationMenu viewport={false}>
             <NavigationMenuList>
+
+                {/* Home Menu */}
                 <NavigationMenuItem>
                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                         <Link href="/">Home</Link>
                     </NavigationMenuLink>
                 </NavigationMenuItem>
 
+                {/* Our panel section */}
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Our Panel</NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -46,16 +48,15 @@ export function NavigationMenuDemo() {
                                     <Link href="/our-panel">Our Panel</Link>
                                 </NavigationMenuLink>
                                 <NavigationMenuLink asChild>
-                                    <Link href="#">Mediators</Link>
+                                    <Link href="/our-panel/mediators">Mediators</Link>
                                 </NavigationMenuLink>
                                 <NavigationMenuLink asChild>
-                                    <Link href="#">Arbitrates</Link>
+                                    <Link href="/our-panel/arbitrators">Arbitratration</Link>
                                 </NavigationMenuLink>
                             </li>
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
-
 
                 {/*<NavigationMenuItem>
                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
@@ -63,8 +64,13 @@ export function NavigationMenuDemo() {
                     </NavigationMenuLink>
                 </NavigationMenuItem>*/}
 
-
+                {/* Locations Menu*/}
                 <NavigationMenuItem>
+                    <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                        <Link href="/locations">Locations</Link>
+                    </NavigationMenuLink>
+                </NavigationMenuItem>
+                {/*<NavigationMenuItem>
                     <NavigationMenuTrigger>Locations</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
@@ -94,12 +100,16 @@ export function NavigationMenuDemo() {
                             </ListItem>
                         </ul>
                     </NavigationMenuContent>
-                </NavigationMenuItem>
+                </NavigationMenuItem>*/}
+
+                {/* Practices Areas Menu*/}
                 <NavigationMenuItem>
                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                         <Link href="/practice-area">Practice Areas</Link>
                     </NavigationMenuLink>
                 </NavigationMenuItem>
+
+                {/* Blogs menu*/}
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>WIP Blogs</NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -121,7 +131,16 @@ export function NavigationMenuDemo() {
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
+
+                {/* About us menu*/}
                 <NavigationMenuItem>
+                    <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                        <Link href="/about-us">About us</Link>
+                    </NavigationMenuLink>
+                </NavigationMenuItem>
+
+                {/* With Icon Menu*/}
+                {/*<NavigationMenuItem>
                     <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[200px] gap-4">
@@ -147,28 +166,10 @@ export function NavigationMenuDemo() {
                             </li>
                         </ul>
                     </NavigationMenuContent>
-                </NavigationMenuItem>
+                </NavigationMenuItem>*/}
+
+
             </NavigationMenuList>
         </NavigationMenu>
-    )
-}
-
-function ListItem({
-                      title,
-                      children,
-                      href,
-                      ...props
-                  }: React.ComponentPropsWithoutRef<"li"> & { href: string }) {
-    return (
-        <li {...props}>
-            <NavigationMenuLink asChild>
-                <Link href={href}>
-                    <div className="text-sm leading-none font-medium">{title}</div>
-                    <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-                        {children}
-                    </p>
-                </Link>
-            </NavigationMenuLink>
-        </li>
-    )
+    );
 }
