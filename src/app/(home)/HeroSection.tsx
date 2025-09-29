@@ -1,8 +1,16 @@
-'use client'
+import { HeroData } from '@/types/api';
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  heroData?: HeroData;
+}
+
+export default function HeroSection({ heroData }: HeroSectionProps) {
+    // Use data from Strapi or fallback to default values
+    const title = heroData?.main_title || "MILES ABOVE THE REST";
+    const description = heroData?.description || "Our diverse legal expertise, consistently high-touch administrative support, and dedication to our clients and neutrals can be summed up in the following words: the Miles Mediation experience is \"Miles Above the Rest.\"";
+
     return (
-        <section className="relative w-full h-screen overflow-hidden">
+        <section id={'heroSection'} className="relative w-full h-screen overflow-hidden">
             {/* Video Background */}
             <video
                 autoPlay
@@ -31,12 +39,14 @@ export default function HeroSection() {
                     className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-6"
                     style={{ fontFamily: 'var(--font-roboto-slab)' }}
                 >
-                    MILES ABOVE THE REST
+                    {title}
                 </h1>
                 <p className="text-lg sm:text-xl font-light max-w-3xl">
-                    Our diverse legal expertise, consistently high-touch administrative support, and dedication to our clients and neutrals can be summed up in the following words: the Miles Mediation experience is “Miles Above the Rest.”
+                    {description}
                 </p>
             </div>
+            {/* Sentinel at bottom to trigger nav behavior */}
+            <div id="hero-bottom-sentinel" className="absolute bottom-0 left-0 w-full h-px" aria-hidden="true" />
         </section>
     )
 }

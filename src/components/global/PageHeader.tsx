@@ -1,24 +1,29 @@
+import {URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
+import classNames from "classnames";
+
 interface CallToActionProps {
     backgroundImage?: string
     title?: string
     description?: string
+    classname?: string | null
 
 }
 
 
 export default function PageHeader({
-                                       backgroundImage = "/cardImgSample1.png",
-                                       title = 'Our Panel',
+                                       backgroundImage = "",
+                                       title = '',
                                        description,
+                                       classname
                                    }: CallToActionProps) {
 
 
+    const bg_image_processed = backgroundImage ? `${URL_BACKOFFICE_DOMAIN}${backgroundImage}` : '/cardImgSample1.png'
     return (
         <>
             <section
-                className="w-full h-[75vh] py-10 flex flex-col justify-end items-start bg-cover bg-center
-                relative mb-0"
-                style={{backgroundImage: `url(${backgroundImage})`}}
+                className={`w-full flex flex-col justify-end items-start py-10 mb-0 relative bg-cover bg-center ${classname ? classname : 'h-[75vh]'}`}
+                style={{backgroundImage: `url(${bg_image_processed})`}}
             >
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-[var(--Dark-Green_1,#003135)]/80 z-0"/>

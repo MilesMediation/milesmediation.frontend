@@ -25,15 +25,15 @@ export default function NeutralCard({ image, name, url, onClick, subTitle, butto
             />
 
             <div className="absolute bg-black/50   bottom-0 left-0 p-5 w-full z-10 text-white">
-                <h4 className="text-xl font-title uppercase leading-none mb-1">{name}</h4>
+                <h4 className="text-2xl font-medium font-title uppercase leading-none mb-1">{name}</h4>
                 {subTitle && (
                     <>
-                        <p className={'text-sm'}>
+                        <p className={'text-md'}>
                             {subTitle}
                         </p>
                     </>
                 )}
-                <Link href={url} className="text-sm underline font-body text-teal-100">
+                <Link href={url} className="text-md  font-body text-teal-200">
                     {buttonLabel !== '' ? buttonLabel : 'View calendar & rates'} &gt;
                 </Link>
             </div>

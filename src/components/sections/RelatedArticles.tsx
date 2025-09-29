@@ -10,15 +10,17 @@ interface relatedArticleTypes {
     customTitle?: string;
     cardSize: 'sm' | 'md' | 'lg' | 'xl';
     className?: string;
+    articleList?: any[];
 }
 
 
 
 export default function RelatedArticles(
-    {amount=3, customTitle='RELATED ARTICLES', bgMode='light', cardSize='lg', className=''}: relatedArticleTypes) {
+    {amount=3, customTitle='RELATED ARTICLES', bgMode='light', cardSize='lg', className='', articleList = []}: relatedArticleTypes) {
 
     const [relatedArticlesData, setRelatedArticlesData] = useState<relatedArticleTypes>({
         cardSize: 'lg',
+        articleList: []
     })
 
     const testData : {name:string; url: string; size: 'sm'| 'md' | 'lg', image: string} = {
@@ -39,8 +41,14 @@ export default function RelatedArticles(
             cardSize: cardSize
         })
     }, [cardSize]);
+
+    useEffect(() => {
+        console.log('Related Articles - articleList: ', articleList);
+    }, [articleList]);
     
     if (!relatedArticlesData)return null;
+
+
     return(
         <>
 
@@ -51,12 +59,23 @@ export default function RelatedArticles(
                     </h2>
                     {(amount == 3 || amount == 2) &&(
                     <div className={'mt-10 flex flex-row flex-wrap'}>
-                        {Array.from({ length: amount }).map((_, index) => (
-                            <div key={index} className={`w-1/${amount} p-4`}>
-                                <CardComponent   name={testData.name} url={testData.url} size={relatedArticlesData.cardSize} />
-                            </div>
+                        {(articleList && articleList?.length) > 0 && (
+                            <>
+                                {articleList.map((article, index) => (
+                                    <div key={index} className={`w-1/${amount} p-4`}>
+                                        <CardComponent   name={article.name} url={article.url} size={relatedArticlesData.cardSize} />
+                                    </div>
+                                ))}
+                            </>
+                        )}
+                        {articleList?.length == 0 && (
+                            Array.from({ length: amount }).map((_, index) => (
+                                <div key={index} className={`w-1/${amount} p-4`}>
+                                    <CardComponent   name={testData.name} url={testData.url} size={relatedArticlesData.cardSize} />
+                                </div>
 
-                        ))}
+                            ))
+                        )}
                     </div>
                     )}
 

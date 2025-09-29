@@ -111,7 +111,7 @@ export function NavigationMenuDemo() {
 
                 {/* Blogs menu*/}
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>WIP Blogs</NavigationMenuTrigger>
+                    <NavigationMenuTrigger>Blogs & Events</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[200px] gap-4">
                             <li>

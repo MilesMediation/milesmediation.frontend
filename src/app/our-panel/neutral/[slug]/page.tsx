@@ -17,17 +17,7 @@ import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 
 import {ReactNode} from "react";
 
-// Legacy Strapi neutrals data (commented for future reference)
-// const neutrals = [
-//     {name: 'Sally Ankins', image: '/neutrals/sally.png', url: '/offices/atlanta'},
-//     {name: 'Leah Albert', image: '/neutrals/leah.png', url: '/offices/boston'},
-//     {name: 'William Atkins', image: '/neutrals/william.png', url: '/offices/birmingham'},
-//     {name: 'John Austin', image: '/neutrals/john.png', url: '/offices/chicago'},
-//     {name: 'Ron Bankston', image: '/neutrals/ron.png', url: '/offices/chicago'},
-//     {name: 'Marc Barré', image: '/neutrals/marc.png', url: '/offices/chicago'},
-//     {name: 'Todd Bechtel', image: '/neutrals/todd.png', url: '/offices/chicago'},
-//     {name: 'Audrey Berland', image: '/neutrals/audrey.png', url: '/offices/chicago'},
-// ]
+
 
 // Fetcher for Strapi API
 const strapiFetcher = (url: string | URL | Request) =>
@@ -42,12 +32,12 @@ const strapiFetcher = (url: string | URL | Request) =>
 //         },
 //     }).then((r) => r.json())
 
-type ListBlockProps = {
+export type ListBlockProps = {
     children: ReactNode;
     format: 'unordered' | 'ordered';
 };
 
-type ListItemBlockProps = {
+export type ListItemBlockProps = {
     children: ReactNode;
 };
 

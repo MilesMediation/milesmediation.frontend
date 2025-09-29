@@ -17,29 +17,40 @@ const fetcher = (url: string | URL | Request) =>
 export default function Page() {
 
 
-    
+    const FETCH_URL_header = `/api/page-practice-area`;
+    const FETCH_URL_content = `/api/practice-areas?populate=*`;
 
 
+    const { data: dataHeader, error: errorHeader, isLoading: isLoadingHeader } = useSWR(`${URL_BACKOFFICE_DOMAIN}${FETCH_URL_header}`, fetcher)
+    const { data: dataContent, error: errorContent, isLoading: isLoadingContent } = useSWR(`${URL_BACKOFFICE_DOMAIN}${FETCH_URL_content}`, fetcher)
 
 
-    const FETCH_URL = `/api/practice-areas?populate=*`;
+    if (isLoadingContent || isLoadingHeader) return (
+        <div>
+            <MainNavigation></MainNavigation>
+            <div className={'h-[650px] p-60 text-center'}>
+                <h1>Loading...</h1>
+            </div>
+            <Footer></Footer>
+        </div>
+    )
+    if (errorContent || errorHeader) return <div>Error: {errorContent.message}</div>
+    if(!dataContent) return null;
 
+    const dataPage = dataContent.data
+    const dataPageHeader = dataHeader.data
 
-    const { data, error, isLoading } = useSWR(`${URL_BACKOFFICE_DOMAIN}${FETCH_URL}`, fetcher)
-
-
-
-    if (isLoading) return <div>Loading...</div>
-    if (error) return <div>Error: {error.message}</div>
-    if(!data) return null;
-
-    const dataPage = data.data
-    console.log('Check Data',dataPage)
+    console.log('Check Data',dataPageHeader)
 
     return (
         <>
             <MainNavigation/>
-            <PageHeader title={'Practice Areas'}/>
+            <PageHeader
+                title={dataPageHeader.page_header.title}
+                description={dataPageHeader.page_header.description}
+                backgroundImage={dataPageHeader.page_header.backgroundImage.url}
+
+            />
 
             <main>
                 <div className="container mx-auto py-10">

@@ -9,3 +9,4 @@ export const AUTH_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5NDQ5
 // DASHBOARD URL
 export const URL_DASHBOARD= process.env.NEXT_BACKOFFICE_DOMIAN ? process.env.NEXT_BACKOFFICE_DOMIAN : 'https://test-milesdashboard.azurewebsites.net/api'
 export const URL_BACKOFFICE_DOMAIN= process.env.URL_BACKOFFICE_DOMAIN ? process.env.URL_BACKOFFICE_DOMAIN : 'http://localhost:1337'
+export const NEXT_URL_BACKOFFICE= process.env.NEXT_URL_BACKOFFICE_DOMAIN ? process.env.NEXT_URL_BACKOFFICE_DOMAIN : 'http://localhost:1337'

@@ -3,46 +3,101 @@ import PageHeader from "@/components/global/PageHeader";
 import RelatedArticles from "@/components/sections/RelatedArticles";
 import CallToAction from "@/components/global/CallToAction";
 import Footer from "@/components/global/Footer";
+import {Metadata} from "next";
+import {customPageData} from "@/lib/api";
+import {defaulMetadataResponse} from "@/lib/utils";
+import {SeoData, StrapiResponse} from "@/types/api";
+import MainContentBlogLanding from "@/app/blog/components/mainContentBlogLanding";
+
+interface PageBlogLandingDataType{
+    id: number;
+    metadata: SeoData;
+    createdBy?: string;
+    updatedBy?: string;
+    createdAt?: string;
+    updatedAt?: string;
+    page_header: {
+        id: number;
+        title: string;
+        createdBy?: string;
+        createdAt?: string;
+        updatedAt?: string;
+        publishedAt?: string | null;
+        locale?: string | null;
+        description: string;
+        backgroundImage?: {
+            id: number;
+            url: string;
+        };
+    };
+}
+
+const blog_page_endpoint = '/page-blog-and-event?populate[metadata][populate]=*&populate[page_header][populate]=*';
+
+export async function generateMetadata(): Promise<Metadata> {
+    try {
+        const metadata_response = await customPageData<PageBlogLandingDataType>(blog_page_endpoint);
+
+        console.log('Article List',metadata_response)
+
+        return defaulMetadataResponse(metadata_response.data?.metadata);
+
+    } catch (error) {
+        console.error("Error generating metadata:", error);
+        return defaulMetadataResponse(null);
+    }
+}
+
+export default async function Blog(){
+    let ArticlesPageData: StrapiResponse<PageBlogLandingDataType> | null = null;
+
+    try {
+        // Fetch data on the server
+        ArticlesPageData = await customPageData<PageBlogLandingDataType>(blog_page_endpoint);
 
 
-export default function Blog(){
+    } catch (error) {
+        console.error("❌ Failed to fetch home page data:", error);
+        // Create fallback data structure
+        ArticlesPageData = {
+            data: {
+                id: 0,
+                page_header: {
+                    id: 0,
+                    title: 'Articles',
+                    description: '',
+                    backgroundImage: {id: 0, url: '' }
+                },
+                metadata: {
+                    id: 0,
+                    metaTitle: 'Miles Mediation - Miles Above the Rest',
+                    metaDescription: 'Our diverse legal expertise, consistently high-touch administrative support, and dedication to our clients and neutrals can be summed up in the following words: the Miles Mediation experience is Miles Above the Rest.',
+                    keywords: 'mediation, arbitration, ADR, dispute resolution, legal services',
+                    metaRobots: 'index, follow',
+                    structuredData: {},
+                    metaViewport: 'width=device-width, initial-scale=1',
+                    canonicalURL: 'https://milesmediation.com'
+                },
+                createdBy: '',
+                updatedBy: ''
+            }
+        };
+    }
+
+    if(!ArticlesPageData) return null;
+
+
+
 
     return(
         <>
             <MainNavigation/>
-            <PageHeader title={'Blog & Events'}
-                        description={'Our diverse legal expertise, consistently high-touch administrative support, ' +
-                            'and dedication to our clients and neutrals can be summed up in the following words: ' +
-                            'the Miles Mediation experience is “Miles Above the Rest.”'}
+            <PageHeader title={ArticlesPageData.data.page_header.title || 'Blog & Events'}
+                        description={ ArticlesPageData.data.page_header.description ||''}
             />
-            <main>
-                {/* Latest entries*/}
-                <div>
-                    <RelatedArticles customTitle={'Last Entries'}  amount={5} cardSize={'lg'} />
-                </div>
-
-                {/* Events*/}
-                <div>
-                    <RelatedArticles customTitle={'Events'} bgMode={'dark'} amount={2} cardSize={'lg'}  />
-                </div>
-
-                {/* Press releas*/}
-                <div>
-                    <RelatedArticles customTitle={'Events'} bgMode={'light'} amount={3} cardSize={'sm'}/>
-                </div>
-
-                {/* Employee spotlight */}
-                <div>
-                    {/*//todo: buid this section with neutral cards */}
-                </div>
-
-                <div>
-                    <CallToAction />
-                </div>
-                <div>
-                    <Footer />
-                </div>
-            </main>
+            <MainContentBlogLanding />
+            <CallToAction />
+            <Footer/>
         </>
     )
 }

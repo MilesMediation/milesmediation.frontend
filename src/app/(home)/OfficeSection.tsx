@@ -5,8 +5,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import OfficeCard from "@/components/cards/OfficeCard";
+import { OfficeData } from "@/types/api";
 
-const offices = [
+interface OfficesSectionProps {
+  officesData?: OfficeData[];
+}
+
+// Fallback offices data
+const fallbackOffices = [
     {name: "Chicago", image: "/offices/atlanta.png", url: "/offices/chicago"},
     {name: "Atlanta", image: "/offices/atlanta.png", url: "/offices/atlanta"},
     {name: "Boston", image: "/offices/atlanta.png", url: "/offices/boston"},
@@ -15,7 +21,19 @@ const offices = [
     {name: "Los Angeles", image: "/offices/atlanta.png", url: "/offices/los-angeles"},
 ];
 
-export default function OfficesSection() {
+export default function OfficesSection({ officesData }: OfficesSectionProps) {
+    // Transform Strapi data to component format or use fallback
+    const offices = officesData && officesData.length > 0 
+        ? officesData.map(office => ({
+            name: office.name,
+            image: "/offices/atlanta.png", // You can map this to actual office images
+            url: `/offices/${office.slug}`,
+            description: office.Description,
+            telephone: office.telephone,
+            email: office.email,
+            address: office.address
+        }))
+        : fallbackOffices;
     const sliderRef = useRef<Slider>(null);
 
     const prev = () => {

@@ -7,7 +7,7 @@ interface OfficeCardProps {
     name: string
     url: string
     onClick?: () => void
-}
+}200707
 
 export default function OfficeCard({ image, name, url, onClick }: OfficeCardProps) {
     return (

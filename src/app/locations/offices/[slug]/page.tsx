@@ -29,33 +29,49 @@ export default function Page() {
     const { slug } = params;
 
     const FETCH_URL = `/api/offices?filters[slug][$eq]=${slug}&populate[neutrals][populate]=avatar&populate=gallery`;
+    const FETCH_URL_SERVER = `/api/offices?filters[slug][$eq]=${slug}&populate=featuredImage&populate=gallery`;
 
-    const { data, error, isLoading } = useSWR(`${URL_BACKOFFICE_DOMAIN}${FETCH_URL}`, fetcher)
-
-
-    if (isLoading) return <div>Loading...</div>
-    if (error) return <div>Error: {error.message}</div>
-    if(!data && data.data.length >0) return null;
+    const { data: dataPage, error: errorPage, isLoading: isLoadingPage } = useSWR(`${URL_BACKOFFICE_DOMAIN}${FETCH_URL}`, fetcher)
+    const { data: dataHeader, error: errorHeader, isLoading: isLoadingHeader } = useSWR(`${URL_BACKOFFICE_DOMAIN}${FETCH_URL_SERVER}`, fetcher)
 
 
-    const dataPage = data.data[0]
+    if (isLoadingPage || isLoadingHeader) return (
+        <div>
+            <MainNavigation></MainNavigation>
+            <div className={'h-[650px] p-60 text-center'}>
+                <h1>Loading...</h1>
+            </div>
+            <Footer></Footer>
+        </div>
+    )
+    if (errorPage) return <div>Error: {errorPage.message}</div>
+    if (errorHeader) return <div>Error: {errorHeader.message}</div>
+    if(!dataPage || dataPage.data.length === 0) return null;
+    if(!dataHeader || dataHeader.data.length === 0) return null;
 
 
-    console.log('Check Fecth', dataPage)
+    const pageData = dataPage.data[0]
+    const headerData = dataHeader.data[0]
+
+
 
     return (
         <>
             <div>
                 <MainNavigation/>
-                <PageHeader title={dataPage.name} description={dataPage.Description}/>
+                <PageHeader
+                    title={headerData.name}
+                    description={headerData.Description}
+                    backgroundImage={headerData.featuredImage ? `${headerData.featuredImage.url}` : ''}
+                />
 
 
                 <main>
                     <div>
-                        <GallerySection images={dataPage.gallery} description={dataPage.galleryDescription} />
+                        <GallerySection images={pageData.gallery} description={pageData.galleryDescription} />
                     </div>
                     <div>
-                        <NeutralSection neutrals={dataPage.neutrals} />
+                        <NeutralSection neutrals={pageData.neutrals} />
                     </div>
                     <div>
                         <CallToAction />
