@@ -63,6 +63,7 @@ export default function Page() {
                     title={headerData.name}
                     description={headerData.Description}
                     backgroundImage={headerData.featuredImage ? `${headerData.featuredImage.url}` : ''}
+                    classname={'h-[450px] md:h-[550px]'}
                 />
 
 

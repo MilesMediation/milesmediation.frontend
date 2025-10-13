@@ -60,6 +60,7 @@ export default async function Page() {
                     title={pageHeaderTitle}
                     description={pageHeaderDescription}
                     backgroundImage={pageHeaderBackground}
+                    classname={'h-[450px] md:h-[550px]'}
                 />
 
                 <FeaturedSection

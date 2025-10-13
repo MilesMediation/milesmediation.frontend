@@ -122,11 +122,9 @@ export function NavigationMenuDemo() {
                                     <Link href="/blog/articles">Articles</Link>
                                 </NavigationMenuLink>
                                 <NavigationMenuLink asChild>
-                                    <Link href="/blog/events">Events</Link>
+                                    <Link href="/blog/category/events">Events</Link>
                                 </NavigationMenuLink>
-                                <NavigationMenuLink asChild>
-                                    <Link href="/blog/articles/article-detail">Article detail</Link>
-                                </NavigationMenuLink>
+
                             </li>
                         </ul>
                     </NavigationMenuContent>

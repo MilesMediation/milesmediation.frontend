@@ -9,9 +9,22 @@ interface CategoryListData {
     id: number;
     name: string;
     slug: string;
+    additionalLinks?: {
+        label: string
+        url: string
+        icon?: string
+    }[]
+}
+// /api/articles-categories
+interface AsideCategoryListProps {
+    additionalLinks?: {
+        label: string
+        url: string
+        icon?: string
+    }[]
 }
 
-export default async function AsideCategoryList() {
+export default async function AsideCategoryList({additionalLinks}: AsideCategoryListProps) {
 
     let categoryListData: StrapiResponse<CategoryListData[]> | null = null;
 
@@ -29,7 +42,7 @@ export default async function AsideCategoryList() {
 
     if(!categoryListData?.data) return null;
 
-    console.log('testCategory!!!!',categoryListData);
+
     return(
         <>
             <aside className="col-span-2">
@@ -38,22 +51,28 @@ export default async function AsideCategoryList() {
                 <ul className={` list-inside`}>
                     {categoryListData.data.map((category: CategoryListData) => (
                     <li key={category.id} className={' border-b border-cyan-950/10 py-5'}>
-                        <Link className={'flex'} href={'/blog/articles?category=' + category.slug}>
+                        <Link className={'flex capitalize'} href={'/blog/category/' + category.slug}>
                             <ChevronRight /> {category.name}
                         </Link>
                     </li>
                     ))}
                 </ul>
                 )}
+                {(additionalLinks && additionalLinks.length > 0 )&& (
                 <div className="mt-10">
                     <h4 className={'font-title text-xl font-bold main-text-color uppercase'}>Useful links</h4>
                     <ul className={` list-inside`}>
-                        <li className={'flex border-b border-cyan-950/10 py-5'}><ChevronRight /> Cagetegory 1 </li>
-                        <li className={'flex border-b border-cyan-950/10 py-5'}><ChevronRight /> Cagetegory 2</li>
-                        <li className={'flex border-b border-cyan-950/10 py-5'}><ChevronRight /> Cagetegory 3</li>
-                        <li className={'flex border-b border-cyan-950/10 py-5'}><ChevronRight /> Cagetegory 4</li>
+                        {additionalLinks.map((item, index) => (
+                            <li key={index} className={'flex border-b border-cyan-950/10 py-5'}><ChevronRight />
+                                <Link href={item.url}>
+                                    {item.label}
+                                </Link>
+                            </li>
+                        ))}
+
                     </ul>
                 </div>
+                )}
             </aside>
         </>
     )

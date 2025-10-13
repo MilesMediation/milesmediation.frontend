@@ -49,6 +49,7 @@ export default function Page() {
                 title={dataPageHeader.page_header.title}
                 description={dataPageHeader.page_header.description}
                 backgroundImage={dataPageHeader.page_header.backgroundImage.url}
+                classname={'h-[450px] md:h-[550px]'}
 
             />
 

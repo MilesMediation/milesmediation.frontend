@@ -8,50 +8,20 @@ import {fetchAboutUsPageData} from "@/lib/api";
 import {Metadata} from "next";
 
 import MainContent from "@/app/about-us/components/MainContentAboutUs";
+import {defaulMetadataResponse} from "@/lib/utils";
 
 
 export async function generateMetadata(): Promise<Metadata> {
     try {
         const metadata_response = await fetchAboutUsPageData();
 
-        if (metadata_response.data) {
+        return defaulMetadataResponse(metadata_response.data?.metadata);
 
-            const seo = metadata_response.data.metadata;
-
-            return {
-                title: seo?.metaTitle || "Miles Mediation - Miles Above the Rest",
-                description: seo?.metaDescription || "Our diverse legal expertise, consistently high-touch administrative support, and dedication to our clients and neutrals can be summed up in the following words: the Miles Mediation experience is Miles Above the Rest.",
-                keywords: seo?.keywords || "mediation, arbitration, ADR, dispute resolution, legal services",
-                robots: seo?.metaRobots || "index, follow",
-                viewport: seo?.metaViewport || "width=device-width, initial-scale=1",
-                openGraph: {
-                    title: seo?.metaTitle ||  "Miles Mediation",
-                    description: seo?.metaDescription,
-                    type: "website",
-                    locale: "en_US",
-                },
-                twitter: {
-                    card: "summary_large_image",
-                    title: seo?.metaTitle || "Miles Mediation",
-                    description: seo?.metaDescription,
-                },
-                alternates: {
-                    canonical: seo?.canonicalURL || "https://milesmediation.com",
-                },
-            };
-        }
     } catch (error) {
         console.error("Error generating metadata:", error);
+        return defaulMetadataResponse(null);
     }
 
-    // Fallback metadata
-    return {
-        title: "Miles Mediation - Miles Above the Rest",
-        description: "Our diverse legal expertise, consistently high-touch administrative support, and dedication to our clients and neutrals can be summed up in the following words: the Miles Mediation experience is Miles Above the Rest.",
-        keywords: "mediation, arbitration, ADR, dispute resolution, legal services",
-        robots: "index, follow",
-        viewport: "width=device-width, initial-scale=1",
-    };
 }
 
 
@@ -86,6 +56,7 @@ export default async function Page() {
                 title={aboutUsData.data?.page_header?.title}
                 description={aboutUsData.data?.page_header?.description}
                 backgroundImage={aboutUsData.data?.page_header?.backgroundImage?.url || ''}
+                classname={'h-[450px] md:h-[550px]'}
             />
             <MainContent />
             <CallToAction/>

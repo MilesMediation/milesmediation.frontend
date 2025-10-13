@@ -42,7 +42,9 @@ export default function Page() {
             <MainNavigation />
             <PageHeader 
                 backgroundImage={dataPage.featuredImage ? `${URL_BACKOFFICE_DOMAIN}${dataPage.featuredImage.url}` : ''}
-                title={dataPage.Name ? dataPage.Name : 'Default title'} />
+                title={dataPage.Name ? dataPage.Name : 'Default title'}
+                classname={'h-[450px] md:h-[550px]'}
+            />
             <main>
                 <div className="container mx-auto p-10">
                     <p>

@@ -86,19 +86,28 @@ export default function MainContentAboutUs() {
 
 
                     {/* Image section */}
-                    <div className={'my-10'}>
+                    <div className={'mt-20 grid grid-cols-2'}>
                         {data.data?.featured_image_content &&(
-                            <div className={'h-[450px]'}>
+                            <div className={'h-[550px]'}>
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
                                     className={'w-full h-full object-cover object-center'}
                                     src={ NEXT_URL_BACKOFFICE + data.data?.featured_image_content.url} alt={'Meet the team - Miles Mediation'}/>
                             </div>
                         )}
-                        <div className={'text-center mt-10'}>
-                            <Link href={'/about-us/our-team'} >
+                        <div className={'p-10 bg-cyan-800 text-white flex justify-center  flex-col'}>
+                            <h2 className={'h2-title-section'}>
+                                Meet the Team
+                            </h2>
+                            <p className={'text-sm mt-5'}>
+                                Our team of neutrals is comprised of experienced attorneys, retired judges, and
+                                professionals from diverse backgrounds who bring a wealth of knowledge and expertise to
+                                every case. We are committed to providing exceptional service and helping our clients
+                                achieve their goals through effective dispute resolution.
+                            </p>
+                            <Link href={'/about-us/our-team'} className={'mt-10'}>
                                 <Button className={'hover:cursor-pointer'}>
-                                    Meet the team
+                                    See More
                                 </Button>
                             </Link>
                         </div>
@@ -106,34 +115,34 @@ export default function MainContentAboutUs() {
 
                     </div>
                     {/* Services section */}
-                    <div className={'my-10'}>
+                    <div className={'mt-50'}>
                         <h2 className={'h2-title-section text-center main-text-color'}>
                             We provide the following services
                         </h2>
-                        <div className={'grid grid-cols-5 mt-10 gap-5'}>
-                            {data.data.services_list.length > 0 &&(
-                                <div>
 
-                                    {data.data.services_list.map((item: {
-                                        description: string;
-                                        title: string;
-                                        featured_image: { url: string } | null;
-                                    }, index: number) => (
-                                        <div key={index}>
+                        {data.data.services_list.length > 0 &&(
+                            <div className={'grid grid-cols-5 mt-10 gap-5'}>
 
-                                            <SimpleCard
-                                                title={item.title}
-                                                description={item.description}
-                                                icon={item.featured_image ? NEXT_URL_BACKOFFICE + item.featured_image.url : ''}
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
+                                {data.data.services_list.map((item: {
+                                    description: string;
+                                    title: string;
+                                    featured_image: { url: string } | null;
+                                }, index: number) => (
+                                    <div key={index}>
 
-                            )}
+                                        <SimpleCard
+                                            title={item.title}
+                                            description={item.description}
+                                            icon={item.featured_image ? NEXT_URL_BACKOFFICE + item.featured_image.url : ''}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
 
-                        </div>
-                        <p className={'text-sm mt-10'}>
+                        )}
+
+
+                        <p className={'text-sm mt-10 text-center'}>
                             Miles is the fastest-growing ADR provider with offices in Atlanta, Birmingham,
                             Charlotte, Columbia, Houston, Jacksonville, Nashville, Palm Beach, Tampa, Savannah, and
                             St. Louis.

@@ -50,6 +50,7 @@ export default async function Page(){
                 title={OurTeamData.data?.page_header.title}
                 description={OurTeamData.data?.page_header.description}
                 backgroundImage={OurTeamData.data?.page_header?.backgroundImage?.url || ''}
+                classname={'h-[450px] md:h-[550px]'}
             />
             <MainContentOurTeam />
             <CallToAction />

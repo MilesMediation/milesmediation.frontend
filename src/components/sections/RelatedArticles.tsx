@@ -2,7 +2,8 @@
 
 import CardComponent from "@/components/cards/CardComponent";
 import classNames from "classnames";
-import {useEffect, useState} from "react";
+import {useMemo} from "react";
+
 
 interface relatedArticleTypes {
     amount?: 2 | 3 | 5;
@@ -14,19 +15,21 @@ interface relatedArticleTypes {
 }
 
 
-
 export default function RelatedArticles(
-    {amount=3, customTitle='RELATED ARTICLES', bgMode='light', cardSize='lg', className='', articleList = []}: relatedArticleTypes) {
+    {
+        amount = 3,
+        customTitle = 'RELATED ARTICLES',
+        bgMode = 'light',
+        cardSize = 'lg',
+        className = '',
+        articleList
+    }: relatedArticleTypes) {
 
-    const [relatedArticlesData, setRelatedArticlesData] = useState<relatedArticleTypes>({
-        cardSize: 'lg',
-        articleList: []
-    })
 
-    const testData : {name:string; url: string; size: 'sm'| 'md' | 'lg', image: string} = {
+    const testData: { name: string; url: string; size: 'sm' | 'md' | 'lg', image: string } = {
         name: 'The Current State of Non-Competes: How the Recent FTC Rule Affects Missouri Employment Attorneys',
         url: '/',
-        size:'lg',
+        size: 'lg',
         image: ''
     }
 
@@ -35,77 +38,113 @@ export default function RelatedArticles(
         'bg-teal-800': bgMode === 'dark',
     })
 
+    // Normalize incoming data to the shape CardComponent expects
+    const normalizedItems = useMemo(() => {
+        if (!Array.isArray(articleList)) return [] as { name: string; url: string; image?: string }[];
 
-    useEffect(() => {
-        setRelatedArticlesData({
-            cardSize: cardSize
-        })
-    }, [cardSize]);
+        const mapImage = (a: any): string | undefined => {
+            // Common cases for Strapi responses (direct or attributes-based)
+            if (a?.articleImage?.url) return a.articleImage.url;
+            if (a?.articleImage?.data?.attributes?.url) return a.articleImage.data.attributes.url;
+            if (a?.image?.url) return a.image.url;
+            if (a?.attributes?.articleImage?.data?.attributes?.url) return a.attributes.articleImage.data.attributes.url;
+            return undefined;
+        }
 
-    useEffect(() => {
-        console.log('Related Articles - articleList: ', articleList);
+        const mapSlug = (a: any): string | undefined => {
+            return a?.slug || a?.attributes?.slug;
+        }
+
+        const mapTitle = (a: any): string => {
+            return a?.title || a?.name || a?.attributes?.title || a?.attributes?.name || '';
+        }
+
+        const mapUrl = (a: any): string => {
+            if (typeof a?.url === 'string') return a.url;
+            const slug = mapSlug(a);
+            return slug ? `/blog/articles/${slug}` : '/';
+        }
+
+        return articleList.map((a: any) => ({
+            name: mapTitle(a),
+            url: mapUrl(a),
+            image: mapImage(a)
+        }));
     }, [articleList]);
-    
-    if (!relatedArticlesData)return null;
 
-
-    return(
+    return (
         <>
 
             <section className={`${backgrounColorCustom} ${className} `}>
                 <div className={'container mx-auto py-40'}>
-                    <h2 className={'text-5xl main-text-color uppercase font-bold'}>
+                    <h2 className={`text-5xl uppercase font-bold ${bgMode === 'dark' ? 'text-white' : 'main-text-color'} `}>
                         {customTitle}
                     </h2>
-                    {(amount == 3 || amount == 2) &&(
-                    <div className={'mt-10 flex flex-row flex-wrap'}>
-                        {(articleList && articleList?.length) > 0 && (
-                            <>
-                                {articleList.map((article, index) => (
-                                    <div key={index} className={`w-1/${amount} p-4`}>
-                                        <CardComponent   name={article.name} url={article.url} size={relatedArticlesData.cardSize} />
-                                    </div>
-                                ))}
-                            </>
-                        )}
-                        {articleList?.length == 0 && (
-                            Array.from({ length: amount }).map((_, index) => (
-                                <div key={index} className={`w-1/${amount} p-4`}>
-                                    <CardComponent   name={testData.name} url={testData.url} size={relatedArticlesData.cardSize} />
-                                </div>
-
-                            ))
-                        )}
-                    </div>
+                    {(amount == 3 || amount == 2) && (
+                        <div className={'mt-10 flex flex-row flex-wrap'}>
+                            {(() => {
+                                const itemsToRender = normalizedItems.slice(0, amount);
+                                return (
+                                    <>
+                                        {itemsToRender.map((item, index) => (
+                                            <div key={`${item.url}-${index}`} className={`w-1/${amount} p-4`}>
+                                                <CardComponent name={item.name} url={item.url} image={item.image} size={cardSize}/>
+                                            </div>
+                                        ))}
+                                        {normalizedItems.length === 0 && Array.from({length: amount}).map((_, index) => (
+                                            <div key={`ph-${index}`} className={`w-1/${amount} p-4`}>
+                                                <CardComponent name={testData.name} url={testData.url} size={cardSize}/>
+                                            </div>
+                                        ))}
+                                    </>
+                                );
+                            })()}
+                        </div>
                     )}
 
-{amount == 5 && (
-  <>
-    <div className="mt-10 grid grid-cols-2 gap-4">
-      {Array.from({ length: 2 }).map((_, index) => (
-        <div key={index} className="w-1.2">
-          <CardComponent
-            name={testData.name}
-            url={testData.url}
-            size={testData.size}
-          />
-        </div>
-      ))}
-    </div>
+                    {amount == 5 && (
+                        <>
+                            <div className="mt-10 grid grid-cols-2 gap-4">
+                                {(() => {
+                                    const topItems = normalizedItems.slice(0, 2);
+                                    return (
+                                        <>
+                                            {topItems.map((item, index) => (
+                                                <div key={`top-${item.url}-${index}`} className="w-1.2">
+                                                    <CardComponent name={item.name} url={item.url} image={item.image} size={cardSize} />
+                                                </div>
+                                            ))}
+                                            {normalizedItems.length === 0 && Array.from({length: 2}).map((_, index) => (
+                                                <div key={`top-ph-${index}`} className="w-1.2">
+                                                    <CardComponent name={testData.name} url={testData.url} size={cardSize} />
+                                                </div>
+                                            ))}
+                                        </>
+                                    );
+                                })()}
+                            </div>
 
-    <div className="mt-4 grid grid-cols-3 gap-4">
-      {Array.from({ length: 3 }).map((_, index) => (
-        <div key={index} className="">
-          <CardComponent
-            name={testData.name}
-            url={testData.url}
-            size={testData.size}
-          />
-        </div>
-      ))}
-    </div>
-  </>
-)}
+                            <div className="mt-4 grid grid-cols-3 gap-4">
+                                {(() => {
+                                    const bottomItems = normalizedItems.slice(2, 5);
+                                    return (
+                                        <>
+                                            {bottomItems.map((item, index) => (
+                                                <div key={`bottom-${item.url}-${index}`} className="">
+                                                    <CardComponent name={item.name} url={item.url} image={item.image} size={cardSize} />
+                                                </div>
+                                            ))}
+                                            {normalizedItems.length === 0 && Array.from({length: 3}).map((_, index) => (
+                                                <div key={`bottom-ph-${index}`} className="">
+                                                    <CardComponent name={testData.name} url={testData.url} size={cardSize} />
+                                                </div>
+                                            ))}
+                                        </>
+                                    );
+                                })()}
+                            </div>
+                        </>
+                    )}
                 </div>
             </section>
 

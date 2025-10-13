@@ -1,6 +1,5 @@
 import MainNavigation from "@/components/global/MainNavigation";
 import PageHeader from "@/components/global/PageHeader";
-import RelatedArticles from "@/components/sections/RelatedArticles";
 import CallToAction from "@/components/global/CallToAction";
 import Footer from "@/components/global/Footer";
 import {Metadata} from "next";
@@ -37,8 +36,6 @@ const blog_page_endpoint = '/page-blog-and-event?populate[metadata][populate]=*&
 export async function generateMetadata(): Promise<Metadata> {
     try {
         const metadata_response = await customPageData<PageBlogLandingDataType>(blog_page_endpoint);
-
-        console.log('Article List',metadata_response)
 
         return defaulMetadataResponse(metadata_response.data?.metadata);
 
@@ -92,10 +89,16 @@ export default async function Blog(){
     return(
         <>
             <MainNavigation/>
-            <PageHeader title={ArticlesPageData.data.page_header.title || 'Blog & Events'}
-                        description={ ArticlesPageData.data.page_header.description ||''}
+            <PageHeader
+                title={ArticlesPageData.data.page_header.title || 'Blog & Events'}
+                description={ ArticlesPageData.data.page_header.description ||''}
+                backgroundImage={ ArticlesPageData.data.page_header.backgroundImage ? ArticlesPageData.data.page_header.backgroundImage.url  :''}
+                classname={'h-[450px] md:h-[550px]'}
             />
+
+            {/** This main content blog has client side rendering */}
             <MainContentBlogLanding />
+
             <CallToAction />
             <Footer/>
         </>

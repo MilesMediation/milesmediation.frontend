@@ -29,14 +29,16 @@ export default async function Page({params}: {params: Promise<{ slug: string }>}
     const slug_data = await params;
     let ArticleData: ApiResponse | null = null;
 
+    console.log('PRE CHECK, ', slug_data)
 
-
+    const URL_ENDPOINT = `/articles?filters[slug][$eq]=${slug_data.slug}&populate=*`;
     try {
-        // Fetch data on the server
-        const response = await customPageData(`/articles?filters[slug][$eq]=${slug_data.slug}&populate=*`);
+        // Fetch data on the server /api/articles?filters[slug][$eq]=${slug_data.slug}}&populate=*
+        const response = await customPageData(`${URL_ENDPOINT}`);
         ArticleData = response as ApiResponse;
 
-
+        console.log('TEST4: ', URL_ENDPOINT)
+        console.log('TEST3: ', ArticleData)
     } catch (error) {
         console.error("❌ Failed to fetch Article data:", error);
         // Create fallback data structure
@@ -55,6 +57,7 @@ export default async function Page({params}: {params: Promise<{ slug: string }>}
     }
 
     let data: ArticlesType | null = null;
+
     if(ArticleData && Array.isArray(ArticleData.data) && ArticleData.data.length > 0){
         data = ArticleData.data[0];
     }
@@ -78,17 +81,17 @@ export default async function Page({params}: {params: Promise<{ slug: string }>}
                 <BlogHeader
                     title={data.title || 'Article Title'}
                     date={dayjs(data.createdAt).format('ddd, MMM Do, YYYY')}
-                    category={data.articles_category.name || null}
-                    author={data.neutral.name || 'Miles Mediation'}
+                    category={data.articles_category?.name || null}
+                    author={data.neutral?.name || 'Miles Mediation'}
 
-                    category_slug={data.articles_category.slug || ''}
-                    author_slug={data.neutral.slug || ''}
+                    category_slug={data.articles_category?.slug || ''}
+                    author_slug={data.neutral?.slug || ''}
 
 
                 />
                 <div className={'container mx-auto pt-60'}>
                     <p className={'mb-5'}>
-                        By {data.neutral.name || 'Miles Mediation'}
+                        By {data.neutral?.name || 'Miles Mediation'}
                     </p>
                     {data.Content && data.Content.length > 0 && (
                         <ArticleContent content={data.Content} />

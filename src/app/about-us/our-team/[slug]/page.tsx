@@ -7,6 +7,7 @@ import {customPageData} from "@/lib/api";
 import {NEXT_URL_BACKOFFICE} from "@/lib/globalConstants";
 import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import type { Member } from "@/types/api";
+import RelatedArticles from "@/components/sections/RelatedArticles";
 
 
 interface ApiResponse {
@@ -68,13 +69,20 @@ export default async function Page({params}: {params: Promise<{ slug: string }>}
                     </div>
                     <div className="col-span-5">
                         <h1 className={'text-5xl font-medium main-text-color mb-5'}>{memberData.name}</h1>
+                        <div className={''}>
                         {memberData.bio && memberData.bio.length > 0 && (
                             <BlocksRenderer 
                                 // @ts-expect-error BlocksRenderer expects specific block format from Strapi
                                 content={memberData.bio}
                             />
                         )}
+                        </div>
                     </div>
+                </div>
+                <div className={'w-full'}>
+                    <RelatedArticles
+
+                        cardSize={'md'} />
                 </div>
             </main>
             <Footer />
