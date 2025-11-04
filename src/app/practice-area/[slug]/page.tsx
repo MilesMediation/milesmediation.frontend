@@ -1,81 +1,81 @@
-'use client'
-
 import MainNavigation from "@/components/global/MainNavigation";
 import PageHeader from "@/components/global/PageHeader";
 import CallToAction from "@/components/global/CallToAction";
 import Footer from "@/components/global/Footer";
-import NeutralSection from "@/components/sections/NeutralSection";
-import RelatedArticles from "@/components/sections/RelatedArticles";
-import { useParams } from "next/navigation";
-import useSWR from "swr";
-import { URL_BACKOFFICE_DOMAIN } from "@/lib/globalConstants";
+
+import MainContentOurTeam from "@/app/practice-area/[slug]/components/mainContentPracticeArea";
+import {SeoData, StrapiResponse} from "@/types/api";
+import {customPageData} from "@/lib/api";
+import {Metadata} from "next";
+import {defaulMetadataResponse} from "@/lib/utils";
+
+interface PracticeAreaData {
+    id: number;
+    Name: string;
+    description: string;
+    slug: string;
+    featuredImage?: { 
+        id: number;
+        url: string;
+        alternativeText?: string;
+    } | null;
+    metadata?: SeoData;
+}
+
+// Metadata here
+export async function generateMetadata({params}: {params: Promise<{ slug: string }>}): Promise<Metadata> {
+    const slug_data = await params;
+    try {
+        const metadata_response = await customPageData<PracticeAreaData[]>(`/practice-areas?filters[slug][$eq]=${slug_data.slug}&populate[metadata][populate]=*`);
+        return defaulMetadataResponse(metadata_response.data[0]?.metadata);
+
+    } catch (error) {
+        console.error("Error generating metadata:", error);
+        return defaulMetadataResponse(null);
+    }
+
+}
 
 
-const fetcher = (url: string | URL | Request) =>
-    fetch(url).then((r) => r.json())
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+    const slug_data = await params;
+    let PracticeAreaHeader: StrapiResponse<PracticeAreaData[]> | null = null;
 
+    // Get Header data here using the slug param
+    const URL_ENDPOINT = `/practice-areas?filters[slug][$eq]=${slug_data.slug}&populate=*`;
 
-export default function Page() {
+    try{
+        PracticeAreaHeader = await customPageData<PracticeAreaData[]>(`${URL_ENDPOINT}`);
 
-    const params = useParams();
+    } catch (error){
+        console.error("❌ Failed to fetch Practice Area data:", error);
+        // Create fallback data structure
+        PracticeAreaHeader = {
+            data: [],
+            meta: undefined
+        };
+    }
 
-    const { slug } = params;
+    let data: PracticeAreaData | null = null;
 
-    const FETCH_URL = `/api/practice-areas?filters[slug][$eq]=${slug}&populate=*`;
+    if(PracticeAreaHeader && Array.isArray(PracticeAreaHeader.data) && PracticeAreaHeader.data.length > 0){
+        data = PracticeAreaHeader.data[0];
+    }
 
-
-    const { data, error, isLoading } = useSWR(`${URL_BACKOFFICE_DOMAIN}${FETCH_URL}`, fetcher)
-
-
-
-    if (isLoading) return <div>Loading...</div>
-    if (error) return <div>Error: {error.message}</div>
     if(!data) return null;
 
-    const dataPage = data.data[0]
-    console.log('Check Data',data.data[0])
 
-        
 
     return (
         <>
             <MainNavigation />
             <PageHeader 
-                backgroundImage={dataPage.featuredImage ? `${URL_BACKOFFICE_DOMAIN}${dataPage.featuredImage.url}` : ''}
-                title={dataPage.Name ? dataPage.Name : 'Default title'}
+                backgroundImage={ data.featuredImage?.url || ''}
+                title={ data.Name || 'Default title'}
                 classname={'h-[450px] md:h-[550px]'}
             />
-            <main>
-                <div className="container mx-auto p-10">
-                    <p>
-                        {dataPage.description ? dataPage.description : 'Default description'}
-                    </p>
-                    <div>
-
-                        <div className={'pt-10'}>
-                            <NeutralSection
-                                title={'Our Neutrals for this practices area'}
-                                description={'Is active across the entire value chain of life sciences investments,\n' +
-                                    '                            from seed to later-stage, with a focus on healthcare and sustainability'}
-                            />
-                        </div>
-                        <div>
-                            <RelatedArticles customTitle={'Last Entries'} amount={5} cardSize={'lg'} />
-                        </div>
-                        <div>
-                            <RelatedArticles amount={3} cardSize={'lg'} />
-                        </div>
-                        <div>
-                            <h3 className={'text-center font-bold main-text-color pb-60'}>
-                                Awards &  Commendations
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <CallToAction />
-                </div>
-            </main>
+            <MainContentOurTeam slug={slug_data.slug} />
+            <CallToAction />
             <Footer />
         </>
     )

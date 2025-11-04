@@ -15,7 +15,7 @@ interface GalleryItem {
 
 export function CarouselComponent({gallery}: {gallery: GalleryItem[]}) {
 
-    console.log('Gallery check', gallery)
+    // console.log('Gallery check', gallery)
 
     if (!gallery) return null
 
@@ -24,9 +24,9 @@ export function CarouselComponent({gallery}: {gallery: GalleryItem[]}) {
             <CarouselContent >
                 {gallery.map((item, index) => (
                     <CarouselItem key={index}  className="sm:basis-1 lg:basis-7xl">
-                        <div className="p-1">
+                        <div className="">
                             <Card className={'py-0'}>
-                                <CardContent className="flex h-[600px] rounded-xl overflow-hidden items-center justify-center p-0">
+                                <CardContent className="flex h-[440px] rounded-xl overflow-hidden items-center justify-center p-0">
                                     {/*<span className="text-4xl font-semibold">{index + 1}</span>*/}
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img src={`http://localhost:1337${item.url}`} alt="" className={'w-full h-full object-cover'} />
@@ -36,8 +36,8 @@ export function CarouselComponent({gallery}: {gallery: GalleryItem[]}) {
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className={'button-left'} />
+            <CarouselNext  className={'button-right'}/>
         </Carousel>
     )
 }

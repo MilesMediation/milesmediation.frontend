@@ -1,6 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/* Neue Plak Font Family */
+@font-face {
+    font-family: 'Neue Plak';
+    font-style: normal;
+    font-weight: 100;
+    src: url('https://fonts.cdnfonts.com/s/67517/Neue%20Plak%20Thin.woff') format('woff');
+}
+@font-face {
+    font-family: 'Neue Plak';
+    font-style: normal;
+    font-weight: 200;
+    src: url('https://fonts.cdnfonts.com/s/67517/Neue%20Plak%20UltraLight.woff') format('woff');
+}
+@font-face {
+    font-family: 'Neue Plak';
+    font-style: normal;
+    font-weight: 300;
+    src: url('https://fonts.cdnfonts.com/s/67517/Neue%20Plak%20Light.woff') format('woff');
+}
+@font-face {
+    font-family: 'Neue Plak';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.cdnfonts.com/s/67517/Neue%20Plak%20Regular.woff') format('woff');
+}
+@font-face {
+    font-family: 'Neue Plak';
+    font-style: normal;
+    font-weight: 600;
+    src: url('https://fonts.cdnfonts.com/s/67517/Neue%20Plak%20SemiBold.woff') format('woff');
+}
+@font-face {
+    font-family: 'Neue Plak';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://fonts.cdnfonts.com/s/67517/Neue%20Plak%20Bold.woff') format('woff');
+}
+@font-face {
+    font-family: 'Neue Plak';
+    font-style: normal;
+    font-weight: 800;
+    src: url('https://fonts.cdnfonts.com/s/67517/Neue%20Plak%20Black.woff') format('woff');
+}
+@font-face {
+    font-family: 'Neue Plak';
+    font-style: normal;
+    font-weight: 900;
+    src: url('https://fonts.cdnfonts.com/s/67517/Neue%20Plak%20ExtraBlack.woff') format('woff');
+}
+
 @import "tailwindcss";
 
 @import "tw-animate-css";
@@ -14,6 +64,9 @@
 
   --font-roboto-slab: 'Roboto Slab', serif;
   --font-poppins: 'Poppins', sans-serif;
+  --font-neue-plak: 'Neue Plak', sans-serif;
+  --font-title: var(--font-neue-plak);
+  --font-body: var(--font-poppins);
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -91,7 +144,7 @@
 }
 
 body {
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-neue-plak), sans-serif;
 
 }
 
@@ -101,7 +154,7 @@ h1,h2,h3{
 
 
 .font-title{
-  font-family: var(--font-roboto-slab), serif;
+  font-family: var(--font-neue-plak), sans-serif;
 }
 
 .main-text-color{
@@ -181,10 +234,10 @@ h1,h2,h3{
   opacity: 1 !important;
 }
 
-.slick-slide:not(:nth-child(2)) {
+/*.slick-slide:not(:nth-child(2)) {
   opacity: 0.6;
   transform: scale(0.95);
-}
+}*/
 
 .slick-track {
   display: flex !important;
@@ -240,7 +293,6 @@ h1,h2,h3{
 .office-carousel .slick-slide > div {
   display: flex;
   justify-content: center;
-  width: 100%;
 }
 
 /* Different border colors for each card in masonry gallery */
@@ -316,4 +368,37 @@ h1,h2,h3{
 
 .main-bg-color{
     background: var(--color-dark-green);
+}
+
+
+#officeGallery .button-left {
+    left: 10px;
+}
+#officeGallery .button-right {
+    right: 10px;
+}
+
+/* GSAP Office Carousel Styles */
+.office-carousel-container {
+    overflow: hidden;
+}
+.office-carousel-track {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+}
+.office-carousel-slide {
+    flex-shrink: 0;
+}
+.office-card {
+    transition: all 0.3s ease;
+}
+.office-card:hover .office-overlay {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
+.office-card:hover .office-glow {
+    opacity: 1 !important;
+}
+.office-card:hover h3 {
+    color: rgb(229, 231, 235);
 }

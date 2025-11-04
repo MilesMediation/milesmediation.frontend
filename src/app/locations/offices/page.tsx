@@ -39,12 +39,19 @@ export default function Page() {
                                 'the Miles Mediation experience is “Miles Above the Rest.”'}
                 />
 
+                <main>
 
-                <FeaturedCardsSection title={'Georgia'} offices={testDataOffice}/>
- n
-                <div>
-                    <RelatedArticles  cardSize={'sm'}/>
-                </div>
+                    <FeaturedCardsSection
+                        title={'Georgia'}
+                        offices={testDataOffice}
+                    />
+                    <div>
+                        <RelatedArticles
+                            cardSize={'lg'}
+                            exampleMode={true}
+                        />
+                    </div>
+                </main>
                 <div>
                     <CallToAction />
                 </div>

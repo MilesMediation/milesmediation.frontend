@@ -2,9 +2,11 @@
 
 import { useInView } from 'react-intersection-observer'
 import AnimatedImageCard from '@/components/cards/AnimatedImageCard'
+import {NEXT_URL_BACKOFFICE} from "@/lib/globalConstants";
 
 
-export default function MansonryGallery() {
+export default function MansonryGallery({gallery_prop} : {gallery_prop:{id:number;image_name: string; image_col:{url:string;}[]}[]}) {
+
     const { ref, inView } = useInView({
         triggerOnce: true,
         threshold: 0.2,
@@ -12,13 +14,13 @@ export default function MansonryGallery() {
     })
 
     // Define images and sizes to create a more impressive masonry layout
-    const columns = [
+    /*const columns = [
         ['/heroBanner.png', '/neutrals/ron.png'],
         ['/neutrals/sally.png', '/neutrals/leah.png'],
         ['/cardImgSample1.png'], // center large
         ['/neutrals/audrey.png', '/heroBanner.png'],
         ['/neutrals/john.png', '/neutrals/marc.png'],
-    ]
+    ]*/
 
     const columnOffsets = ['translate-y-10', 'translate-y-4', '-translate-y-6', 'translate-y-4', 'translate-y-10']
 
@@ -29,6 +31,8 @@ export default function MansonryGallery() {
         3: ['h-[280px]', 'h-[280px]'],
         4: ['h-[200px]', 'h-[200px]'],
     }
+
+    // console.log('gallery prop: ', gallery_prop)
 
     return (
         <>
@@ -80,15 +84,30 @@ export default function MansonryGallery() {
 
             `}</style>
 
-            <section ref={ref} className="relative w-full masonry-gallery">
-                <div className="flex gap-6 w-full justify-center masonry-wrapper">
-                    {columns.map((col, colIdx) => (
+            <section ref={ref} className="relative w-full masonry-gallery overflow-hidden">
+                <div className="flex gap-6 relative justify-center masonry-wrapper w-[130%] left-[-15%]">
+                    {gallery_prop.map((col, colIdx) => (
                         <div
                             key={colIdx}
                             className={`flex flex-col gap-6 w-[18%] p-2 ${columnOffsets[colIdx] ?? ''} ${colIdx === 2 ? 'center-column' : ''}`}
                             style={{ alignItems: 'center' }}
                         >
-                            {col.map((src, idx) => (
+                            {col.image_col.map((item, idx) => (
+                                <div key={idx}>
+                                    <AnimatedImageCard
+
+                                        src={`${NEXT_URL_BACKOFFICE}${item.url}`}
+                                        alt={`image-${colIdx}-${idx}`}
+                                        customDelay={inView ? 0.08 * (colIdx + idx) : 0}
+                                        customDuration={0.9 + idx * 0.08}
+                                        containerClassName={`masonry-card w-full overflow-hidden ${heightsForColumns[colIdx]?.[idx] ?? 'h-[240px]'}`}
+                                        customClassName={`object-cover`}
+                                        style={{ borderRadius: 18 }}
+                                    >
+                                    </AnimatedImageCard>
+                                </div>
+                            ))}
+                            {/*{col.map((src, idx) => (
                                 <AnimatedImageCard
                                     key={idx}
                                     src={src}
@@ -100,7 +119,7 @@ export default function MansonryGallery() {
                                     style={{ borderRadius: 18 }}
                                 >
                                 </AnimatedImageCard>
-                            ))}
+                            ))}*/}
                         </div>
                     ))}
                 </div>

@@ -1,5 +1,6 @@
 import ButtonMiles from "@/components/ui/custom/ButtonMiles";
 import CardComponent from "@/components/cards/CardComponent";
+import Link from "next/link";
 
 interface officesData{
     name: string;
@@ -11,9 +12,10 @@ interface featuredData {
     title?: string
     offices?: officesData[]
     seeMoreURL?: string
+    description?: string;
 }
 
-export function FeaturedCardsSection({ offices, seeMoreURL='', title = 'Default title' }: featuredData) {
+export function FeaturedCardsSection({ offices, description='', seeMoreURL='', title = 'Default title' }: featuredData) {
     return (
         <div className="container mx-auto py-10">
             {/* Title Section */}
@@ -21,11 +23,18 @@ export function FeaturedCardsSection({ offices, seeMoreURL='', title = 'Default 
                 <h3 className={'text-5xl main-text-color font-bold'}>{title}</h3>
                 {seeMoreURL &&(
                     <>
-                        <ButtonMiles variant="contained">See all</ButtonMiles>
+                        <Link href={seeMoreURL} passHref>
+                            <ButtonMiles  variant="contained">See all</ButtonMiles >
+                        </Link>
                     </>
                 )}
 
             </div>
+            {description &&(
+            <div>
+                <p>{description}</p>
+            </div>
+            )}
 
             {/* Cards section */}
             <div className="mt-10 flex flex-row gap-4">

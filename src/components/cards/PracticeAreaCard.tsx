@@ -11,12 +11,12 @@ interface PracticeAreaCardProps {
 
 export default function PracticeAreaCard({ title, bgImage, slug }: PracticeAreaCardProps) {
 
-    console.log('bgImage check', bgImage)
+    // console.log('bgImage check', bgImage)
     return(
         <>
             <Link href={slug? '/practice-area/'+ slug : ''}>
                 <div style={{backgroundImage: `url(${bgImage ? bgImage : '/demo/buildings_1.jpg'})`}}
-                    className="w-[300px] flex-grow h-[300px]  flex flex-col justify-center items-center bg-cover bg-no-repeat relative rounded-md">
+                    className="w-full flex-grow h-[400px] flex flex-col justify-center items-center bg-cover bg-no-repeat relative rounded-md">
                     
                         <div
                             className="absolute w-full h-full opacity-80  rounded-md z-10 bg-[linear-gradient(180deg,_rgba(0,49,53,0.19)_0%,_rgba(10,33,38,0.75)_100%)]"

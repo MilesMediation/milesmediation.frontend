@@ -43,9 +43,9 @@ export default function MainNavigation() {
     }, [])
 
     return (
-        <header className="w-full relative h-[100px] mb-0 z-[1000]">
+        <header className="w-full relative h-[100px] mb-0 z-[1000] pt-4">
             {/* Top bar */}
-            <div className="w-full bg-[var(--color-dark-green)] text-white text-sm">
+            <div className="w-full bg-[var(--color-dark-green)] text-white text-sm hidden">
                 <div className="mx-auto max-w-[1680px] px-[6rem] py-2 flex justify-end space-x-8">
                     {topLinks.map((item, idx) => (
                         <a key={idx} href="#" className="hover:underline underline-offset-4 transition-all">
@@ -58,7 +58,7 @@ export default function MainNavigation() {
             {/* Navigation */}
             <motion.div
                 id="navigationBlock"
-                className={`w-full bg-white text-[#19233C] shadow-sm transition-all duration-300 ${
+                className={`w-full  text-[#19233C]  transition-all duration-300 ${
                     isScrolled 
                         ? 'fixed top-0 inset-x-0 z-50' 
                         : 'sticky'
@@ -75,12 +75,15 @@ export default function MainNavigation() {
                 <div className="mx-auto max-w-[1680px] px-[6rem] py-1 flex justify-between items-center h-[5rem]">
                     <Link href="/">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="/logo-miles.png" alt="Miles Mediation Logo" className="h-12" />
+                        <img src="/main-logo-white.svg" alt="Miles Mediation Logo" className="h-12" />
                     </Link>
 
                     {/* Desktop menu */}
-                    <div className="hidden md:block relative z-50">
-                        <NavigationMenuDemo />
+                    <div className="hidden md:block relative z-50 bg-w h-[70px] ">
+                        <div className={'flex justify-center h-full  bg-white rounded-4xl px-5 shadow-md'}>
+
+                            <NavigationMenuDemo />
+                        </div>
                     </div>
 
                     {/* Mobile menu icon */}

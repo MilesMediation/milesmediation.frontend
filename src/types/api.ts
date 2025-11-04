@@ -14,6 +14,13 @@ export interface StrapiResponse<T> {
   };
 }
 
+export interface CustomApiResponse {
+    // data: Object[];
+    data: PageHeaderData;
+    metadata?: Record<string, unknown>;
+    errors?: Record<string, unknown>;
+}
+
 export interface StrapiError {
   data: null;
   error: {
@@ -43,6 +50,9 @@ export interface HeroData {
   main_title: string;
   description: string;
   is_available: boolean;
+  featured_banner:[
+      { url: string; }
+  ]
 }
 
 export interface SeoData {
@@ -55,6 +65,35 @@ export interface SeoData {
   metaViewport: string;
   canonicalURL: string;
 }
+
+// Page Header Component
+export interface PageHeaderData {
+    id: number;
+    title: string;
+    description: string;
+    backgroundImage?: {
+        id: number;
+        url: string;
+        alternativeText?: string;
+    };
+}
+
+export interface PageDataType{
+    metadata: SeoData;
+    page_header: PageHeaderData;
+    long_description?: RichTextBlock[];
+    id: number;
+    data:{
+        metadata: SeoData;
+        page_header: PageHeaderData;
+        long_description?: string;
+    },
+    createdBy?: string;
+    updatedBy?: string;
+    createdAt?: string;
+    updatedAt?: string;
+}
+
 
 export interface UserData {
   id: number;
@@ -192,22 +231,19 @@ export interface ServiceData {
   publishedAt: string;
 }
 
-// Page Header Component
-export interface PageHeaderData {
-  id: number;
-  title: string;
-  description: string;
-  backgroundImage?: {
-    id: number;
+export interface MediaItem {
     url: string;
-    alternativeText?: string;
-  };
+    type?: 'image' | 'video';
+    alt?: string;
 }
 
 // Page Location Data
 export interface PageLocationData {
   id: number;
   documentId: string;
+  featured_block: {
+      featured_media: string | MediaItem[]
+  };
   createdAt: string;
   updatedAt: string;
   publishedAt: string | null;
@@ -261,6 +297,14 @@ export interface BioContent {
 }
 
 export interface Member {
+    quote: string;
+    posts: {
+        createdAt: string;
+        CreatedDate: string;
+        id: number;
+        title: string;
+        slug: string;
+    }[];
     id: number;
     name: string;
     slug: string;
@@ -307,10 +351,10 @@ export interface ArticlesType{
     updatedAt: string;
     publishedAt: string;
 }
+
 export interface MembersResponse {
     data: Member[];
 }
-
 
 
 // API Configuration

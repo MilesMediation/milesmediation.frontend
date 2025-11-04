@@ -69,7 +69,7 @@ async function fetchFromStrapi<T>(
 export async function fetchPageHome(): Promise<StrapiResponse<PageHomeData>> {
     try {
         console.log('🔍 Fetching page-home data from Strapi...');
-        const data = await fetchFromStrapi<StrapiResponse<PageHomeData>>('/page-home');
+        const data = await fetchFromStrapi<StrapiResponse<PageHomeData>>('/page-home?populate[0]=Hero&populate[1]=Hero.featured_banner');
         console.log('✅ Page-home data fetched successfully:', {
             id: data.data.id,
             heroTitle: data.data.Hero?.main_title,
@@ -279,6 +279,18 @@ export async function fetchAboutUsPageData() {
 export async function fetchOurTeamPageData() {
     try {
         return await fetchFromStrapi<StrapiResponse<PageOurTeamData>>('/page-our-team?populate[page_header][populate]=*&populate[metadata][populate]=*');
+    } catch (error) {
+        console.error('❌ Error fetching page-about-us:', error);
+        throw error;
+    }
+}
+
+// /members?filters[slug][$eq]=${slug_data.slug}&populate[avatar][populate]=*&populate[member_category][fields][0]=title&populate=posts
+// Data fetching for our Team Page
+export async function fetchLocationsByTag(tag: string) {
+
+    try {
+        return await fetchFromStrapi<StrapiResponse<PageOurTeamData>>(`/locations?filters[slug][$eq]=${tag}&populate[metadata][populate]=*&populate[offices][populate]=*&populate[articles][populate]=*`);
     } catch (error) {
         console.error('❌ Error fetching page-about-us:', error);
         throw error;

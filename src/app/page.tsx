@@ -9,6 +9,8 @@ import CallToAction from "@/components/global/CallToAction";
 import Footer from "@/components/global/Footer";
 import {fetchHomePageData} from "@/lib/api";
 import {Metadata} from "next";
+import BentoSection from "@/app/(home)/bentoSecton";
+import CustomRelatedArticles from "@/components/sections/customRelatedArticles";
 
 // Generate metadata dynamically
 export async function generateMetadata(): Promise<Metadata> {
@@ -63,7 +65,7 @@ export default async function Home() {
         homeData = await fetchHomePageData();
 
     } catch (error) {
-        console.error("❌ Failed to fetch home page data:", error);
+        console.error("❌ Failed to fetch home page data HOME DATA:", error);
         // Create fallback data structure
         homeData = {
             pageHome: null,
@@ -77,6 +79,8 @@ export default async function Home() {
         };
     }
 
+    console.log('CHECK HOME DATA: ',homeData);
+
     return (
         <div className="bg-white text-gray-800 space-y-12 relative">
             <MainNavigation/>
@@ -88,7 +92,12 @@ export default async function Home() {
             <OfficesSection
                 officesData={homeData.offices?.data}
             />
-            <DashboardSection
+            <BentoSection />
+            <CustomRelatedArticles
+                title={'Latest articles From the Miles'
+                }
+            />
+            {/*<DashboardSection
                 title="Dashboard"
                 description="Miles' neutrals are experienced mediators and arbitrators with expertise in their fields. They are experts in dispute resolution who are helping to shape the future of the ADR field with thought leadership that includes articles, speaking engagements, and CLE classes and training. Learn more about their background and experience here."
                 image="/cardImgSample1.png"
@@ -108,6 +117,8 @@ export default async function Home() {
                 dark
             />
             <OurVideos/>
+            */}
+
             <CallToAction/>
             <Footer/>
         </div>

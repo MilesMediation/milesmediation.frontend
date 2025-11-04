@@ -32,7 +32,10 @@ export default function Page() {
     return (
         <>
             <MainNavigation />
-            <PageHeader title="Mediation" />
+            <PageHeader
+                title="Mediation"
+                classname={'h-[450px] md:h-[550px]'}
+            />
             <main className="mb-10">
                 <FeaturedNeutralSection
                     title_1st_line="Our"

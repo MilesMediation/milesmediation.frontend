@@ -4,14 +4,47 @@ import CardComponent from "@/components/cards/CardComponent";
 import classNames from "classnames";
 import {useMemo} from "react";
 
+// Base article interface that covers common article structures
+interface BaseArticle {
+    id?: number;
+    title?: string;
+    name?: string;
+    slug?: string;
+    url?: string;
+    articleImage?: {
+        url?: string;
+        data?: {
+            attributes?: {
+                url?: string;
+            };
+        };
+    };
+    image?: {
+        url?: string;
+    };
+    attributes?: {
+        title?: string;
+        name?: string;
+        slug?: string;
+        articleImage?: {
+            data?: {
+                attributes?: {
+                    url?: string;
+                };
+            };
+        };
+    };
+}
 
-interface relatedArticleTypes {
+interface RelatedArticleTypes {
     amount?: 2 | 3 | 5;
     bgMode?: 'dark' | 'light';
     customTitle?: string;
     cardSize: 'sm' | 'md' | 'lg' | 'xl';
     className?: string;
-    articleList?: any[];
+    articleList?: BaseArticle[];
+    exampleMode?: boolean;
+    descriptionText?: string;
 }
 
 
@@ -22,8 +55,10 @@ export default function RelatedArticles(
         bgMode = 'light',
         cardSize = 'lg',
         className = '',
-        articleList
-    }: relatedArticleTypes) {
+        articleList,
+        exampleMode = false,
+        descriptionText= ''
+    }: RelatedArticleTypes) {
 
 
     const testData: { name: string; url: string; size: 'sm' | 'md' | 'lg', image: string } = {
@@ -42,7 +77,7 @@ export default function RelatedArticles(
     const normalizedItems = useMemo(() => {
         if (!Array.isArray(articleList)) return [] as { name: string; url: string; image?: string }[];
 
-        const mapImage = (a: any): string | undefined => {
+        const mapImage = (a: BaseArticle): string | undefined => {
             // Common cases for Strapi responses (direct or attributes-based)
             if (a?.articleImage?.url) return a.articleImage.url;
             if (a?.articleImage?.data?.attributes?.url) return a.articleImage.data.attributes.url;
@@ -51,21 +86,21 @@ export default function RelatedArticles(
             return undefined;
         }
 
-        const mapSlug = (a: any): string | undefined => {
+        const mapSlug = (a: BaseArticle): string | undefined => {
             return a?.slug || a?.attributes?.slug;
         }
 
-        const mapTitle = (a: any): string => {
+        const mapTitle = (a: BaseArticle): string => {
             return a?.title || a?.name || a?.attributes?.title || a?.attributes?.name || '';
         }
 
-        const mapUrl = (a: any): string => {
+        const mapUrl = (a: BaseArticle): string => {
             if (typeof a?.url === 'string') return a.url;
             const slug = mapSlug(a);
             return slug ? `/blog/articles/${slug}` : '/';
         }
 
-        return articleList.map((a: any) => ({
+        return articleList.map((a: BaseArticle) => ({
             name: mapTitle(a),
             url: mapUrl(a),
             image: mapImage(a)
@@ -76,23 +111,28 @@ export default function RelatedArticles(
         <>
 
             <section className={`${backgrounColorCustom} ${className} `}>
-                <div className={'container mx-auto py-40'}>
+                <div className={'container mx-auto py-10'}>
+                    {(normalizedItems.length > 0 || exampleMode) && (
                     <h2 className={`text-5xl uppercase font-bold ${bgMode === 'dark' ? 'text-white' : 'main-text-color'} `}>
                         {customTitle}
                     </h2>
+                    )}
+                    {descriptionText && (
+                        <p className={'mt-5'}>{descriptionText}</p>
+                    )}
                     {(amount == 3 || amount == 2) && (
-                        <div className={'mt-10 flex flex-row flex-wrap'}>
+                        <div className={'mt-10 flex gap-4'}>
                             {(() => {
                                 const itemsToRender = normalizedItems.slice(0, amount);
                                 return (
                                     <>
                                         {itemsToRender.map((item, index) => (
-                                            <div key={`${item.url}-${index}`} className={`w-1/${amount} p-4`}>
+                                            <div key={`${item.url}-${index}`} className={`w-1/${amount} `}>
                                                 <CardComponent name={item.name} url={item.url} image={item.image} size={cardSize}/>
                                             </div>
                                         ))}
-                                        {normalizedItems.length === 0 && Array.from({length: amount}).map((_, index) => (
-                                            <div key={`ph-${index}`} className={`w-1/${amount} p-4`}>
+                                        {(normalizedItems.length === 0 && exampleMode) && Array.from({length: amount}).map((_, index) => (
+                                            <div key={`ph-${index}`} className={`w-1/${amount} `}>
                                                 <CardComponent name={testData.name} url={testData.url} size={cardSize}/>
                                             </div>
                                         ))}
@@ -114,7 +154,7 @@ export default function RelatedArticles(
                                                     <CardComponent name={item.name} url={item.url} image={item.image} size={cardSize} />
                                                 </div>
                                             ))}
-                                            {normalizedItems.length === 0 && Array.from({length: 2}).map((_, index) => (
+                                            {(normalizedItems.length === 0 && exampleMode) && Array.from({length: 2}).map((_, index) => (
                                                 <div key={`top-ph-${index}`} className="w-1.2">
                                                     <CardComponent name={testData.name} url={testData.url} size={cardSize} />
                                                 </div>

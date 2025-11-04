@@ -261,7 +261,7 @@ export default function Page() {
 
                             </div>
 
-                            {/* Latest articles */}
+                            {/* Latest articles Section */}
                             <div className={'mt-10'}>
                                 <h3 className={'text-2xl font-bold font-title'}>Latest articles</h3>
                                 <div>

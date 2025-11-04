@@ -13,7 +13,7 @@ const fetcher = (url: string | URL | Request) =>
     fetch(url).then((r) => r.json())
 
 // API endpoint to get members with their categories
-const FETCH_URL = `/api/members?populate[avatar][populate]=*&populate[member_category][fields][0]=title`;
+const FETCH_URL = `/api/members?populate[avatar][populate]=*&populate[member_category][fields][0]=title&sort=order:asc`;
 
 /**
  * Main component for displaying team members with category filtering
@@ -56,7 +56,7 @@ export default function MainContentOurTeam(){
         : data;
 
 
-
+    console.log('Data Our Team', data);
     return(
         <>
             <main className="container mx-auto py-10 min-h-[calc(100vh-160px)]">

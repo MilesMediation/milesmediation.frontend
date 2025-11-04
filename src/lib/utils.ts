@@ -54,3 +54,8 @@ export function defaulMetadataResponse(metadata_response: SeoData | null | undef
         },
     };
 }
+
+
+
+export const fetcher = (url: string | URL | Request) =>
+    fetch(url).then((r) => r.json())

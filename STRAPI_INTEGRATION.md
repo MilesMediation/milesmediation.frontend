@@ -19,7 +19,7 @@ Se ha implementado exitosamente la integración con la API de Strapi en el lado 
 
 ### Archivos Modificados:
 
-1. **`src/app/page.tsx`** - Convertido a Server Component con fetch de datos
+1. **`src/app/old_page.tsx`** - Convertido a Server Component con fetch de datos
 2. **`src/app/(home)/HeroSection.tsx`** - Modificado para recibir datos del servidor
 3. **`src/app/(home)/OfficeSection.tsx`** - Modificado para recibir datos del servidor
 

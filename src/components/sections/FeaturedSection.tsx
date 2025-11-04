@@ -9,12 +9,9 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
+import {MediaItem} from "@/types/api";
 
-interface MediaItem {
-    url: string;
-    type?: 'image' | 'video';
-    alt?: string;
-}
+
 
 interface FeaturedParam {
     imgBg?: string;

@@ -5,7 +5,6 @@ import CallToAction from "@/components/global/CallToAction";
 import Footer from "@/components/global/Footer";
 import PageHeader from "@/components/global/PageHeader";
 import NeutralCard from "@/components/cards/NeutralCard";
-// import {testAzureConnection} from "@/lib/apiClients";
 import {AZURE_API_URL, AUTH_TOKEN} from "@/lib/globalConstants";
 import useSWR from 'swr';
 import { useState, useMemo, useRef, useEffect } from 'react';
@@ -21,27 +20,6 @@ import {
 } from "@/components/ui/pagination";
 import { ChevronDown, Search, MapPin, User, X } from 'lucide-react';
 
-// Mock Strapi data for demonstration (since we don't have access to the original Strapi endpoint)
-// const mockStrapiNeutrals = [
-//     { id: 1, name: 'Sally Ankins', slug: 'sally-ankins', avatar: { url: '/neutrals/sally.png' } },
-//     { id: 2, name: 'Leah Albert', slug: 'leah-albert', avatar: { url: '/neutrals/sally.png' } },
-//     { id: 3, name: 'William Atkins', slug: 'william-atkins', avatar: { url: '/neutrals/sally.png' } },
-//     { id: 4, name: 'John Austin', slug: 'john-austin', avatar: { url: '/neutrals/sally.png' } },
-//     { id: 5, name: 'Ron Bankston', slug: 'ron-bankston', avatar: { url: '/neutrals/sally.png' } },
-//     { id: 6, name: 'Marc Barré', slug: 'marc-barre', avatar: { url: '/neutrals/sally.png' } },
-//     { id: 7, name: 'Todd Bechtel', slug: 'todd-bechtel', avatar: { url: '/neutrals/sally.png' } },
-//     { id: 8, name: 'Audrey Berland', slug: 'audrey-berland', avatar: { url: '/neutrals/sally.png' } },
-// ];
-
-// Legacy Strapi interface (unused but kept for reference)
-// interface StrapiNeutral {
-//     id: number;
-//     name: string;
-//     slug: string;
-//     avatar?: {
-//         url: string;
-//     };
-// }
 
 // Azure API interface - updated to match actual response structure
 interface AzureNeutral {
@@ -245,7 +223,10 @@ export default function Page() {
     return (
         <div className="bg-white text-gray-800 space-y-12">
             <MainNavigation/>
-            <PageHeader/>
+            <PageHeader
+                classname={'h-[450px] md:h-[550px]'}
+                title={'Our Panel'}
+            />
             <section className="w-full py-[100px] px-4 bg-cover bg-center relative mb-0">
                 {/* Content */}
                 <div className="container mx-auto">

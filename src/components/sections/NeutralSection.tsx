@@ -26,7 +26,8 @@ export default function NeutralSection({title='Neutrals', description = descExam
         <>
             <div className={'container mx-auto'}>
                 <div className={'mb-10'}>
-                    <h2 className={'font-title font-bold main-text-color uppercase mb-5'}>
+
+                    <h2 className={'text-5xl uppercase font-bold main-text-color mb-5'}>
                         {title}
                     </h2>
                     {description && (

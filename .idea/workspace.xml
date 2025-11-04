@@ -5,49 +5,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8427eb36-94ee-4f77-807f-310ad8883e9b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/demo/aboutUsSample.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/demo/buildings_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/about-us/our-team/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/about-us/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/blog/articles/article-detail/components/authorComponent.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/blog/articles/article-detail/components/blogHeader.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/blog/articles/article-detail/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/blog/articles/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/blog/events/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/practice-area/details/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/practice-area/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/cards/PracticeAreaCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/cards/SimpleCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/flowbite/CardComponent.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/custom/DrawerCalendar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/apiClients.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/globalConstants.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/milesmediation-new.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/milesmediation-new.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/bg-demo-city.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/main-logo-white.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(home)/bentoSecton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/locations/[tag]/[slug]/components/MainContentOfficePage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/locations/[tag]/[slug]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/locations/[tag]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/practice-area/[slug]/components/mainContentPracticeArea.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/practice-area/components/CustomBlockDescription.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/practice-area/components/MainContentPracticeAreaLanding.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/cards/CustomArticleCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sections/RelatedArticlesClientSide.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sections/customRelatedArticles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STRAPI_INTEGRATION.md" beforeDir="false" afterPath="$PROJECT_DIR$/STRAPI_INTEGRATION.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(home)/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(home)/HeroSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(home)/IntroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(home)/IntroSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(home)/OfficeSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(home)/OfficeSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(home)/ServicesSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(home)/ServicesSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/about-us/our-team/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/about-us/our-team/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/about-us/our-team/components/MainContentOurTeam.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/about-us/our-team/components/MainContentOurTeam.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/locations/offices/office-detail/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/locations/offices/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/locations/components/MainContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/locations/components/MainContentLocationPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/locations/offices/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/locations/offices/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/locations/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/locations/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/our-panel/neutral/components/ArticlesNeutral.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/neutral/components/ArticlesNeutral.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/our-panel/neutral/components/CalendarNeutral.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/neutral/components/CalendarNeutral.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/our-panel/neutral/components/RatesSectionNeutral.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/neutral/components/RatesSectionNeutral.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/our-panel/neutral/components/ScheduleDateNeutral.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/neutral/components/ScheduleDateNeutral.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/our-panel/neutral/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/neutral/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/our-panel/mediators/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/mediators/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/our-panel/neutral/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/neutral/[slug]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/our-panel/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cards/CardComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/CardComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/practice-area/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/practice-area/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/practice-area/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/practice-area/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MansonryGallery.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MansonryGallery.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/cards/NeutralCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/NeutralCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/cards/OfficeCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/OfficeCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/global/CallToAction.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/global/CallToAction.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cards/PracticeAreaCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/PracticeAreaCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/global/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/global/Footer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/global/MainNavigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/global/MainNavigation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/global/NavigationMenuDemo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/global/NavigationMenuDemo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/global/PageHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/global/PageHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sections/FeaturedCardsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/FeaturedCardsSection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/sections/FeaturedSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/FeaturedSection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/sections/GallerySection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/GallerySection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/sections/NeutralSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/NeutralSection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/sections/RelatedArticles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/RelatedArticles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/carousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/carousel.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ui/custom/CarouselComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/custom/CarouselComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/api.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,30 +73,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.debugger.nextJs.config.created.server": "true",
-    "last_opened_file_path": "D:/Proyects/milesmediation-new",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.completion",
-    "ts.external.directory.path": "D:\\Proyects\\milesmediation-new\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Proyects/miles-website/milesmediation-new/src/app/locations&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Proyects\\miles-website\\milesmediation-new\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Proyects\miles-website\milesmediation-new\src\app\locations" />
+      <recent name="D:\Proyects\miles-website\milesmediation-new\src\components\sections" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Proyects\miles-website\milesmediation-new\public" />
       <recent name="D:\Proyects\milesmediation-new\src\app\our-panel\neutral\[slug]" />
       <recent name="D:\Proyects\milesmediation-new\public\demo" />
       <recent name="D:\Proyects\milesmediation-new\src\app" />
@@ -113,8 +130,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
-        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-WS-252.27397.92" />
       </set>
     </attachedChunks>
   </component>
@@ -146,6 +162,20 @@
       <workItem from="1752856754658" duration="1518000" />
       <workItem from="1753119096003" duration="2225000" />
       <workItem from="1753714830335" duration="10212000" />
+      <workItem from="1760448908959" duration="10703000" />
+      <workItem from="1760472271469" duration="2349000" />
+      <workItem from="1760490856449" duration="1102000" />
+      <workItem from="1760539099870" duration="6575000" />
+      <workItem from="1760554443822" duration="3722000" />
+      <workItem from="1760635737796" duration="20783000" />
+      <workItem from="1760918928125" duration="20084000" />
+      <workItem from="1761068285207" duration="24987000" />
+      <workItem from="1761226058696" duration="161000" />
+      <workItem from="1761226259867" duration="12361000" />
+      <workItem from="1761575549934" duration="697000" />
+      <workItem from="1761576296181" duration="20099000" />
+      <workItem from="1761927642666" duration="22563000" />
+      <workItem from="1762176145910" duration="17780000" />
     </task>
     <servers />
   </component>

@@ -1,13 +1,15 @@
-// src/app/locations/page.tsx  (SERVER)
+// src/app/locations/old_page.tsx  (SERVER)
 import MainNavigation from "@/components/global/MainNavigation";
 import PageHeader from "@/components/global/PageHeader";
 import { FeaturedSection } from "@/components/sections/FeaturedSection";
 import { fetchPageLocation } from "@/lib/api";
-import MainContent from "./components/MainContent";
+import MainContent from "./components/MainContentLocationPage";
 import Footer from "@/components/global/Footer";
+import { StrapiResponse, PageLocationData } from "@/types/api";
+import MainContentLocationPage from "./components/MainContentLocationPage";
 
 export default async function Page() {
-    let pageLocationData: any = null;
+    let pageLocationData: StrapiResponse<PageLocationData> | null = null;
 
     try {
         pageLocationData = await fetchPageLocation();
@@ -22,17 +24,16 @@ export default async function Page() {
     }
 
 
-    const pageHeaderTitle =
-        pageLocationData?.data?.pageHeader?.title || "Locations";
-    const pageHeaderDescription =
-        pageLocationData?.data?.pageHeader?.description ||
-        'Our diverse legal expertise, consistently high-touch administrative support, and dedication to our clients and neutrals can be summed up in the following words: the Miles Mediation experience is "Miles Above the Rest."';
-    const pageHeaderBackground =
-        pageLocationData?.data?.pageHeader?.backgroundImage?.url || "/cardImgSample1.png";
+    const pageHeaderTitle = pageLocationData?.data?.pageHeader?.title || "Locations";
+    const pageHeaderDescription = pageLocationData?.data?.pageHeader?.description ||
+        'Our diverse legal expertise, consistently high-touch administrative support, and dedication to our clients and' +
+        ' neutrals can be summed up in the following words: the Miles Mediation experience is "Miles Above the Rest."';
+    const pageHeaderBackground = pageLocationData?.data?.pageHeader?.backgroundImage?.url || "/cardImgSample1.png";
 
     // Si traes JSON-LD desde el CMS, inyéctalo aquí con <script type="application/ld+json">...
     const structuredDataRaw = pageLocationData?.data?.seo?.structuredData;
-    let structuredDataObj: Record<string, any> | null = null;
+    let structuredDataObj: Record<string, unknown> | null = null;
+
     if (structuredDataRaw) {
         try {
             structuredDataObj =
@@ -78,7 +79,7 @@ export default async function Page() {
 
                 />
 
-                <MainContent />
+                <MainContentLocationPage />
 
                 <div>
                     <Footer />

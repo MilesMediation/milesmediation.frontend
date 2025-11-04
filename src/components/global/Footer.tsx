@@ -43,7 +43,7 @@ export default function Footer() {
                 {/* Logo */}
                 <div className="flex flex-col items-start">
                     <Image
-                        src="/logo-miles.png"
+                        src="/main-logo-white.svg"
                         alt="Miles Mediation & Arbitration"
                         width={150}
                         height={60}
