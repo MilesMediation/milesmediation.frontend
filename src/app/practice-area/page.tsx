@@ -9,8 +9,6 @@ import Footer from "@/components/global/Footer";
 import {Metadata} from "next";
 import {defaulMetadataResponse} from "@/lib/utils";
 import MainContentPracticeAreaLanding from "@/app/practice-area/components/MainContentPracticeAreaLanding";
-import PracticeAreaCard from "@/components/cards/PracticeAreaCard";
-import {URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
 import CustomBlockDescription from "@/app/practice-area/components/CustomBlockDescription";
 
 

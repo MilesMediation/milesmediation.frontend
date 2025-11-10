@@ -18,22 +18,22 @@ interface CarouselConfig {
     };
 }
 
-interface CarouselComponentProps {
-    items: any[];
-    renderItem: (item: any, index: number) => React.ReactNode;
+interface CarouselComponentProps<T> {
+    items: T[];
+    renderItem: (item: T, index: number) => React.ReactNode;
     config: CarouselConfig;
     onControls?: (controls: { prev: () => void; next: () => void }) => void;
 }
 
-export default function CarouselComponent({ items, renderItem, config, onControls }: CarouselComponentProps) {
+export default function CarouselComponent<T>({ items, renderItem, config, onControls }: CarouselComponentProps<T>) {
     const containerRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
     const autoplayRef = useRef<gsap.core.Timeline | null>(null);
     const [canNavigate, setCanNavigate] = useState(true);
 
     // Duplicate items for infinite loop if enabled
-    const carouselItems = config.infiniteLoop 
-        ? [...items, ...items, ...items]
+    const carouselItems: T[] = config.infiniteLoop
+        ? ([] as T[]).concat(items, items, items)
         : items;
 
     // Use original items count for calculations

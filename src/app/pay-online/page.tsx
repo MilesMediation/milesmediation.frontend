@@ -119,7 +119,7 @@ export default function Page(){
                             <Button variant="default">
                                 Confirm
                             </Button>
-                            <Button variant={'outline'}>
+                            <Button variant={'outlined'}>
                                 Cancel
                             </Button>
                         </div>

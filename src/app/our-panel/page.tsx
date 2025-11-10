@@ -269,7 +269,7 @@ export default function Page() {
                                     <label className="block text-sm font-medium text-gray-700 mb-2">Practice Area</label>
                                     <div className="relative">
                                         <Button
-                                            variant="outline"
+                                            variant="outlined"
                                             onClick={() => setIsPracticeAreaOpen(!isPracticeAreaOpen)}
                                             className="w-full justify-between border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-200"
                                         >
@@ -330,7 +330,7 @@ export default function Page() {
                                     <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
                                     <div className="relative">
                                         <Button
-                                            variant="outline"
+                                            variant="outlined"
                                             onClick={() => setIsLocationOpen(!isLocationOpen)}
                                             className="w-full justify-between border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-200"
                                         >

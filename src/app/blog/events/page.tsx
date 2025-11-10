@@ -9,7 +9,6 @@ import {Metadata} from "next";
 import {customPageData} from "@/lib/api";
 import {defaulMetadataResponse} from "@/lib/utils";
 import {SeoData, StrapiResponse} from "@/types/api";
-import {URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
 
 // Type for the specific response we're expecting
 interface PageEventListData {

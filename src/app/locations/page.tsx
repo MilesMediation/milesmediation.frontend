@@ -3,7 +3,6 @@ import MainNavigation from "@/components/global/MainNavigation";
 import PageHeader from "@/components/global/PageHeader";
 import { FeaturedSection } from "@/components/sections/FeaturedSection";
 import { fetchPageLocation } from "@/lib/api";
-import MainContent from "./components/MainContentLocationPage";
 import Footer from "@/components/global/Footer";
 import { StrapiResponse, PageLocationData } from "@/types/api";
 import MainContentLocationPage from "./components/MainContentLocationPage";

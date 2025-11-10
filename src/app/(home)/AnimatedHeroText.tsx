@@ -47,11 +47,11 @@ export default function AnimatedHeroText({ items }: AnimatedHeroTextProps) {
                     // After animation, nextText is now visible at y:0, currentText is hidden above
                     // Reset currentText position for next cycle (move it below)
                     gsap.set(currentText, { y: 100, opacity: 0 });
-                    
+
                     // Update index for next animation
                     index = nextIndex;
                     setCurrentIndex(nextIndex);
-                    
+
                     // Schedule next animation
                     animationTimeoutId = setTimeout(animate, 3000); // Wait 3 seconds before next change
                 }
@@ -82,7 +82,7 @@ export default function AnimatedHeroText({ items }: AnimatedHeroTextProps) {
     }, [items]);
 
     if (items.length === 0) return null;
-
+    {console.log(currentIndex)}
     return (
         <div 
             ref={containerRef}
@@ -90,14 +90,14 @@ export default function AnimatedHeroText({ items }: AnimatedHeroTextProps) {
         >
             <h1
                 ref={textRef1}
-                className="absolute uppercase text-5xl sm:text-5xl md:text-6xl font-black tracking-tight bg-teal-600 p-1"
+                className="absolute uppercase text-5xl sm:text-5xl md:text-6xl font-bold tracking-tight  p-1"
                 style={{ fontFamily: 'var(--font-neue-plak)' }}
             >
                 {items[0]}
             </h1>
             <h1
                 ref={textRef2}
-                className="absolute uppercase text-5xl sm:text-5xl md:text-6xl font-black tracking-tight bg-teal-600 p-1"
+                className="absolute uppercase text-5xl sm:text-5xl md:text-6xl font-bold tracking-tight  p-1"
                 style={{ fontFamily: 'var(--font-neue-plak)' }}
             >
                 {items[1] || items[0]}

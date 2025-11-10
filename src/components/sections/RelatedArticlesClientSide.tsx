@@ -5,32 +5,80 @@ import classNames from "classnames";
 import {useMemo} from "react";
 import useSWR from "swr";
 import {URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
+import type {ArticlesType, RelatedArticleCard} from "@/types/api";
 
+type ArticleCardSize = 'sm' | 'md' | 'lg' | 'xl';
 
-interface relatedArticleTypes {
+interface RelatedArticleProps {
     amount?: 2 | 3 | 5;
     bgMode?: 'dark' | 'light';
     customTitle?: string;
-    cardSize: 'sm' | 'md' | 'lg' | 'xl';
+    cardSize?: ArticleCardSize;
     className?: string;
-    articleList?: any[];
-    endpoint_slug?: string | '';
+    articleList?: RelatedArticleCard[];
+    endpoint_slug?: string;
 }
 
-const fetcher = (url: string | URL | Request) =>
-    fetch(url).then((r) => r.json())
+const fetcher = async (url: string | URL | Request): Promise<{ data?: ArticlesType[] }> => {
+    const response = await fetch(url);
+    return response.json();
+};
 
+const DEFAULT_CARD_SIZE: ArticleCardSize = 'lg';
+
+const mapImage = (article: RelatedArticleCard | ArticlesType): string | undefined => {
+    if ("image" in article) {
+        return article.image;
+    }
+    if ("articleImage" in article && article.articleImage?.url) {
+        return article.articleImage.url;
+    }
+    return undefined;
+};
+
+const mapSlug = (article: RelatedArticleCard | ArticlesType): string | undefined => {
+    if ("url" in article) {
+        const rawUrl = article.url;
+        if (typeof rawUrl === "string" && rawUrl.startsWith("/")) {
+            return rawUrl.replace("/blog/articles/", "");
+        }
+        return undefined;
+    }
+
+    return article.slug;
+};
+
+const mapTitle = (article: RelatedArticleCard | ArticlesType): string => {
+    if ("name" in article) {
+        return article.name;
+    }
+    return article.title;
+};
+
+const mapUrl = (article: RelatedArticleCard | ArticlesType): string => {
+    if ("url" in article && typeof article.url === "string") {
+        return article.url;
+    }
+    const slug = mapSlug(article);
+    return slug ? `/blog/articles/${slug}` : "/";
+};
+
+const normalizeArticle = (article: RelatedArticleCard | ArticlesType): RelatedArticleCard => ({
+    name: mapTitle(article),
+    url: mapUrl(article),
+    image: mapImage(article),
+});
 
 export default function RelatedArticlesClientSide(
     {
         amount = 3,
         customTitle = 'RELATED ARTICLES',
         bgMode = 'light',
-        cardSize = 'lg',
+        cardSize = DEFAULT_CARD_SIZE,
         className = '',
         articleList,
-        endpoint_slug = ''
-    }: relatedArticleTypes) {
+        endpoint_slug,
+    }: RelatedArticleProps) {
 
 
     const testData: { name: string; url: string; size: 'sm' | 'md' | 'lg', image: string } = {
@@ -47,51 +95,30 @@ export default function RelatedArticlesClientSide(
 
 
     // endpoint_slug
-    const FETCH_URL = `/api/articles?filters[articles_category][slug][$eq]=events&fields[0]=title&fields[1]=slug&fields[2]=isAvailable&fields[3]=CreatedDate&fields[4]=short_description&populate[articleImage][fields][0]=url&populate[articles_category][fields][0]=slug&populate[articles_category][fields][1]=name`;
+    const FETCH_URL = endpoint_slug
+        ? `/api/articles?filters[articles_category][slug][$eq]=${endpoint_slug}&fields[0]=title&fields[1]=slug&fields[2]=isAvailable&fields[3]=CreatedDate&fields[4]=short_description&populate[articleImage][fields][0]=url&populate[articles_category][fields][0]=slug&populate[articles_category][fields][1]=name`
+        : null;
 
 
-    const { data, error, isLoading } = useSWR(`${URL_BACKOFFICE_DOMAIN}${FETCH_URL}`, fetcher)
+    const { data, error, isLoading } = useSWR(
+        FETCH_URL ? `${URL_BACKOFFICE_DOMAIN}${FETCH_URL}` : null,
+        fetcher
+    );
+
+    const normalizedItems = useMemo<RelatedArticleCard[]>(() => {
+        if (Array.isArray(articleList) && articleList.length > 0) {
+            return articleList.map(normalizeArticle);
+        }
+        if (Array.isArray(data?.data) && data.data.length > 0) {
+            return data.data.map(normalizeArticle);
+        }
+        return [];
+    }, [articleList, data]);
 
     console.log('data>>>>>>>', data)
 
     if (isLoading) return <div>Loading...</div>
     if (error) return <div>Error: {error.message}</div>
-    if(!data) return null;
-
-
-    // Normalize incoming data to the shape CardComponent expects
-    const normalizedItems = useMemo(() => {
-        if (!Array.isArray(articleList)) return [] as { name: string; url: string; image?: string }[];
-
-        const mapImage = (a: any): string | undefined => {
-            // Common cases for Strapi responses (direct or attributes-based)
-            if (a?.articleImage?.url) return a.articleImage.url;
-            if (a?.articleImage?.data?.attributes?.url) return a.articleImage.data.attributes.url;
-            if (a?.image?.url) return a.image.url;
-            if (a?.attributes?.articleImage?.data?.attributes?.url) return a.attributes.articleImage.data.attributes.url;
-            return undefined;
-        }
-
-        const mapSlug = (a: any): string | undefined => {
-            return a?.slug || a?.attributes?.slug;
-        }
-
-        const mapTitle = (a: any): string => {
-            return a?.title || a?.name || a?.attributes?.title || a?.attributes?.name || '';
-        }
-
-        const mapUrl = (a: any): string => {
-            if (typeof a?.url === 'string') return a.url;
-            const slug = mapSlug(a);
-            return slug ? `/blog/articles/${slug}` : '/';
-        }
-
-        return articleList.map((a: any) => ({
-            name: mapTitle(a),
-            url: mapUrl(a),
-            image: mapImage(a)
-        }));
-    }, [articleList]);
 
     return (
         <>

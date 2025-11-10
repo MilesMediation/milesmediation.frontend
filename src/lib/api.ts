@@ -3,9 +3,8 @@ import {
     PageHomeData,
     ArticleData,
     OfficeData,
-    ServiceData,
     PageLocationData,
-    LocationData, PageAboutUsData, PageOurTeamData,
+    LocationData, PageAboutUsData, PageOurTeamData, ServicesSectionResponse,
 } from '@/types/api';
 
 // API Configuration
@@ -69,7 +68,26 @@ async function fetchFromStrapi<T>(
 export async function fetchPageHome(): Promise<StrapiResponse<PageHomeData>> {
     try {
         console.log('🔍 Fetching page-home data from Strapi...');
-        const data = await fetchFromStrapi<StrapiResponse<PageHomeData>>('/page-home?populate[0]=Hero&populate[1]=Hero.featured_banner');
+        const data = await fetchFromStrapi<StrapiResponse<PageHomeData>>('/page-home?populate[0]=Hero&populate[1]=Hero.featured_banner&populate[2]=Hero.buttons');
+        console.log('✅ Page-home data fetched successfully:', {
+            id: data.data.id,
+            heroTitle: data.data.Hero?.main_title,
+            heroDescription: data.data.Hero?.description,
+            seoTitle: data.data.seo?.metaTitle,
+            lastUpdated: data.data.updatedAt
+        });
+        return data;
+    } catch (error) {
+        console.error('❌ Error fetching page-home:', error);
+        throw error;
+    }
+}
+
+// Specific API functions
+export async function fetchFeaturedSectionHome(): Promise<StrapiResponse<PageHomeData>> {
+    try {
+        console.log('🔍 Fetching page-home data from Strapi...');
+        const data = await fetchFromStrapi<StrapiResponse<PageHomeData>>('/page-home?populate[0]=featured_section.bento_box.image_col.image_col');
         console.log('✅ Page-home data fetched successfully:', {
             id: data.data.id,
             heroTitle: data.data.Hero?.main_title,
@@ -197,18 +215,12 @@ export async function fetchOffices(): Promise<StrapiResponse<OfficeData[]>> {
     }
 }
 
-export async function fetchServices(): Promise<StrapiResponse<ServiceData[]>> {
+export async function fetchServices(): Promise<StrapiResponse<ServicesSectionResponse>> {
     try {
         console.log('🔍 Fetching services from Strapi...');
-        const data = await fetchFromStrapi<StrapiResponse<ServiceData[]>>('/services');
+        const data = await fetchFromStrapi<StrapiResponse<ServicesSectionResponse>>('/page-home?populate[0]=services_section.services_list.featured_image&populate[1]=services_section.services_list.button');
         console.log('✅ Services fetched successfully:', {
-            count: data.data.length,
-            services: data.data.map(service => ({
-                id: service.id,
-                name: service.name,
-                slug: service.slug,
-                available: service.isAvailable
-            }))
+            services: data.data
         });
         return data;
     } catch (error) {
@@ -217,33 +229,58 @@ export async function fetchServices(): Promise<StrapiResponse<ServiceData[]>> {
     }
 }
 
+export interface HomePageDataErrors {
+    pageHome: unknown;
+    articles: unknown;
+    offices: unknown;
+    services: unknown;
+    featured: unknown;
+}
+
+export interface HomePageDataResult {
+    pageHome: StrapiResponse<PageHomeData> | null;
+    articles: StrapiResponse<ArticleData[]> | null;
+    offices: StrapiResponse<OfficeData[]> | null;
+    services: StrapiResponse<ServicesSectionResponse> | null;
+    featured: StrapiResponse<PageHomeData> | null;
+    errors: HomePageDataErrors;
+}
+
 // Combined data fetching for home page
-export async function fetchHomePageData() {
+export async function fetchHomePageData(): Promise<HomePageDataResult> {
     console.log('🚀 Starting to fetch all home page data...');
     console.log(`🔧 Using API_BASE_URL: ${API_BASE_URL}`);
 
     try {
-        const [pageHome, articles, offices] = await Promise.allSettled([
+        const [pageHome, articles, offices, services, featured] = await Promise.allSettled([
             fetchPageHome(),
             fetchArticles(),
-            fetchOffices()
+            fetchOffices(),
+            fetchServices(),
+            fetchFeaturedSectionHome()
         ]);
 
         const result = {
             pageHome: pageHome.status === 'fulfilled' ? pageHome.value : null,
             articles: articles.status === 'fulfilled' ? articles.value : null,
             offices: offices.status === 'fulfilled' ? offices.value : null,
+            services: services.status === 'fulfilled' ? services.value : null,
+            featured: featured.status === 'fulfilled' ? featured.value : null,
             errors: {
                 pageHome: pageHome.status === 'rejected' ? pageHome.reason : null,
                 articles: articles.status === 'rejected' ? articles.reason : null,
                 offices: offices.status === 'rejected' ? offices.reason : null,
+                services: services.status === 'rejected' ? services.reason : null,
+                featured: featured.status === 'rejected' ? featured.reason : null,
             }
         };
 
         console.log('📊 Home page data fetch completed:', {
             pageHome: result.pageHome ? '✅ Success' : '❌ Failed',
             articles: result.articles ? '✅ Success' : '❌ Failed',
-            offices: result.offices ? '✅ Success' : '❌ Failed'
+            offices: result.offices ? '✅ Success' : '❌ Failed',
+            services: result.services ? '✅ Success' : '❌ Failed',
+            featured: result.featured ? '✅ Success' : '❌ Failed'
         });
 
         // Log any errors for debugging
@@ -255,6 +292,12 @@ export async function fetchHomePageData() {
         }
         if (result.errors.offices) {
             console.error('❌ Offices Error:', result.errors.offices);
+        }
+        if (result.errors.services) {
+            console.error('❌ Offices Error:', result.errors.services);
+        }
+        if (result.errors.featured) {
+            console.error('❌ Offices Error:', result.errors.featured);
         }
 
         return result;

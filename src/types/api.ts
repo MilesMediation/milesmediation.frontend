@@ -41,18 +41,78 @@ export interface PageHomeData {
   locale: string | null;
   Hero: HeroData;
   seo: SeoData | null;
+  featured_section?: FeaturedSectionData | null;
   createdBy: UserData;
   updatedBy: UserData;
+}
+
+export interface ButtonType {
+    label: string;
+    target_url?: string;
+    variant?: "contained" | "link"|'outlined'| null;
+    icon?: 'internal'| 'external' | 'download';
+    color: "primary" | "secondary" | "tertiary";
+
 }
 
 export interface HeroData {
   id: number;
   main_title: string;
+  array_text: string[];
   description: string;
   is_available: boolean;
-  featured_banner:[
-      { url: string; }
-  ]
+  buttons?:ButtonType[];
+  featured_banner?: { url: string } | { url: string }[] | null;
+}
+
+export interface BentoMedia {
+  id: number;
+  url: string;
+  alternativeText?: string | null;
+}
+
+export interface BentoImage {
+  id: number;
+  image_name?: string | null;
+  target_url?: string | null;
+  classname?: string | null;
+  image_col?: (BentoMedia | null)[] | null;
+}
+
+export interface ServicesSectionImage {
+  url: string;
+}
+
+export interface ServicesSectionItem {
+  title: string;
+  description?: string | null;
+  featured_image?: ServicesSectionImage | null;
+  button?: ButtonType[] | null;
+}
+
+export interface ServicesSectionContent {
+  title: string;
+  is_available: boolean;
+  services_list: ServicesSectionItem[];
+}
+
+export interface BentoBoxColumn {
+  id: number;
+  is_available: boolean;
+  title?: string | null;
+  description?: string | null;
+  image_col?: (BentoImage | null)[] | null;
+}
+
+export interface FeaturedSectionData {
+  is_available: boolean;
+  title?: string | null;
+  description?: string | null;
+  bento_box?: BentoBoxColumn[] | null;
+}
+
+export interface ServicesSectionResponse {
+  services_section: ServicesSectionContent;
 }
 
 export interface SeoData {
@@ -331,6 +391,7 @@ export interface NeutralType {
 }
 
 export interface ArticlesType{
+    short_description: string;
     id: number;
     articleImage: { url: string}
     title: string;
@@ -354,6 +415,12 @@ export interface ArticlesType{
 
 export interface MembersResponse {
     data: Member[];
+}
+
+export interface RelatedArticleCard {
+    name: string;
+    url: string;
+    image?: string;
 }
 
 

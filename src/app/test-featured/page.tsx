@@ -51,7 +51,7 @@ export default function TestFeaturedPage() {
                 <FeaturedSection
                     title="Fallback Image"
                     description="This section shows the fallback image when no media is provided."
-                    featuredImage={null}
+                    featuredImage={'/'}
                     alignImg="left"
                     mode="light"
                     bgColor="white"

@@ -5,7 +5,7 @@ import AnimatedImageCard from '@/components/cards/AnimatedImageCard'
 import {NEXT_URL_BACKOFFICE} from "@/lib/globalConstants";
 
 
-export default function MansonryGallery({gallery_prop} : {gallery_prop:{id:number;image_name: string; image_col:{url:string;}[]}[]}) {
+export default function MansonryGallery({gallery_prop} : {gallery_prop?:{id:number;image_name: string; image_col:{url:string;}[]}[]}) {
 
     const { ref, inView } = useInView({
         triggerOnce: true,
@@ -86,7 +86,7 @@ export default function MansonryGallery({gallery_prop} : {gallery_prop:{id:numbe
 
             <section ref={ref} className="relative w-full masonry-gallery overflow-hidden">
                 <div className="flex gap-6 relative justify-center masonry-wrapper w-[130%] left-[-15%]">
-                    {gallery_prop.map((col, colIdx) => (
+                    {gallery_prop && gallery_prop.map((col, colIdx) => (
                         <div
                             key={colIdx}
                             className={`flex flex-col gap-6 w-[18%] p-2 ${columnOffsets[colIdx] ?? ''} ${colIdx === 2 ? 'center-column' : ''}`}

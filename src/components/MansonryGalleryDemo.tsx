@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import MansonryGallery from './MansonryGallery'
+/*import MansonryGallery from './MansonryGallery'*/
 
 type GalleryStyle = 'default' | 'gradient' | 'seasonal' | 'professional' | 'creative' | 'responsive'
 
@@ -135,7 +135,7 @@ export default function MansonryGalleryDemo() {
                 {/* Gallery Display */}
                 <div className="bg-white rounded-lg border border-gray-200 p-6">
                     <h3 className="text-lg font-semibold text-gray-800 mb-4">Gallery Preview:</h3>
-                    <MansonryGallery />
+                    {/*<MansonryGallery />*/}
                 </div>
 
                 {/* Code Example */}

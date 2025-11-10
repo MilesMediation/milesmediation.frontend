@@ -208,7 +208,7 @@ export default function NeutralListPage() {
                         <div className="relative" ref={filterRef}>
                             <Button
                                 onClick={() => setIsPracticeAreaOpen(!isPracticeAreaOpen)}
-                                variant="outline"
+                                variant="outlined"
                                 className="flex items-center gap-2"
                             >
                                 <User size={16} />
@@ -260,7 +260,7 @@ export default function NeutralListPage() {
                         <div className="relative" ref={locationFilterRef}>
                             <Button
                                 onClick={() => setIsLocationOpen(!isLocationOpen)}
-                                variant="outline"
+                                variant="outlined"
                                 className="flex items-center gap-2"
                             >
                                 <MapPin size={16} />
@@ -316,7 +316,7 @@ export default function NeutralListPage() {
                                     setSelectedLocation(null);
                                     setNameFilter('');
                                 }}
-                                variant="outline"
+                                variant="outlined"
                                 className="flex items-center gap-2"
                             >
                                 <X size={16} />

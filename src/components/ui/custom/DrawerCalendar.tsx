@@ -73,7 +73,7 @@ export function DrawerCalendar({ events }: { events: { title: string, start: str
                     <DrawerFooter className={'flex flex-row pt-10 px-0'}>
                         <Button>Save</Button>
                         <DrawerClose asChild>
-                            <Button variant="outline">Cancel</Button>
+                            <Button variant="outlined">Cancel</Button>
                         </DrawerClose>
                     </DrawerFooter>
                 </div>

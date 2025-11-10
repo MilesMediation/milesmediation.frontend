@@ -5,7 +5,7 @@ import {customPageData} from "@/lib/api";
 import MainArticleContentList from "@/app/blog/articles/components/mainArticleContentList";
 import {Metadata} from "next";
 import {defaulMetadataResponse} from "@/lib/utils";
-import {type Member, SeoData, StrapiResponse} from "@/types/api";
+import {SeoData, StrapiResponse} from "@/types/api";
 import AsideCategoryList from "@/app/blog/articles/components/asideCategoryList";
 
 // Type for the specific response we're expecting

@@ -163,7 +163,7 @@ export default function Page() {
                         </p>
                         <div className="mt-10 flex gap-4 justify-center">
                             <Button>General Arbitration</Button>
-                            <Button variant={"outline"}>Expedited Arbitrations</Button>
+                            <Button variant={"outlined"}>Expedited Arbitrations</Button>
                         </div>
                     </div>
                 </section>

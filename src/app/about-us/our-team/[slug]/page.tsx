@@ -144,15 +144,15 @@ export default async function Page({params}: {params: Promise<{ slug: string }>}
                                     alt={memberData.name || 'Member'}
                                 />
                                 <div className={'mt-10 gap-4 flex'}>
-                                    <Button variant={'outline'} className={''}>
+                                    <Button variant={'outlined'} className={''}>
                                         <FaLinkedin />
                                         Linkedin
                                     </Button>
-                                    <Button variant={'outline'} className={''}>
+                                    <Button variant={'outlined'} className={''}>
                                         <FaInstagram />
                                         instagram
                                     </Button>
-                                    <Button variant={'outline'} className={''}>
+                                    <Button variant={'outlined'} className={''}>
                                         <FaEnvelope />
                                         Email
                                     </Button>

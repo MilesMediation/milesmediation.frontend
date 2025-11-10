@@ -2,8 +2,6 @@
 
 import useSWR from "swr";
 import {URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
-import MainNavigation from "@/components/global/MainNavigation";
-import Footer from "@/components/global/Footer";
 import PracticeAreaCard from "@/components/cards/PracticeAreaCard";
 import RelatedArticles from "@/components/sections/RelatedArticles";
 import { StrapiResponse } from "@/types/api";

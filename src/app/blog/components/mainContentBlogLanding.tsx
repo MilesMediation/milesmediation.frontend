@@ -22,7 +22,7 @@ export default function MainContentBlogLanding() {
 
 
     // Show loading state while data is being fetched
-    if (isLoading) return (
+    if (isLoading || isLoadingNews || isLoadingEvents) return (
         <div>
             <div className={'h-[650px] p-60 text-center'}>
                 <h1>Loading...</h1>
@@ -32,6 +32,8 @@ export default function MainContentBlogLanding() {
 
 
     if (error) return <div>Error: {error instanceof Error ? error.message : 'An error occurred'}</div> // Show error message if API request failed
+    if (errorEvents) return <div>Error: {errorEvents instanceof Error ? errorEvents.message : 'An error occurred'}</div> // Show error message if API request failed
+    if (errorNews) return <div>Error: {errorNews instanceof Error ? errorNews.message : 'An error occurred'}</div> // Show error message if API request failed
     if(!dataRelatedArticles) return null; // Return null if no data is available
 
 

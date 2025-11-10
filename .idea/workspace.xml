@@ -5,55 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8427eb36-94ee-4f77-807f-310ad8883e9b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/bg-demo-city.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/main-logo-white.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(home)/bentoSecton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/locations/[tag]/[slug]/components/MainContentOfficePage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/locations/[tag]/[slug]/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/locations/[tag]/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/practice-area/[slug]/components/mainContentPracticeArea.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/practice-area/components/CustomBlockDescription.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/practice-area/components/MainContentPracticeAreaLanding.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/cards/CustomArticleCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/sections/RelatedArticlesClientSide.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/sections/customRelatedArticles.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/demo/adr-thumb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/demo/arbitration-prev.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/demo/mediation-prev.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/STRAPI_INTEGRATION.md" beforeDir="false" afterPath="$PROJECT_DIR$/STRAPI_INTEGRATION.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(home)/AnimatedHeroText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(home)/AnimatedHeroText.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(home)/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(home)/HeroSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(home)/IntroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(home)/IntroSection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(home)/OfficeSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(home)/OfficeSection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(home)/ServicesSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(home)/ServicesSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(home)/bentoSecton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(home)/bentoSecton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(home)/components/bentoCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(home)/components/bentoCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/about-us/our-team/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/about-us/our-team/[slug]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/about-us/our-team/components/MainContentOurTeam.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/about-us/our-team/components/MainContentOurTeam.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/locations/components/MainContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/locations/components/MainContentLocationPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/locations/offices/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/locations/offices/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/articles/components/mainArticleContentList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/articles/components/mainArticleContentList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/category/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/category/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/components/mainContentBlogLanding.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/components/mainContentBlogLanding.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/events/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/events/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/locations/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/locations/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/our-panel/mediators/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/mediators/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/our-panel/neutral/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/neutral/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/our-panel/arbitrators/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/arbitrators/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/our-panel/neutral/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/neutral/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/our-panel/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/practice-area/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/practice-area/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pay-online/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pay-online/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/practice-area/components/MainContentPracticeAreaLanding.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/practice-area/components/MainContentPracticeAreaLanding.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/practice-area/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/practice-area/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/test-featured/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/test-featured/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MansonryGallery.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MansonryGallery.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cards/NeutralCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/NeutralCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cards/OfficeCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/OfficeCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cards/PracticeAreaCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/PracticeAreaCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/global/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/global/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MansonryGalleryDemo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MansonryGalleryDemo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cards/CustomArticleCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/CustomArticleCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/global/MainNavigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/global/MainNavigation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sections/FeaturedCardsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/FeaturedCardsSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sections/FeaturedSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/FeaturedSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sections/GallerySection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/GallerySection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sections/NeutralSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/NeutralSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sections/RelatedArticles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/RelatedArticles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/global/PageHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/global/PageHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sections/RelatedArticlesClientSide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/RelatedArticlesClientSide.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sections/customRelatedArticles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/customRelatedArticles.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/button.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ui/carousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/carousel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/custom/CarouselComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/custom/CarouselComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/custom/CarousselComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/custom/CarousselComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/custom/DrawerCalendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/custom/DrawerCalendar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/pagination.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/api.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +76,7 @@
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Proyects/miles-website/milesmediation-new/src/app/locations&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Proyects/miles-website/milesmediation-new/public/demo&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -102,6 +90,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Proyects\miles-website\milesmediation-new\public\demo" />
       <recent name="D:\Proyects\miles-website\milesmediation-new\src\app\locations" />
       <recent name="D:\Proyects\miles-website\milesmediation-new\src\components\sections" />
     </key>
@@ -176,6 +165,10 @@
       <workItem from="1761576296181" duration="20099000" />
       <workItem from="1761927642666" duration="22563000" />
       <workItem from="1762176145910" duration="17780000" />
+      <workItem from="1762281199028" duration="908000" />
+      <workItem from="1762351612173" duration="15678000" />
+      <workItem from="1762452844070" duration="3343000" />
+      <workItem from="1762641828451" duration="35277000" />
     </task>
     <servers />
   </component>

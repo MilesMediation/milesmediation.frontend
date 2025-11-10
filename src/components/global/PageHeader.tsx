@@ -1,5 +1,4 @@
 import {URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
-import classNames from "classnames";
 
 interface CallToActionProps {
     backgroundImage?: string

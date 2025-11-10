@@ -3,14 +3,15 @@ import MainNavigation from "@/components/global/MainNavigation";
 import IntroSection from "@/app/(home)/IntroSection";
 import ServicesSection from "@/app/(home)/ServicesSection";
 import OfficesSection from "@/app/(home)/OfficeSection";
-import DashboardSection from "@/app/(home)/DashboardSection";
-import OurVideos from "@/app/(home)/OurVideos";
+/*import DashboardSection from "@/app/(home)/DashboardSection";
+import OurVideos from "@/app/(home)/OurVideos";*/
 import CallToAction from "@/components/global/CallToAction";
 import Footer from "@/components/global/Footer";
-import {fetchHomePageData} from "@/lib/api";
+import {fetchHomePageData, type HomePageDataResult} from "@/lib/api";
 import {Metadata} from "next";
 import BentoSection from "@/app/(home)/bentoSecton";
 import CustomRelatedArticles from "@/components/sections/customRelatedArticles";
+import type {FeaturedSectionData, ServicesSectionContent} from "@/types/api";
 
 // Generate metadata dynamically
 export async function generateMetadata(): Promise<Metadata> {
@@ -58,7 +59,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-    let homeData;
+    let homeData: HomePageDataResult;
 
     try {
         // Fetch data on the server
@@ -71,15 +72,27 @@ export default async function Home() {
             pageHome: null,
             articles: null,
             offices: null,
+            services: null,
+            featured: null,
             errors: {
                 pageHome: error,
                 articles: null,
-                offices: null
+                offices: null,
+                services: null,
+                featured: null,
             }
         };
     }
 
     console.log('CHECK HOME DATA: ',homeData);
+
+    const servicesSection: ServicesSectionContent | undefined = homeData.services?.data?.services_section;
+    const featuredSection: FeaturedSectionData | null = homeData.featured?.data?.featured_section ?? null;
+    const emptyServicesSection: ServicesSectionContent = {
+        title: "",
+        is_available: false,
+        services_list: []
+    };
 
     return (
         <div className="bg-white text-gray-800 space-y-12 relative">
@@ -88,37 +101,15 @@ export default async function Home() {
                 heroData={homeData.pageHome?.data?.Hero}
             />
             <IntroSection/>
-            <ServicesSection/>
+            <ServicesSection servicesData={servicesSection ?? emptyServicesSection} />
             <OfficesSection
                 officesData={homeData.offices?.data}
             />
-            <BentoSection />
+            <BentoSection dataSection={featuredSection}/>
             <CustomRelatedArticles
                 title={'Latest articles From the Miles'
                 }
             />
-            {/*<DashboardSection
-                title="Dashboard"
-                description="Miles' neutrals are experienced mediators and arbitrators with expertise in their fields. They are experts in dispute resolution who are helping to shape the future of the ADR field with thought leadership that includes articles, speaking engagements, and CLE classes and training. Learn more about their background and experience here."
-                image="/cardImgSample1.png"
-                imagePosition="left"
-                buttonLabel="Sign up"
-                buttonUrl="/signup"
-            />
-
-            <DashboardSection
-                title="Our Panel"
-                description="Meet our larger panel of neutrals and arbitrators"
-                image="/cardImgSample1.png"
-                imagePosition="right"
-                buttonLabel="Schedule a mediation"
-                buttonUrl="/schedule"
-                backgroundImage="/cardImgSample1.png"
-                dark
-            />
-            <OurVideos/>
-            */}
-
             <CallToAction/>
             <Footer/>
         </div>

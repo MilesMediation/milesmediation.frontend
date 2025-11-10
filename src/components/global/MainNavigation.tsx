@@ -1,10 +1,13 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useLayoutEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiMenu, FiX } from 'react-icons/fi'
 import { NavigationMenuDemo } from "@/components/global/NavigationMenuDemo";
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Flip } from 'gsap/Flip'
 
 const topLinks = ['Shop', 'Pay Online', 'Log in']
 
@@ -29,21 +32,129 @@ const mainMenu = [
 export default function MainNavigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [openSubmenu, setOpenSubmenu] = useState(false)
-    const [isScrolled, setIsScrolled] = useState(false)
+    const menuHomeRef = useRef<HTMLDivElement | null>(null)
+    const menuRef = useRef<HTMLDivElement | null>(null)
+    const stickyShellRef = useRef<HTMLDivElement | null>(null)
+    const stickyInnerRef = useRef<HTMLDivElement | null>(null)
 
-    // Simple scroll detection
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollY = window.scrollY
-            setIsScrolled(scrollY > 36) // Show nav after 100px scroll
+    useLayoutEffect(() => {
+        if (typeof window === 'undefined') return
+
+        gsap.registerPlugin(ScrollTrigger, Flip)
+
+        const menu = menuRef.current
+        const menuHome = menuHomeRef.current
+        const stickyShell = stickyShellRef.current
+        const stickyInner = stickyInnerRef.current
+
+        if (!menu || !menuHome || !stickyShell || !stickyInner) return
+
+        gsap.set(stickyShell, { opacity: 0, pointerEvents: 'none' })
+
+        const mm = gsap.matchMedia()
+
+        const ctx = gsap.context(() => {
+            mm.add('(min-width: 768px)', () => {
+                let isSticky = false
+
+                const activateSticky = () => {
+                    if (isSticky) return
+                    isSticky = true
+
+                    const { width, height } = menu.getBoundingClientRect()
+                    gsap.set(menuHome, { width, height })
+
+                    const state = Flip.getState(menu)
+                    stickyInner.appendChild(menu)
+
+                    gsap.to(stickyShell, {
+                        opacity: 1,
+                        pointerEvents: 'auto',
+                        duration: 0.25,
+                        ease: 'power2.out',
+                    })
+
+                    const animation = Flip.from(state, {
+                        duration: 0.45,
+                        ease: 'power3.out',
+                        absolute: true,
+                        nested: true,
+                        fade: false,
+                    })
+
+                    animation.eventCallback('onComplete', () => {
+                        gsap.set(menu, { clearProps: 'transform,opacity' })
+                    })
+                }
+
+                const deactivateSticky = () => {
+                    if (!isSticky) return
+                    isSticky = false
+
+                    const state = Flip.getState(menu)
+                    menuHome.appendChild(menu)
+
+                    gsap.to(stickyShell, {
+                        opacity: 1,
+                        pointerEvents: 'none',
+                        duration: 1,
+                        ease: 'power2.out',
+                    })
+
+                    const animation = Flip.from(state, {
+                        duration: 0.4,
+                        ease: 'power3.inOut',
+                        absolute: true,
+                        nested: true,
+                        fade: false,
+                    })
+
+                    animation.eventCallback('onComplete', () => {
+                        gsap.set(menuHome, { clearProps: 'width,height' })
+                        gsap.set(menu, { clearProps: 'transform,opacity' })
+                    })
+                }
+
+                const trigger = ScrollTrigger.create({
+                    trigger: menuHome,
+                    start: 'top top+=12',
+                    end: 'max',
+                    onEnter: activateSticky,
+                    onLeaveBack: deactivateSticky,
+                })
+
+                const handleResize = () => {
+                    if (!isSticky) return
+                    const { width, height } = menu.getBoundingClientRect()
+                    gsap.set(menuHome, { width, height })
+                }
+
+                window.addEventListener('resize', handleResize)
+
+                return () => {
+                    window.removeEventListener('resize', handleResize)
+                    trigger.kill()
+
+                    if (isSticky) {
+                        const state = Flip.getState(menu)
+                        menuHome.appendChild(menu)
+                        Flip.from(state, { duration: 0, absolute: true, nested: true })
+                    }
+
+                    gsap.set(menuHome, { clearProps: 'width,height' })
+                    gsap.set(stickyShell, { opacity: 0, pointerEvents: 'none' })
+                }
+            })
+        })
+
+        return () => {
+            ctx.revert()
+            mm.revert()
         }
-
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
     return (
-        <header className="w-full relative h-[100px] mb-0 z-[1000] pt-4">
+        <header className="w-full absolute inset-x-0 top-0 h-[100px] mb-0 z-[1000] pt-4">
             {/* Top bar */}
             <div className="w-full bg-[var(--color-dark-green)] text-white text-sm hidden">
                 <div className="mx-auto max-w-[1680px] px-[6rem] py-2 flex justify-end space-x-8">
@@ -56,33 +167,27 @@ export default function MainNavigation() {
             </div>
 
             {/* Navigation */}
-            <motion.div
+            <div
                 id="navigationBlock"
-                className={`w-full  text-[#19233C]  transition-all duration-300 ${
-                    isScrolled 
-                        ? 'fixed top-0 inset-x-0 z-50' 
-                        : 'sticky'
-                }`}
-                animate={{
-                    y: isScrolled ? 0 : 0
-                }}
-                transition={{
-                    type: 'spring',
-                    stiffness: 300,
-                    damping: 30
-                }}
+                className="w-full text-[#19233C] transition-all duration-300"
             >
                 <div className="mx-auto max-w-[1680px] px-[6rem] py-1 flex justify-between items-center h-[5rem]">
-                    <Link href="/">
+                    <Link id={'mainLogoNav'} href="/">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src="/main-logo-white.svg" alt="Miles Mediation Logo" className="h-12" />
                     </Link>
 
                     {/* Desktop menu */}
-                    <div className="hidden md:block relative z-50 bg-w h-[70px] ">
-                        <div className={'flex justify-center h-full  bg-white rounded-4xl px-5 shadow-md'}>
+                    <div ref={menuHomeRef} className="hidden md:block">
+                        <div
+                            id={'navigationBar'}
+                            ref={menuRef}
+                            className="relative z-50 bg-w h-[70px] "
+                        >
+                            <div className={'flex justify-center h-full  bg-white rounded-4xl px-5 shadow-md'}>
 
-                            <NavigationMenuDemo />
+                                <NavigationMenuDemo />
+                            </div>
                         </div>
                     </div>
 
@@ -91,7 +196,17 @@ export default function MainNavigation() {
                         <FiMenu size={28} />
                     </button>
                 </div>
-            </motion.div>
+            </div>
+
+            <div
+                ref={stickyShellRef}
+                className="hidden md:block fixed top-0 left-0 right-0 z-[1200] pointer-events-none"
+            >
+                <div
+                    ref={stickyInnerRef}
+                    className="mx-auto max-w-[1680px] px-[6rem] py-1 flex justify-end items-center h-[5rem]"
+                />
+            </div>
 
             {/* Mobile Drawer */}
             <AnimatePresence>

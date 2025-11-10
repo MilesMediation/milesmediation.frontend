@@ -11,7 +11,6 @@ import {
 import useSWR from "swr";
 import type {StrapiResponse} from "@/types/api";
 import {NEXT_URL_BACKOFFICE} from "@/lib/globalConstants";
-import {useState} from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 // Type for the specific response we're getting from this endpoint

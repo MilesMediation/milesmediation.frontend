@@ -4,7 +4,6 @@ import {useState, useRef, useEffect, useMemo} from "react";
 import { OfficeData } from "@/types/api";
 import {gsap} from "gsap";
 import {NEXT_URL_BACKOFFICE} from "@/lib/globalConstants";
-import {FaChevronCircleDown} from "react-icons/fa";
 import {FaChevronLeft, FaChevronRight} from "react-icons/fa6";
 
 interface OfficesSectionProps {
