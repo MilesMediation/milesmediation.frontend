@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import {fetchHomePageData} from "@/lib/api";
 
 const footerData = [
     {
@@ -36,7 +37,21 @@ const footerData = [
     },
 ]
 
+
+
 export default function Footer() {
+    console.log("🧪 Home env variables snapshot:", {
+        nodeEnv: process.env.NODE_ENV,
+        strapiUrl: process.env.STRAPI_URL,
+        nextPublicStrapiUrl: process.env.NEXT_PUBLIC_STRAPI_URL,
+        urlBackofficeDomain: process.env.URL_BACKOFFICE_DOMAIN,
+        nextBackofficeDomain: process.env.NEXT_BACKOFFICE_DOMIAN,
+        nextUrlBackofficeDomain: process.env.NEXT_URL_BACKOFFICE_DOMAIN,
+        azureApiUrl: process.env.AZURE_API_URL,
+        azureBaseUrl: process.env.AZURE_BASE_URL,
+        authTokenDefined: Boolean(process.env.AUTH_TOKEN),
+    });
+
     return (
         <footer className="bg-[var(--color-dark-green,#003135)] text-white w-full px-4 py-16">
             <div className="container  mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">

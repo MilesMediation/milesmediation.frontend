@@ -61,17 +61,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
     let homeData: HomePageDataResult;
 
-    console.log("🧪 Home env variables snapshot:", {
-        nodeEnv: process.env.NODE_ENV,
-        strapiUrl: process.env.STRAPI_URL,
-        nextPublicStrapiUrl: process.env.NEXT_PUBLIC_STRAPI_URL,
-        urlBackofficeDomain: process.env.URL_BACKOFFICE_DOMAIN,
-        nextBackofficeDomain: process.env.NEXT_BACKOFFICE_DOMIAN,
-        nextUrlBackofficeDomain: process.env.NEXT_URL_BACKOFFICE_DOMAIN,
-        azureApiUrl: process.env.AZURE_API_URL,
-        azureBaseUrl: process.env.AZURE_BASE_URL,
-        authTokenDefined: Boolean(process.env.AUTH_TOKEN),
-    });
+
 
     try {
         // Fetch data on the server
