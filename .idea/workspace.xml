@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8427eb36-94ee-4f77-807f-310ad8883e9b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/articles/[slug]/components/authorComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/articles/[slug]/components/authorComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/globalConstants.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/globalConstants.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../milesmediation.backend/src/extensions/documentation/documentation/1.0.0/full_documentation.json" beforeDir="false" afterPath="$PROJECT_DIR$/../milesmediation.backend/src/extensions/documentation/documentation/1.0.0/full_documentation.json" afterDir="false" />
     </list>
@@ -134,7 +134,7 @@
       <workItem from="1762281199028" duration="908000" />
       <workItem from="1762351612173" duration="15678000" />
       <workItem from="1762452844070" duration="3343000" />
-      <workItem from="1762641828451" duration="50259000" />
+      <workItem from="1762641828451" duration="52814000" />
     </task>
     <servers />
   </component>

@@ -14,4 +14,4 @@ export const NEXT_URL_BACKOFFICE= process.env.NEXT_URL_BACKOFFICE_DOMAIN ? proce
 
 export const URL_DASHBOARD= process.env.NEXT_BACKOFFICE_DOMIAN ? process.env.NEXT_BACKOFFICE_DOMIAN : 'https://test-milesdashboard.azurewebsites.net/api'
 export const URL_BACKOFFICE_DOMAIN= process.env.URL_BACKOFFICE_DOMAIN ? process.env.URL_BACKOFFICE_DOMAIN : 'https://milesmediation.azurewebsites.net/'
-export const NEXT_URL_BACKOFFICE= process.env.NEXT_URL_BACKOFFICE_DOMAIN ? process.env.NEXT_URL_BACKOFFICE_DOMAIN : 'https://milesmediation.azurewebsites.net/'
+export const NEXT_URL_BACKOFFICE= process.env.NEXT_URL_BACKOFFICE_DOMAIN ? process.env.NEXT_URL_BACKOFFICE_DOMAIN : 'https://milesmediation.azurewebsites.net'
