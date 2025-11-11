@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import {fetchHomePageData} from "@/lib/api";
+
 
 const footerData = [
     {
