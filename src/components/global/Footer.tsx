@@ -41,15 +41,15 @@ const footerData = [
 
 export default function Footer() {
     console.log("🧪 Home env variables snapshot:", {
-        nodeEnv: process.env.NODE_ENV,
-        strapiUrl: process.env.STRAPI_URL,
-        nextPublicStrapiUrl: process.env.NEXT_PUBLIC_STRAPI_URL,
-        urlBackofficeDomain: process.env.URL_BACKOFFICE_DOMAIN,
-        nextBackofficeDomain: process.env.NEXT_BACKOFFICE_DOMIAN,
-        nextUrlBackofficeDomain: process.env.NEXT_URL_BACKOFFICE_DOMAIN,
-        azureApiUrl: process.env.AZURE_API_URL,
-        azureBaseUrl: process.env.AZURE_BASE_URL,
-        authTokenDefined: Boolean(process.env.AUTH_TOKEN),
+        client_nextPublicStrapiUrl: process.env.NEXT_PUBLIC_STRAPI_URL,
+        client_nextBackofficeDomain: process.env.NEXT_BACKOFFICE_DOMIAN,
+        client_nextUrlBackofficeDomain: process.env.NEXT_URL_BACKOFFICE_DOMAIN,
+        SERVER_urlBackofficeDomain: process.env.URL_BACKOFFICE_DOMAIN,
+        SERVER_nodeEnv: process.env.NODE_ENV,
+        SERVER_strapiUrl: process.env.STRAPI_URL,
+        SERVER_azureApiUrl: process.env.AZURE_API_URL,
+        SERVER_azureBaseUrl: process.env.AZURE_BASE_URL,
+        SERVER_authTokenDefined: Boolean(process.env.AUTH_TOKEN),
     });
 
     return (

@@ -23,6 +23,7 @@ async function fetchFromStrapi<T>(
     console.log(`🌐 Making request to: ${fullUrl}`);
 
     try {
+        console.log('FULL URL CHECK', fullUrl)
         const response = await fetch(fullUrl, {
             ...options,
             signal: controller.signal,
