@@ -37,7 +37,7 @@ export default function MansonryGallery({gallery_prop} : {gallery_prop?:{id:numb
     return (
         <>
             <style jsx>{`
-                .masonry-gallery { padding-top: 120px; padding-bottom: 120px; }
+                .masonry-gallery { padding-top: 120px; padding-bottom: 0; }
 
                 /* subtle horizontal overflow to give that cinematic feel */
                 .masonry-wrapper { overflow-x: visible; overflow-y: visible; }

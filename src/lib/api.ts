@@ -8,7 +8,7 @@ import {
 } from '@/types/api';
 
 // API Configuration
-const API_BASE_URL = process.env.STRAPI_URL || 'http://127.0.0.1:1337';
+const API_BASE_URL = process.env.STRAPI_URL;
 const API_TIMEOUT = 10000; // 10 seconds
 
 // Generic API fetch function

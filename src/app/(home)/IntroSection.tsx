@@ -38,7 +38,7 @@ export default function IntroSection() {
     // console.log('Fetch Data: ', intro_data)
 
     return (
-        <section className="w-full bg-white pt-[100px] text-center">
+        <section className="w-full bg-white text-center">
             <div className="max-w-4xl mx-auto">
                 <h2 className="font-title text-[40px] leading-[60px] font-medium uppercase text-[var(--Dark-Green_1,#003135)] tracking-[-0.44px] mb-6">
                     MILES MEDIATION <br />
