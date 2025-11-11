@@ -8,7 +8,7 @@ export default function AuthorComponent({avatar, name, short_description}: {avat
                 <div className="w-[250px] h-[250px] shrink-0">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                        src={URL_BACKOFFICE_DOMAIN +avatar}
+                        src={URL_BACKOFFICE_DOMAIN + avatar}
                         className="object-cover w-[250px] h-[250px]"
                         alt=""
                     />
