@@ -14,20 +14,7 @@ export interface OfficeData {
     image: string;
 }
 
-const testDataOffice: OfficeData[] = [
-    {
-        size: 'lg',
-        image: '/cardImgSample1.png',
-        url: '/',
-        name:'Office 1'
-    },
-    {
-        size: 'lg',
-        image: '/cardImgSample1.png',
-        url: '/',
-        name:'Office 1'
-    }
-]
+
 
 // TODO: Rename the name of the type an adjust the parent type as well
 // Extended Member interface that includes metadata
@@ -36,6 +23,7 @@ interface MemberWithMetadata extends Member {
     articlesDescription?: string;
     officesDescription?: string;
     offices: {
+        featuredImage: { url: string };
         id: number;
         name: string;
         slug: string;
@@ -90,14 +78,13 @@ export default async function Page({params}: {params: Promise<{ tag: string }>})
         { id?: number; name: string; image: string; gallery?: { url:string }[]; url: string; size: 'lg' | 'md'| 'sm' } => {
             return {
                 size: 'lg' as const,
-                image: office.gallery && office.gallery.length > 0 ? office.gallery[0].url : '/cardImgSample1.png',
+                image: office.featuredImage  ? office.featuredImage.url : '/cardImgSample1.png',
                 url: `/locations/${tag_data.tag}/${office.slug}`,
                 name: office.name
             };
         });
     } else {
         console.log('No offices data found, using test data.');
-        officesNormalized = testDataOffice;
     }
     
     console.log('Page Location data:', pageData);
@@ -117,7 +104,6 @@ export default async function Page({params}: {params: Promise<{ tag: string }>})
 
                 <main>
 
-                    {/* TODO: Custom Text here*/}
 
                     <FeaturedCardsSection
                         title={''}
@@ -125,6 +111,7 @@ export default async function Page({params}: {params: Promise<{ tag: string }>})
                         description={pageData.officesDescription}
 
                     />
+
                     <div>
                         <RelatedArticles
                             cardSize={'lg'}

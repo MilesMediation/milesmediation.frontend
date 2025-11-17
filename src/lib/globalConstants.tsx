@@ -12,6 +12,6 @@ export const URL_BACKOFFICE_DOMAIN= process.env.URL_BACKOFFICE_DOMAIN ? process.
 export const NEXT_URL_BACKOFFICE= process.env.NEXT_URL_BACKOFFICE_DOMAIN ? process.env.NEXT_URL_BACKOFFICE_DOMAIN : 'http://localhost:1337'*/
 
 
-export const URL_DASHBOARD= process.env.NEXT_BACKOFFICE_DOMIAN ? process.env.NEXT_BACKOFFICE_DOMIAN : 'https://test-milesdashboard.azurewebsites.net/api'
-export const URL_BACKOFFICE_DOMAIN= process.env.URL_BACKOFFICE_DOMAIN ? process.env.URL_BACKOFFICE_DOMAIN : 'https://milesmediation.azurewebsites.net/'
-export const NEXT_URL_BACKOFFICE= process.env.NEXT_URL_BACKOFFICE_DOMAIN ? process.env.NEXT_URL_BACKOFFICE_DOMAIN : 'https://milesmediation.azurewebsites.net'
+export const URL_DASHBOARD= process.env.NEXT_BACKOFFICE_DOMIAN ? process.env.NEXT_BACKOFFICE_DOMIAN : ''
+export const URL_BACKOFFICE_DOMAIN= process.env.URL_BACKOFFICE_DOMAIN ? process.env.URL_BACKOFFICE_DOMAIN : ''
+export const NEXT_URL_BACKOFFICE= process.env.NEXT_PUBLIC_URL_BACKOFFICE_DOMAIN ? process.env.NEXT_PUBLIC_URL_BACKOFFICE_DOMAIN : ''

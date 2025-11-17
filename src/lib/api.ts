@@ -1,14 +1,17 @@
 import {
-    StrapiResponse,
-    PageHomeData,
     ArticleData,
+    LocationData,
     OfficeData,
+    PageAboutUsData,
+    PageHomeData,
     PageLocationData,
-    LocationData, PageAboutUsData, PageOurTeamData, ServicesSectionResponse,
+    PageOurTeamData,
+    ServicesSectionResponse,
+    StrapiResponse,
 } from '@/types/api';
 
 // API Configuration
-const API_BASE_URL = process.env.STRAPI_URL;
+const API_BASE_URL = process.env.STRAPI_URL ? process.env.STRAPI_URL : process.env.NEXT_PUBLIC_URL_BACKOFFICE_DOMAIN;
 const API_TIMEOUT = 10000; // 10 seconds
 
 // Generic API fetch function
@@ -107,13 +110,13 @@ export async function fetchPageLocation(): Promise<StrapiResponse<PageLocationDa
     try {
         console.log('🔍 Fetching page-location data from Strapi...');
         const data = await fetchFromStrapi<StrapiResponse<PageLocationData>>('/page-location');
-        console.log('✅ Page-location data fetched successfully:', {
+        /*console.log('✅ Page-location data fetched successfully:', {
             id: data.data.id,
             pageHeaderTitle: data.data.pageHeader?.title,
             pageHeaderDescription: data.data.pageHeader?.description,
             seoTitle: data.data.seo?.metaTitle,
             lastUpdated: data.data.updatedAt
-        });
+        });*/
         return data;
     } catch (error) {
         console.error('❌ Error fetching page-location:', error);
@@ -124,8 +127,7 @@ export async function fetchPageLocation(): Promise<StrapiResponse<PageLocationDa
 export async function fetchPageLocationsWithOffices(): Promise<StrapiResponse<LocationData[]>> {
     try {
         console.log('🔍 Fetching locations with offices from Strapi...');
-        const data = await fetchFromStrapi<StrapiResponse<LocationData[]>>('/locations?populate[offices][populate][featuredImage][populate]=*');
-        console.log('✅ Locations with offices fetched successfully:', {
+        /*console.log('✅ Locations with offices fetched successfully:', {
             count: data.data.length,
             locations: data.data.map(location => ({
                 id: location.id,
@@ -139,8 +141,8 @@ export async function fetchPageLocationsWithOffices(): Promise<StrapiResponse<Lo
                     hasImage: !!office.featuredImage?.url
                 }))
             }))
-        });
-        return data;
+        });*/
+        return await fetchFromStrapi<StrapiResponse<LocationData[]>>('/locations?populate[offices][populate][featuredImage][populate]=*');
     } catch (error) {
         console.error('❌ Error fetching locations with offices:', error);
         throw error;

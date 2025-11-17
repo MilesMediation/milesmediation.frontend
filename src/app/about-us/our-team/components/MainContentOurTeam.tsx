@@ -23,7 +23,7 @@ export default function MainContentOurTeam(){
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     
     // Fetch team members data from the API
-    const { data: dataOurTeam, error, isLoading } = useSWR<MembersResponse>(`${URL_BACKOFFICE_DOMAIN}${FETCH_URL}`, fetcher)
+    const { data: dataOurTeam, error, isLoading } = useSWR<MembersResponse>(`${NEXT_URL_BACKOFFICE}${FETCH_URL}`, fetcher)
 
     // Get the members data from the API response
     const data = dataOurTeam?.data

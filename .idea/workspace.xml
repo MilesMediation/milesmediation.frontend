@@ -6,9 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="8427eb36-94ee-4f77-807f-310ad8883e9b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/STRAPI_INTEGRATION.md" beforeDir="false" afterPath="$PROJECT_DIR$/STRAPI_INTEGRATION.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/about-us/components/MainContentAboutUs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/about-us/components/MainContentAboutUs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/about-us/our-team/components/MainContentOurTeam.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/about-us/our-team/components/MainContentOurTeam.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/locations/[tag]/[slug]/components/MainContentOfficePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/locations/[tag]/[slug]/components/MainContentOfficePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/locations/[tag]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/locations/[tag]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/locations/components/MainContentLocationPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/locations/components/MainContentLocationPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/locations/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/locations/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cards/CardComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/CardComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/global/MainNavigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/global/MainNavigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sections/FeaturedSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/FeaturedSection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/globalConstants.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/globalConstants.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../milesmediation.backend/config/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../milesmediation.backend/config/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../milesmediation.backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../milesmediation.backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../milesmediation.backend/src/api/practice-area/content-types/practice-area/schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/../milesmediation.backend/src/api/practice-area/content-types/practice-area/schema.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../milesmediation.backend/src/extensions/documentation/documentation/1.0.0/full_documentation.json" beforeDir="false" afterPath="$PROJECT_DIR$/../milesmediation.backend/src/extensions/documentation/documentation/1.0.0/full_documentation.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../milesmediation.backend/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../milesmediation.backend/src/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +31,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../milesmediation.backend" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -27,33 +42,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.debugger.nextJs.config.created.server": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "D:/Proyects/miles-website/milesmediation-new/public/demo",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.completion",
-    "to.speed.mode.migration.done": "true",
-    "ts.external.directory.path": "D:\\Proyects\\miles-website\\milesmediation-new\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Proyects/miles-website/milesmediation-new/public/demo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Proyects\\miles-website\\milesmediation-new\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Proyects\miles-website\milesmediation-new\public\demo" />
@@ -134,7 +149,13 @@
       <workItem from="1762281199028" duration="908000" />
       <workItem from="1762351612173" duration="15678000" />
       <workItem from="1762452844070" duration="3343000" />
-      <workItem from="1762641828451" duration="56157000" />
+      <workItem from="1762641828451" duration="60105000" />
+      <workItem from="1762959070789" duration="9275000" />
+      <workItem from="1763066735334" duration="2348000" />
+      <workItem from="1763128557523" duration="7409000" />
+      <workItem from="1763248183621" duration="2807000" />
+      <workItem from="1763398680800" duration="136000" />
+      <workItem from="1763398830581" duration="1713000" />
     </task>
     <servers />
   </component>
@@ -160,7 +181,20 @@
           <line>17</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/locations/page.tsx</url>
+          <line>16</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>

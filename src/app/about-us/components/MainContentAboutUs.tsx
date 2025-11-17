@@ -52,7 +52,7 @@ export default function MainContentAboutUs() {
     const FETCH_URL = `/api/page-about-us?populate[services_list][populate]=*&populate[mission_section][populate]=*&populate[featured_image_content][populate]=*`;
 
 
-    const { data, error, isLoading } = useSWR(`${URL_BACKOFFICE_DOMAIN}${FETCH_URL}`, fetcher)
+    const { data, error, isLoading } = useSWR(`${NEXT_URL_BACKOFFICE}${FETCH_URL}`, fetcher)
 
     console.log('data>>>>>>>', data)
 

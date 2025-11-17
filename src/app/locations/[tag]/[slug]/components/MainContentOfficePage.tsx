@@ -2,7 +2,7 @@
 
 import {useParams} from "next/navigation";
 import useSWR from "swr";
-import {URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
+import {NEXT_URL_BACKOFFICE, URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
 import GallerySection from "@/components/sections/GallerySection";
 import NeutralSection from "@/components/sections/NeutralSection";
 
@@ -25,7 +25,7 @@ export default function MainContentOfficePage(){
     const FETCH_URL = `/api/offices?filters[slug][$eq]=${slug}&populate[neutrals][populate]=avatar&populate=gallery`;
     // const FETCH_URL_SERVER = `/api/offices?filters[slug][$eq]=${slug}&populate=featuredImage&populate=gallery`;
 
-    const { data: dataPage, error: errorPage, isLoading: isLoadingPage } = useSWR(`${URL_BACKOFFICE_DOMAIN}${FETCH_URL}`, fetcher)
+    const { data: dataPage, error: errorPage, isLoading: isLoadingPage } = useSWR(`${NEXT_URL_BACKOFFICE}${FETCH_URL}`, fetcher)
 
 
     if (isLoadingPage ) return (
@@ -45,12 +45,12 @@ export default function MainContentOfficePage(){
         <>
             <div className={'container w-full mx-auto grid grid-cols-4 gap-4 mt-10'}>
                 <div className={'col-span-3'}>
-                    <div className={'min-h-[200px]'}>
+                    {/*<div className={'min-h-[200px]'}>
                         <h2 className={'font-bold text-5xl font-title main-text-color uppercase mb-5'}>Our Office</h2>
                         <p className={'font-body'}>
                             {pageData.galleryDescription}
                         </p>
-                    </div>
+                    </div>*/}
                     <div id={'officeGallery'}>
                         <GallerySection
                             title={'Our office'}

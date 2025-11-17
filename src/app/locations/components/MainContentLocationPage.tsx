@@ -1,7 +1,7 @@
 "use client";
 
 /** Imports */
-import {useEffect} from 'react';
+
 import {FeaturedCardsSection} from "@/components/sections/FeaturedCardsSection";
 import RelatedArticles from "@/components/sections/RelatedArticles";
 import CallToAction from "@/components/global/CallToAction";
@@ -44,26 +44,7 @@ export default function MainContentLocationPage() {
         offices: location.offices.map(transformOfficeData) // Map all offices in this location
     })) || [];
 
-    // Log the fetched data to console (as requested)
-    useEffect(() => {
-        if (locationsResponse?.data) {
-            console.log("📍 MainContent locations data fetched:", {
-                locationsCount: locationsResponse.data.length,
-                locations: locationsResponse.data.map(location => ({
-                    id: location.id,
-                    name: location.name,
-                    slug: location.slug,
-                    officesCount: location.offices.length,
-                    offices: location.offices.map(office => ({
-                        id: office.id,
-                        name: office.name,
-                        slug: office.slug,
-                        hasImage: !!office.featuredImage?.url
-                    }))
-                }))
-            });
-        }
-    }, [locationsResponse]);
+
 
     // Show skeleton while loading
     if (isLoading) {
@@ -87,7 +68,7 @@ export default function MainContentLocationPage() {
 
     return (
         <>
-            {console.log('Originak locations:', locationsData)}
+            {console.log('Original locations:', locationsData)}
             {console.log('transformed locations:', transformedLocationsData)}
             {/* Render FeaturedCardsSection for each location */}
             {transformedLocationsData.map((location, index) => (

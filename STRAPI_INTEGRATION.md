@@ -29,7 +29,7 @@ Se ha implementado exitosamente la integración con la API de Strapi en el lado 
 
 ```env
 STRAPI_URL=http://localhost:1337
-NEXT_PUBLIC_STRAPI_URL=http://localhost:1337
+NEXT_PUBLIC_URL_BACKOFFICE_DOMAINL=http://localhost:1337
 ```
 
 ### Endpoints de Strapi Configurados:

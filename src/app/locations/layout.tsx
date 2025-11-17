@@ -33,7 +33,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
     // Detecta el origen en server; si tienes NEXT_PUBLIC_APP_URL úsalo como fallback
     const base =
-        process.env.NEXT_PUBLIC_STRAPI_URL ??
+        process.env.STRAPI_URL ??
         (typeof process !== "undefined" ? undefined : undefined);
 
     const apiUrl = base ? `${base}/api/page-location` : `/api/page-location`;

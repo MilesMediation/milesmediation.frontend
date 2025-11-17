@@ -89,7 +89,7 @@ export function FeaturedSection({ featuredImage, target_url,imgBg = '', mode = '
                                             <CarouselItem key={index}>
                                                 {item.type === 'video' ? (
                                                     <video
-                                                        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.url}`}
+                                                        src={`${process.env.NEXT_PUBLIC_URL_BACKOFFICE_DOMAIN}${item.url}`}
                                                         className="object-cover rounded-xl w-full"
                                                         controls
                                                         muted
@@ -97,7 +97,7 @@ export function FeaturedSection({ featuredImage, target_url,imgBg = '', mode = '
                                                     />
                                                 ) : (
                                                     <img
-                                                        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.url}`}
+                                                        src={`${process.env.NEXT_PUBLIC_URL_BACKOFFICE_DOMAIN}${item.url}`}
                                                         alt={item.alt || `Media content ${index + 1}`}
                                                         className="object-cover rounded-xl w-full"
                                                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -122,7 +122,7 @@ export function FeaturedSection({ featuredImage, target_url,imgBg = '', mode = '
                                 />
                             ) : (
                                 <img
-                                    src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${featuredImage[0].url}`}
+                                    src={`${process.env.NEXT_PUBLIC_URL_BACKOFFICE_DOMAIN}${featuredImage[0].url}`}
                                     alt={featuredImage[0].alt || "Media content"}
                                     className="object-cover rounded-xl w-full"
                                     sizes="(max-width: 768px) 100vw, 50vw"

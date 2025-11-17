@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import classNames from "classnames";
 import {useEffect} from "react";
-import {URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
+import {NEXT_URL_BACKOFFICE} from "@/lib/globalConstants";
 
 interface OfficeCardProps {
     image?: string
@@ -46,8 +46,8 @@ export default function CardComponent({ image, name, url, onClick, size='md' }: 
         <div onClick={onClick} className={`${cardContainer} `}>
 
             <img
-                src={image ? URL_BACKOFFICE_DOMAIN + image : '/cardImgSample1.png'}
-                alt={name}
+                src={image ? NEXT_URL_BACKOFFICE + image  : '/cardImgSample1.png'}
+                alt={name + '-test'}
                 title={image}
                 className="object-cover rounded-sm h-full w-full"
             />

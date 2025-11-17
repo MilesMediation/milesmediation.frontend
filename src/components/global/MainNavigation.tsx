@@ -8,6 +8,7 @@ import { NavigationMenuDemo } from "@/components/global/NavigationMenuDemo";
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Flip } from 'gsap/Flip'
+import { usePathname } from 'next/navigation'
 
 const topLinks = ['Shop', 'Pay Online', 'Log in']
 
@@ -36,6 +37,27 @@ export default function MainNavigation() {
     const menuRef = useRef<HTMLDivElement | null>(null)
     const stickyShellRef = useRef<HTMLDivElement | null>(null)
     const stickyInnerRef = useRef<HTMLDivElement | null>(null)
+    const pathname = usePathname()
+
+    useLayoutEffect(() => {
+        if (typeof window === 'undefined') return
+
+        const menu = menuRef.current
+        const menuHome = menuHomeRef.current
+        const stickyShell = stickyShellRef.current
+        const stickyInner = stickyInnerRef.current
+
+        if (!menu || !menuHome || !stickyShell || !stickyInner) return
+
+        if (stickyInner.contains(menu)) {
+            menuHome.appendChild(menu)
+        }
+
+        gsap.set(menuHome, { clearProps: 'width,height' })
+        gsap.set(menu, { clearProps: 'all' })
+        gsap.set(stickyShell, { opacity: 0, pointerEvents: 'none' })
+        ScrollTrigger.refresh()
+    }, [pathname])
 
     useLayoutEffect(() => {
         if (typeof window === 'undefined') return
@@ -95,9 +117,9 @@ export default function MainNavigation() {
                     menuHome.appendChild(menu)
 
                     gsap.to(stickyShell, {
-                        opacity: 1,
+                        opacity: 0,
                         pointerEvents: 'none',
-                        duration: 1,
+                        duration: 0.25,
                         ease: 'power2.out',
                     })
 
@@ -111,17 +133,28 @@ export default function MainNavigation() {
 
                     animation.eventCallback('onComplete', () => {
                         gsap.set(menuHome, { clearProps: 'width,height' })
-                        gsap.set(menu, { clearProps: 'transform,opacity' })
+                        gsap.set(menu, { clearProps: 'all' })
                     })
+                }
+
+                const evaluateSticky = () => {
+                    const shouldStick = window.scrollY > 4
+                    if (shouldStick) {
+                        activateSticky()
+                    } else {
+                        deactivateSticky()
+                    }
                 }
 
                 const trigger = ScrollTrigger.create({
                     trigger: menuHome,
-                    start: 'top top+=12',
+                    start: 'top top',
                     end: 'max',
-                    onEnter: activateSticky,
-                    onLeaveBack: deactivateSticky,
+                    onUpdate: evaluateSticky,
+                    onRefresh: evaluateSticky,
                 })
+
+                evaluateSticky()
 
                 const handleResize = () => {
                     if (!isSticky) return
