@@ -7,7 +7,7 @@ import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import {ListBlockProps, ListItemBlockProps} from "@/app/our-panel/neutral/[slug]/page";
 import {ReactNode} from "react";
 import useSWR from "swr";
-import {NEXT_URL_BACKOFFICE, URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
+import {NEXT_URL_BACKOFFICE} from "@/lib/globalConstants";
 import {FeaturedSection} from "@/components/sections/FeaturedSection";
 
 

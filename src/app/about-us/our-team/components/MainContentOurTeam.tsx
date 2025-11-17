@@ -3,7 +3,7 @@
 import NeutralCard from "@/components/cards/NeutralCard";
 import { useState } from "react";
 import useSWR from "swr";
-import {NEXT_URL_BACKOFFICE, URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
+import {NEXT_URL_BACKOFFICE,} from "@/lib/globalConstants";
 import {AnimatePresence} from "framer-motion";
 import {motion} from "framer-motion";
 import type {  MembersResponse } from "@/types/api";

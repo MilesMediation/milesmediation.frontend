@@ -2,7 +2,7 @@
 
 import {useParams} from "next/navigation";
 import useSWR from "swr";
-import {NEXT_URL_BACKOFFICE, URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
+import {NEXT_URL_BACKOFFICE} from "@/lib/globalConstants";
 import GallerySection from "@/components/sections/GallerySection";
 import NeutralSection from "@/components/sections/NeutralSection";
 
