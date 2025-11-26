@@ -11,7 +11,7 @@ export default function GallerySection({description, images, title=''}: galleryT
     return(
         <>
             <div className={'container mx-auto'}>
-                <div className={'mb-10'}>
+                <div className={`${description ? 'min-h-[200px]': 'mb-10'}`}>
                     <h2 className={'font-bold text-5xl font-title main-text-color uppercase mb-5'}>{title}</h2>
                     <p className={'font-body'}>
                         {description &&(

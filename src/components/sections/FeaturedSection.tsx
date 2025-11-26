@@ -39,7 +39,7 @@ export function FeaturedSection({ featuredImage, target_url,imgBg = '', mode = '
     })
 
     const hasBg = Boolean(imgBg)
-    console.log(hasBg)
+
 
     // Determine if we should show carousel
     const isArray = Array.isArray(featuredImage);

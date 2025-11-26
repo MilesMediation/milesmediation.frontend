@@ -42,7 +42,7 @@ interface RelatedArticleTypes {
     customTitle?: string;
     cardSize: 'sm' | 'md' | 'lg' | 'xl';
     className?: string;
-    articleList?: BaseArticle[];
+    articleList?: BaseArticle[] | null;
     exampleMode?: boolean;
     descriptionText?: string;
 }

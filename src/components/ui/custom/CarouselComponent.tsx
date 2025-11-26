@@ -8,6 +8,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
+import {NEXT_URL_BACKOFFICE} from "@/lib/globalConstants";
 
 interface GalleryItem {
     url: string;
@@ -29,7 +30,7 @@ export function CarouselComponent({gallery}: {gallery: GalleryItem[]}) {
                                 <CardContent className="flex h-[440px] rounded-xl overflow-hidden items-center justify-center p-0">
                                     {/*<span className="text-4xl font-semibold">{index + 1}</span>*/}
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img src={`http://localhost:1337${item.url}`} alt="" className={'w-full h-full object-cover'} />
+                                    <img src={`${NEXT_URL_BACKOFFICE}${item.url}`} alt="" className={'w-full h-full object-cover'} />
                                 </CardContent>
                             </Card>
                         </div>

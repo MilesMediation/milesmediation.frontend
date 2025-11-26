@@ -11,7 +11,7 @@ import AccordionItem from "@/components/ui/AccordionItems";
 import { useParams } from 'next/navigation';
 
 // Updated imports for Azure API (AUTH_TOKEN commented out as not currently used)
-import {URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
+import {NEXT_URL_BACKOFFICE, URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
 import useSWR from "swr";
 import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 
@@ -23,7 +23,7 @@ import {ReactNode} from "react";
 const strapiFetcher = (url: string | URL | Request) =>
     fetch(url).then((r) => r.json())
 
-// Fetcher for Azure API with authentication (commented out as not currently used)
+// Fetcher for Azure API with authentication
 // const azureFetcher = (url: string | URL | Request) =>
 //     fetch(url, {
 //         headers: {
@@ -69,7 +69,7 @@ export default function Page() {
     // First: Load neutral data from Strapi
     const STRAPI_FETCH_URL = `/api/neutrals?filters[slug][$eq]=${slug}&populate=*`;
     const { data: strapiData, error: strapiError, isLoading: strapiLoading } = useSWR(
-        `${URL_BACKOFFICE_DOMAIN}${STRAPI_FETCH_URL}`, 
+        `${NEXT_URL_BACKOFFICE}${STRAPI_FETCH_URL}`,
         strapiFetcher
     );
 
@@ -287,7 +287,7 @@ export default function Page() {
                             <div className="sticky top-30">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
-                                    src={avatarUrl}
+                                    src={NEXT_URL_BACKOFFICE+avatarUrl}
                                     alt={dataNeutral.name || 'Neutral'}
                                     className="w-full"
 

@@ -5,7 +5,7 @@ import RelatedArticles from "@/components/sections/RelatedArticles";
 import CallToAction from "@/components/global/CallToAction";
 import Footer from "@/components/global/Footer";
 import {fetchLocationsByTag} from "@/lib/api";
-import {Member, PageOurTeamData, SeoData, StrapiResponse} from "@/types/api";
+import {ArticlesType, Member, PageOurTeamData, SeoData, StrapiResponse} from "@/types/api";
 
 export interface OfficeData {
     name: string;
@@ -19,9 +19,13 @@ export interface OfficeData {
 // TODO: Rename the name of the type an adjust the parent type as well
 // Extended Member interface that includes metadata
 interface MemberWithMetadata extends Member {
+    featured_media: {
+        url: string;
+    }
     metadata?: SeoData;
     articlesDescription?: string;
     officesDescription?: string;
+    articles?: ArticlesType[] | null;
     offices: {
         featuredImage: { url: string };
         id: number;
@@ -67,7 +71,6 @@ export default async function Page({params}: {params: Promise<{ tag: string }>})
                 </>
         )
     }
-    
 
 
     /** Checking if this page location  have related offices and normalize the  data */
@@ -89,6 +92,7 @@ export default async function Page({params}: {params: Promise<{ tag: string }>})
     
     console.log('Page Location data:', pageData);
     console.log('Normalized offices data:', officesNormalized);
+    /*console.log('TESTTTT:', pageData.featured_media.url);*/
 
     return (
         <>
@@ -100,6 +104,7 @@ export default async function Page({params}: {params: Promise<{ tag: string }>})
                                 'and dedication to our clients and neutrals can be summed up in the following words: ' +
                                 'the Miles Mediation experience is "Miles Above the Rest."'}
                     classname={'h-[450px] md:h-[550px]'}
+                    backgroundImage={pageData.featured_media ? pageData.featured_media.url : ''}
                 />
 
                 <main>
@@ -117,6 +122,7 @@ export default async function Page({params}: {params: Promise<{ tag: string }>})
                             cardSize={'lg'}
                             exampleMode={true}
                             descriptionText={pageData.articlesDescription}
+                            articleList={pageData.articles ? pageData.articles : null}
                         />
                     </div>
                 </main>

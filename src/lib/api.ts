@@ -336,7 +336,7 @@ export async function fetchOurTeamPageData() {
 export async function fetchLocationsByTag(tag: string) {
 
     try {
-        return await fetchFromStrapi<StrapiResponse<PageOurTeamData>>(`/locations?filters[slug][$eq]=${tag}&populate[metadata][populate]=*&populate[offices][populate]=*&populate[articles][populate]=*`);
+        return await fetchFromStrapi<StrapiResponse<PageOurTeamData>>(`/locations?filters[slug][$eq]=${tag}&populate[metadata][populate]=*&populate[offices][populate]=*&populate[articles][populate]=*&populate[featured_media][populate]=*`);
     } catch (error) {
         console.error('❌ Error fetching page-about-us:', error);
         throw error;

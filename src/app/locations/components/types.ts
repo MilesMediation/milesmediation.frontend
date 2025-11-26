@@ -5,4 +5,5 @@ export interface officesData {
     size: 'sm' | 'md' | 'lg' | 'xl';
     url: string;
     image: string;
+    slug_location: string;
 }

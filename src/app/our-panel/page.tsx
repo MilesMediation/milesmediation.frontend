@@ -9,17 +9,9 @@ import {AZURE_API_URL, AUTH_TOKEN} from "@/lib/globalConstants";
 import useSWR from 'swr';
 import { useState, useMemo, useRef, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import {
-    Pagination,
-    PaginationContent,
-    PaginationEllipsis,
-    PaginationItem,
-    PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious,
 } from "@/components/ui/pagination";
 import { ChevronDown, Search, MapPin, User, X } from 'lucide-react';
-
 
 // Azure API interface - updated to match actual response structure
 interface AzureNeutral {
@@ -75,8 +67,7 @@ export default function Page() {
 
     // Fetch Azure data using SWR
     const { data: azureData, error: azureError, isLoading: azureLoading } = useSWR<AzureNeutralsResponse>(
-        `${AZURE_API_URL}/neutrals/list`,
-        azureFetcher,
+        `${AZURE_API_URL}/neutrals/list`, azureFetcher,
         {
             revalidateOnFocus: false,
             revalidateOnReconnect: false,
@@ -489,7 +480,7 @@ export default function Page() {
                         
                         {currentNeutrals.length > 0 ? (
                             <>
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
                                     {currentNeutrals.map((item) => (
                                         <div 
                                             key={item.neutral_id}

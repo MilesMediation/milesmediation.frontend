@@ -82,7 +82,7 @@ export default function AnimatedHeroText({ items }: AnimatedHeroTextProps) {
     }, [items]);
 
     if (items.length === 0) return null;
-    {console.log(currentIndex)}
+
     return (
         <div 
             ref={containerRef}
@@ -97,6 +97,7 @@ export default function AnimatedHeroText({ items }: AnimatedHeroTextProps) {
             </h1>
             <h1
                 ref={textRef2}
+                title={`${currentIndex}`}
                 className="absolute uppercase text-5xl sm:text-5xl md:text-6xl font-bold tracking-tight  p-1"
                 style={{ fontFamily: 'var(--font-neue-plak)' }}
             >

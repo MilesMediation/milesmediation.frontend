@@ -30,18 +30,22 @@ export default function MainContentLocationPage() {
     const locationsData = locationsResponse?.data || [];
 
     // Transform API data to match FeaturedCardsSection props
-    const transformOfficeData = (office: OfficeData): officesData => ({
-        name: office.name,
-        size: 'lg' as const,
-        url: `/locations/offices/${office.slug}`,
-        image: office.featuredImage?.url || ''
-    });
+    const transformOfficeData = (office: OfficeData, slugLocation: string): officesData => {
+        console.log('CHECKK ITEM OFFICE: ',office);
+        return({
+            name: office.name,
+            size: 'lg' as const,
+            url: `/locations/${slugLocation}/${office.slug}`,
+            image: office.featuredImage?.url || '',
+            slug_location: slugLocation
+        })
+    };
 
     // Transform locations data for rendering - now using the correct structure
     const transformedLocationsData = locationsData?.map((location: LocationData) => ({
         title: location.name, // Use location.name instead of office.location?.name
         slug: location.slug,
-        offices: location.offices.map(transformOfficeData) // Map all offices in this location
+        offices: location.offices.map(office => transformOfficeData(office, location.slug)) // Map all offices in this location
     })) || [];
 
 

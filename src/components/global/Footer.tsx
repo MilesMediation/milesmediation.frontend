@@ -40,7 +40,7 @@ const footerData = [
 
 
 export default function Footer() {
-    console.log("🧪 Home env variables snapshot:", {
+    /*console.log("🧪 Home env variables snapshot:", {
         client_nextPublicStrapiUrl: process.env.NEXT_PUBLIC_STRAPI_URL,
         client_nextBackofficeDomain: process.env.NEXT_BACKOFFICE_DOMIAN,
         client_nextUrlBackofficeDomain: process.env.NEXT_URL_BACKOFFICE_DOMAIN,
@@ -50,7 +50,7 @@ export default function Footer() {
         SERVER_azureApiUrl: process.env.AZURE_API_URL,
         SERVER_azureBaseUrl: process.env.AZURE_BASE_URL,
         SERVER_authTokenDefined: Boolean(process.env.AUTH_TOKEN),
-    });
+    });*/
 
     return (
         <footer className="bg-[var(--color-dark-green,#003135)] text-white w-full px-4 py-16">
