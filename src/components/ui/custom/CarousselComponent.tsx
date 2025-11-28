@@ -118,8 +118,8 @@ export default function CarouselComponent<T>({ items, renderItem, config, onCont
         return timeline;
     }, [canNavigate, cardWidth, initialOffset, totalCards, config]);
 
-    const handlePrev = () => moveSlide('prev');
-    const handleNext = () => moveSlide('next');
+    const handlePrev = useCallback(() => moveSlide('prev'), [moveSlide]);
+    const handleNext = useCallback(() => moveSlide('next'), [moveSlide]);
 
     // Expose controls to parent component
     useEffect(() => {

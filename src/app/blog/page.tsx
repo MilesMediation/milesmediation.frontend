@@ -106,7 +106,7 @@ export default async function Blog(){
 
     if(!ArticlesPageData) return null;
 
-    console.log('Articles Page data', ArticlesPageData.data.sections)
+    // console.log('Articles Page data', ArticlesPageData.data.sections)
     const section_content : contentSectionType[] = ArticlesPageData.data?.sections.length > 0 ? ArticlesPageData.data.sections : [];
     
     // Temporary object to store posts by slug
@@ -155,8 +155,8 @@ export default async function Blog(){
 
 
 
-    console.log('Array :', sectionArray)
-    console.log('Section content :', section_content)
+    // console.log('Array :', sectionArray)
+    // console.log('Section content :', section_content)
 
     return(
         <>

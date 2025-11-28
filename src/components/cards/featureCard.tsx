@@ -25,6 +25,7 @@ export default function FeatureCard({
             }`}
         >
             <div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img className="mx-auto" src="/globe.svg" alt="Privacy" width="100" height="100" />
             </div>
             <h3 className={` font-bold text-main-color my-4 ${

@@ -21,7 +21,7 @@ export default async function Page({params}: {params: Promise<{ slug: string; ta
         const response = await customPageData<OfficeData[]>(FETCH_URL_SERVER)
 
         PageData = (response?.data && Array.isArray(response.data) && response.data.length > 0) ? response.data[0] : null;
-        console.log('Responde data', PageData)
+        // console.log('Responde data', PageData)
 
     }catch (error) {
            console.log(error);

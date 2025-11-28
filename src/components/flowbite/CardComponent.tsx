@@ -24,6 +24,8 @@ export default function CardComponent({title,url, description, imageUrl, categor
         'dark:border-gray-700',
         'flex',
         'flex-col',
+        'relative',
+        'overflow-hidden',
     )
 
     return (
@@ -38,7 +40,7 @@ export default function CardComponent({title,url, description, imageUrl, categor
                 <div className="p-5 h-full flex-1 flex flex-col justify-between">
                     <div>
                         {category &&(
-                        <div className={'bg-cyan-600 text-white inline-block p-2 mb-2 uppercase font-medium text-xs rounded-sm'}>
+                        <div className={'absolute top-4 bg-cyan-600 text-white inline-block p-1 mb-2 uppercase  text-[11px] rounded-sm'}>
                             {category}
                         </div>
                         )}

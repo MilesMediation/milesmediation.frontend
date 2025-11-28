@@ -7,6 +7,7 @@ export default function DocumentCard() {
           <div className="border border-gray-300 p-5 rounded-md">
               <div className={'flex gap-4 items-center'}>
                   <div className={'flex-1/6'}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={'/globe.svg'} alt="" className={'w-full'}/>
                   </div>
                   <div className={'flex-5/4'}>

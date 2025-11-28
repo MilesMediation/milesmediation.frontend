@@ -73,7 +73,8 @@ export default function MainContentOfficePage() {
                     </div>
                     {pageData.manager_name && (
                     <div className={'h-[400px] rounded-md'}>
-                        <img className={'w-full h-full object-cover rounded-lg'} src={NEXT_URL_BACKOFFICE+pageData.manager_avatar.url}/>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img alt={''} className={'w-full h-full object-cover rounded-lg'} src={NEXT_URL_BACKOFFICE+pageData.manager_avatar.url}/>
                         <p className={'mb-0 mt-2 font-bold'}>
                             {pageData.manager_name}, Office manager.
                         </p>

@@ -220,7 +220,7 @@ export default function OfficesSection({ officesData }: OfficesSectionProps) {
             },
             0.5 + CAROUSEL_CONFIG.animation.duration * 0.3
         );
-    }, [activeOfficeIndex]);
+    }, [activeOfficeIndex, initialOffices]);
 
     const handlePrev = () => moveSlide('prev');
     const handleNext = () => moveSlide('next');
@@ -305,6 +305,7 @@ export default function OfficesSection({ officesData }: OfficesSectionProps) {
                             {offices.map((office, index) => (
                                 <div key={`${office.name}-${index}`} className="office-carousel-slide">
                                     <div className="cursor-pointer relative rounded-sm overflow-hidden shadow-lg w-[330px] h-[480px] office-card">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img
                                             src={office.image}
                                             alt={office.name}

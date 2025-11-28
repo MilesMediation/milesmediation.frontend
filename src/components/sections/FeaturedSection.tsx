@@ -96,12 +96,16 @@ export function FeaturedSection({ featuredImage, target_url,imgBg = '', mode = '
                                                         loop
                                                     />
                                                 ) : (
-                                                    <img
-                                                        src={`${process.env.NEXT_PUBLIC_URL_BACKOFFICE_DOMAIN}${item.url}`}
-                                                        alt={item.alt || `Media content ${index + 1}`}
-                                                        className="object-cover rounded-xl w-full"
-                                                        sizes="(max-width: 768px) 100vw, 50vw"
-                                                    />
+                                                    <>
+                                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                        <img
+                                                            src={`${process.env.NEXT_PUBLIC_URL_BACKOFFICE_DOMAIN}${item.url}`}
+                                                            alt={item.alt || `Media content ${index + 1}`}
+                                                            className="object-cover rounded-xl w-full"
+                                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                                        />
+                                                    </>
+
                                                 )}
                                             </CarouselItem>
                                         )
@@ -121,21 +125,29 @@ export function FeaturedSection({ featuredImage, target_url,imgBg = '', mode = '
                                     loop
                                 />
                             ) : (
-                                <img
-                                    src={`${process.env.NEXT_PUBLIC_URL_BACKOFFICE_DOMAIN}${featuredImage[0].url}`}
-                                    alt={featuredImage[0].alt || "Media content"}
-                                    className="object-cover rounded-xl w-full"
-                                    sizes="(max-width: 768px) 100vw, 50vw"
-                                />
+                                <>
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        src={`${process.env.NEXT_PUBLIC_URL_BACKOFFICE_DOMAIN}${featuredImage[0].url}`}
+                                        alt={featuredImage[0].alt || "Media content"}
+                                        className="object-cover rounded-xl w-full"
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                    />
+                                </>
+
                             )
                         ) : (
                             // Single string or fallback
-                            <img
-                                src={typeof featuredImage === 'string' ? featuredImage : fallbackImage}
-                                alt="Location Site"
-                                className="object-cover rounded-xl w-full"
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                            />
+                            <>
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src={typeof featuredImage === 'string' ? featuredImage : fallbackImage}
+                                    alt="Location Site"
+                                    className="object-cover rounded-xl w-full"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
+                            </>
+
                         )}
                     </div>
                 </div>

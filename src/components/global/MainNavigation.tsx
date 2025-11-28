@@ -30,7 +30,11 @@ const mainMenu = [
     { label: 'About Us', href: '/about' },
 ]
 
-export default function MainNavigation() {
+interface navigationType{
+    logo_mode?: 'dark' | 'light';
+}
+
+export default function MainNavigation({logo_mode='light'} : navigationType) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [openSubmenu, setOpenSubmenu] = useState(false)
     const menuHomeRef = useRef<HTMLDivElement | null>(null)
@@ -206,8 +210,21 @@ export default function MainNavigation() {
             >
                 <div className="mx-auto max-w-[1680px] px-[6rem] py-1 flex justify-between items-center h-[5rem]">
                     <Link id={'mainLogoNav'} href="/">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="/main-logo-white.svg" alt="Miles Mediation Logo" className="h-12" />
+
+                        {(logo_mode == 'light') ? (
+                            <>
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img src="/main-logo-white.svg" alt="Miles Mediation Logo" className="h-12" />
+                            </>
+
+                        ) : (
+                            <>
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img src="/main-logo-dark.svg" alt="Miles Mediation Logo" className="h-12" />
+                            </>
+
+                        )}
+
                     </Link>
 
                     {/* Desktop menu */}

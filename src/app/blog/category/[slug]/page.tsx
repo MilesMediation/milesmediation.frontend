@@ -129,7 +129,7 @@ export default async function Page({params}: {params: Promise<{ slug: string }>}
             <main className="container mx-auto py-10">
                 <div className="grid grid-cols-10 gap-4">
 
-                    <AsideCategoryList additionalLinks={headerData.additional_links}/>
+                    <AsideCategoryList additionalLinks={headerData.additional_links} activeCategorySlug={slug_data.slug}/>
                     <MainArticleContentList category={slug_data.slug} />
                 </div>
             </main>

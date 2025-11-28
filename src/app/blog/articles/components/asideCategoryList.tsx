@@ -22,9 +22,10 @@ interface AsideCategoryListProps {
         url: string
         icon?: string
     }[]
+    activeCategorySlug?: string | null
 }
 
-export default async function AsideCategoryList({additionalLinks}: AsideCategoryListProps) {
+export default async function AsideCategoryList({additionalLinks, activeCategorySlug}: AsideCategoryListProps) {
 
     let categoryListData: StrapiResponse<CategoryListData[]> | null = null;
 
@@ -49,13 +50,19 @@ export default async function AsideCategoryList({additionalLinks}: AsideCategory
                 <h4 className={'font-title text-xl font-bold main-text-color uppercase'}>Categories</h4>
                 {categoryListData?.data?.length > 0 && (
                 <ul className={` list-inside`}>
-                    {categoryListData.data.map((category: CategoryListData) => (
-                    <li key={category.id} className={' border-b border-cyan-950/10 py-5'}>
-                        <Link className={'flex capitalize'} href={'/blog/category/' + category.slug}>
-                            <ChevronRight /> {category.name}
-                        </Link>
-                    </li>
-                    ))}
+                    {categoryListData.data.map((category: CategoryListData) => {
+                        const isActive = activeCategorySlug === category.slug;
+                        return (
+                            <li key={category.id} className={' border-b border-cyan-950/10 py-5'}>
+                                <Link 
+                                    className={`flex capitalize ${isActive ? 'font-bold text-teal-900' : ''}`} 
+                                    href={'/blog/category/' + category.slug}
+                                >
+                                    <ChevronRight /> {category.name}
+                                </Link>
+                            </li>
+                        );
+                    })}
                 </ul>
                 )}
                 {(additionalLinks && additionalLinks.length > 0 )&& (

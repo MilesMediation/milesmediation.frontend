@@ -1,7 +1,7 @@
 'use client'
 
 import useSWR from "swr";
-import {URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
+import {NEXT_URL_BACKOFFICE, URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
 import PracticeAreaCard from "@/components/cards/PracticeAreaCard";
 import RelatedArticles from "@/components/sections/RelatedArticles";
 import { StrapiResponse } from "@/types/api";
@@ -38,8 +38,8 @@ export default function MainContentPracticeAreaLanding() {
     const FETCH_URL_videos = `/api/articles?filters[articles_category][slug][$eq]=videos&fields[0]=title&fields[1]=slug&fields[2]=isAvailable&fields[3]=CreatedDate&fields[4]=short_description&populate[articleImage][fields][0]=url&populate[articles_category][fields][0]=slug&populate[articles_category][fields][1]=name`;
 
 
-    const { data: dataContent, error: errorContent, isLoading: isLoadingContent } = useSWR<StrapiResponse<PracticeAreaData[]>>(`${URL_BACKOFFICE_DOMAIN}${FETCH_URL_content}`, fetcher)
-    const { data: dataVideo, error: errorVideo, isLoading: isLoadingVideo } = useSWR<StrapiResponse<PostData[]>>(`${URL_BACKOFFICE_DOMAIN}${FETCH_URL_videos}`, fetcher)
+    const { data: dataContent, error: errorContent, isLoading: isLoadingContent } = useSWR<StrapiResponse<PracticeAreaData[]>>(`${NEXT_URL_BACKOFFICE}${FETCH_URL_content}`, fetcher)
+    const { data: dataVideo, error: errorVideo, isLoading: isLoadingVideo } = useSWR<StrapiResponse<PostData[]>>(`${NEXT_URL_BACKOFFICE}${FETCH_URL_videos}`, fetcher)
 
 
     if (isLoadingContent || isLoadingVideo) return (

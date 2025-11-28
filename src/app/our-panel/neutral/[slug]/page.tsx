@@ -140,7 +140,7 @@ export default function Page() {
     
     return (
         <div className="bg-white text-gray-800 space-y-12">
-            <MainNavigation/>
+            <MainNavigation logo_mode={'dark'}/>
 
             <section
                 className="w-full py-[100px]  bg-cover bg-center relative mb-0">

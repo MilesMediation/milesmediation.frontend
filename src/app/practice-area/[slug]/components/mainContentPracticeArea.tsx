@@ -3,7 +3,7 @@
 import NeutralSection from "@/components/sections/NeutralSection";
 import RelatedArticles from "@/components/sections/RelatedArticles";
 import useSWR from "swr";
-import {URL_BACKOFFICE_DOMAIN} from "@/lib/globalConstants";
+import {NEXT_URL_BACKOFFICE} from "@/lib/globalConstants";
 import {FaStar} from "react-icons/fa6";
 import {Skeleton} from "@/components/ui/skeleton";
 import { StrapiResponse } from "@/types/api";
@@ -57,7 +57,7 @@ export default function MainContentOurTeam({ slug }: { slug: string }) {
     const FETCH_URL = `/api/practice-areas?filters[slug][$eq]=${slug}&populate[posts][populate][0]=articleImage&populate[neutrals][populate][0]=avatar&populate[awards][populate][0]=featured_image`;
     // const FETCH_URL = `/api/articles?fields[0]=title&fields[1]=slug&fields[2]=isAvailable&fields[3]=CreatedDate&populate[articleImage][fields][0]=url&populate[articles_category][fields][0]=slug&populate[articles_category][fields][1]=name&sort=CreatedDate:desc&pagination[limit]=5`;
 
-    const { data, error, isLoading } = useSWR<StrapiResponse<PracticeAreaDetailData[]>>(`${URL_BACKOFFICE_DOMAIN}${FETCH_URL}`, fetcher)
+    const { data, error, isLoading } = useSWR<StrapiResponse<PracticeAreaDetailData[]>>(`${NEXT_URL_BACKOFFICE}${FETCH_URL}`, fetcher)
 
 
 

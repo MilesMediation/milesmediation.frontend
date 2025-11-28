@@ -23,7 +23,7 @@ export default async function CustomRelatedArticles({title, description}: Custom
              }>(request_url)
 
         ArticleData = response.data?.related_articles;
-        console.log('Responde data', response.data.related_articles)
+        // console.log('Responde data', response.data.related_articles)
 
     }catch (error) {
         console.log(error);
@@ -33,7 +33,7 @@ export default async function CustomRelatedArticles({title, description}: Custom
         const response = await customPageData<ArticlesType[]>(articles_url)
 
         ArticlesList = response.data;
-        console.log('Articles List data', response.data)
+        // console.log('Articles List data', response.data)
 
     }catch (error) {
         console.log(error);

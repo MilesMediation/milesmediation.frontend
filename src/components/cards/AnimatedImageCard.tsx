@@ -32,6 +32,7 @@ export default function AnimatedImageCard({
             className={`overflow-hidden ${containerClassName}`}
             style={style}
         >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
                 src={src}
                 alt={alt}

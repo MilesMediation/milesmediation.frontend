@@ -92,11 +92,15 @@ export default function HeroSection({ heroData }: HeroSectionProps) {
                     Your browser does not support the video tag.
                 </video>
             ) : isImage && bannerUrl ? (
-                <img
-                    src={URL_BACKOFFICE_DOMAIN + bannerUrl}
-                    alt={title}
-                    className="absolute top-0 left-0 w-full h-full object-cover z-0"
-                />
+                <>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                        src={URL_BACKOFFICE_DOMAIN + bannerUrl}
+                        alt={title}
+                        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+                    />
+                </>
+
             ) : (
                 // Default fallback video
                 <video

@@ -44,7 +44,7 @@ export default function CardComponent({ image, name, url, onClick, size='md' }: 
 
     return (
         <div onClick={onClick} className={`${cardContainer} `}>
-
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
                 src={image ? NEXT_URL_BACKOFFICE + image  : '/cardImgSample1.png'}
                 alt={name + '-test'}

@@ -4,7 +4,7 @@ import ScheduleDateNeutral from "@/app/our-panel/neutral/components/ScheduleDate
 import ButtonMiles from "@/components/ui/custom/ButtonMiles";
 import {DrawerCalendar} from "@/components/ui/custom/DrawerCalendar";
 // Updated imports for Azure API
-import { AUTH_TOKEN, URL_DASHBOARD } from "@/lib/globalConstants";
+import {AUTH_TOKEN, NEXT_URL_DASHBOARD} from "@/lib/globalConstants";
 // Legacy Strapi imports (commented for future reference)
 // import { URL_BACKOFFICE_DOMAIN, URL_DASHBOARD } from "@/lib/globalConstants";
 import useSWR from "swr";
@@ -52,7 +52,7 @@ export default function CalendarNeutral({caseManager,neutral_id}: calendarType){
     // console.log("FETCH_URL CHECK",FETCH_URL)
 
     const { data, error, isLoading } = useSWR(
-        neutral_id ? `${URL_DASHBOARD}/rest/neutrals/calendar/${neutral_id}` : null,
+        neutral_id ? `${NEXT_URL_DASHBOARD}/rest/neutrals/calendar/${neutral_id}` : null,
         fetcherWithToken
     );
 

@@ -82,7 +82,7 @@ export default async function Page({params}: {params: Promise<{ slug: string }>}
 
     return(
         <>
-            <MainNavigation />
+            <MainNavigation logo_mode={'dark'} />
 
 
             <main className="container mx-auto mt-40 pb-20 min-h-[calc(100vh-160px)] relative">
@@ -138,6 +138,7 @@ export default async function Page({params}: {params: Promise<{ slug: string }>}
 
                         {memberData.avatar?.url && (
                             <div className="sticky top-[140px]">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
                                     className={'w-full '}
                                     src={NEXT_URL_BACKOFFICE + memberData.avatar.url}
