@@ -69,6 +69,8 @@ export default function Page() {
         error: errorStrapi,
         isLoading: isLoadingStrapi
     } = useSWR(`${NEXT_URL_BACKOFFICE}${STRAPI_NEUTRAL_ENDPOINT}`, fetcher)
+    // NEXT_URL_BACKOFFICE = localhost:1337
+    // '/api/neutrals?fields[0]=slug&fields[1]=name&populate[avatar][fields][0]=url';
 
     // Filter Strapi neutrals by name
     const filteredNeutrals = useMemo(() => {
@@ -90,6 +92,8 @@ export default function Page() {
     const clearAllFilters = () => {
         setNameFilter('');
     };
+
+    console.log('DATA TESTING: ', dataStrapi);
 
     // Show loading state
     if (isLoadingStrapi) {

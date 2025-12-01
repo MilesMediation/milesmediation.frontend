@@ -5,32 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8427eb36-94ee-4f77-807f-310ad8883e9b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/main-logo-dark.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(home)/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(home)/HeroSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(home)/OfficeSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(home)/OfficeSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/about-us/our-team/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/about-us/our-team/[slug]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/articles/components/asideCategoryList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/articles/components/asideCategoryList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/articles/components/mainArticleContentList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/articles/components/mainArticleContentList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/category/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/category/[slug]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/locations/[tag]/[slug]/components/MainContentOfficePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/locations/[tag]/[slug]/components/MainContentOfficePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/locations/[tag]/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/locations/[tag]/[slug]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/our-panel/arbitrators/component/documentCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/arbitrators/component/documentCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/our-panel/neutral/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/neutral/[slug]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/our-panel/neutral/components/CalendarNeutral.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/neutral/components/CalendarNeutral.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/our-panel/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/our-panel/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/practice-area/[slug]/components/mainContentPracticeArea.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/practice-area/[slug]/components/mainContentPracticeArea.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/practice-area/components/MainContentPracticeAreaLanding.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/practice-area/components/MainContentPracticeAreaLanding.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cards/AnimatedImageCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/AnimatedImageCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cards/CardComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/CardComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cards/featureCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cards/featureCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/flowbite/CardComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/flowbite/CardComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/global/MainNavigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/global/MainNavigation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sections/FeaturedSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/FeaturedSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sections/customRelatedArticles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sections/customRelatedArticles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/custom/CarousselComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/custom/CarousselComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/globalConstants.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/globalConstants.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../milesmediation.backend/src/extensions/documentation/documentation/1.0.0/full_documentation.json" beforeDir="false" afterPath="$PROJECT_DIR$/../milesmediation.backend/src/extensions/documentation/documentation/1.0.0/full_documentation.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../milesmediation.backend/types/generated/contentTypes.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../milesmediation.backend/types/generated/contentTypes.d.ts" afterDir="false" />
     </list>
@@ -170,7 +146,8 @@
       <workItem from="1764001421860" duration="22272000" />
       <workItem from="1764120556270" duration="2370000" />
       <workItem from="1764164616904" duration="11762000" />
-      <workItem from="1764252984574" duration="9930000" />
+      <workItem from="1764252984574" duration="16989000" />
+      <workItem from="1764595181583" duration="297000" />
     </task>
     <servers />
   </component>
@@ -198,8 +175,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/app/our-panel/page.tsx</url>
-          <line>83</line>
-          <properties lambdaOrdinal="-1" />
+          <line>85</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
